@@ -14,7 +14,6 @@
             --border-radius-md: 8px;
             --border-radius-lg: 12px;
             --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --blue-main: #3b8fd4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,31 +23,29 @@
             background-color: var(--color-background-primary);
             color: var(--color-text-primary);
             line-height: 1.5;
-            scroll-behavior: smooth;
         }
 
-        /* Navigation Style Pilules */
         nav {
-            display: flex; justify-content: center; align-items: center;
-            padding: 20px 5%; border-bottom: 0.5px solid var(--color-border-tertiary);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
             background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
         }
-        .nav-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .nav-logo { font-size: 18px; font-weight: 600; color: #3b8fd4; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; }
         .nav-links a {
-            font-size: 13px; color: var(--color-text-primary); text-decoration: none;
-            padding: 8px 16px; border-radius: 25px; border: 1px solid #1a1a1a;
+            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
+            padding: 8px 12px; border-radius: var(--border-radius-md);
             transition: all 0.2s;
         }
-        .nav-links a:hover { background: #e8f4fd; border-color: var(--blue-main); color: var(--blue-main); }
+        .nav-links a:hover { background: var(--color-background-secondary); color: #3b8fd4; }
 
-        /* Hero Section */
         .hero {
             padding: 80px 10%;
             background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
             border-bottom: 0.5px solid var(--color-border-tertiary);
         }
         .hero-tag {
-            display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600;
+            display: inline-block; font-size: 12px; color: #3b8fd4; font-weight: 600;
             background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
         }
         .hero h1 { font-size: 42px; font-weight: 600; margin-bottom: 10px; }
@@ -57,20 +54,18 @@
 
         .btn-group { display: flex; gap: 15px; }
         .btn-primary {
-            background: var(--blue-main); color: #fff; padding: 12px 24px;
+            background: #3b8fd4; color: #fff; padding: 12px 24px;
             border-radius: var(--border-radius-md); text-decoration: none; font-weight: 500;
         }
         .btn-secondary {
-            border: 1.5px solid var(--blue-main); color: var(--blue-main); padding: 12px 24px;
+            border: 1.5px solid #3b8fd4; color: #3b8fd4; padding: 12px 24px;
             border-radius: var(--border-radius-md); text-decoration: none; font-weight: 500;
         }
 
-        /* Sections */
-        section { padding: 80px 10%; border-bottom: 1px solid var(--color-border-tertiary); }
-        .section-title { font-size: 26px; font-weight: 600; margin-bottom: 8px; }
+        section { padding: 60px 10%; }
+        .section-title { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
         .section-sub { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 40px; }
 
-        /* Timeline (Ecole et Entreprise) */
         .timeline { display: flex; flex-direction: column; }
         .tl-item { display: flex; gap: 25px; padding-bottom: 35px; position: relative; }
         .tl-item:not(:last-child)::before {
@@ -79,30 +74,30 @@
         }
         .tl-dot {
             width: 24px; height: 24px; border-radius: 50%; background: #fff;
-            border: 3px solid var(--blue-main); flex-shrink: 0; z-index: 1;
+            border: 3px solid #3b8fd4; flex-shrink: 0; z-index: 1;
         }
-        .tl-date { font-size: 13px; color: var(--blue-main); font-weight: 700; margin-bottom: 4px; }
+        .tl-date { font-size: 13px; color: #3b8fd4; font-weight: 700; margin-bottom: 4px; }
         .tl-title { font-size: 16px; font-weight: 600; }
         .tl-sub { font-size: 14px; color: var(--color-text-secondary); }
 
-        /* Cards Grid (Missions & Certifications) */
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card {
             background: #fff; border: 1px solid var(--color-border-tertiary);
             border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
-            display: flex; flex-direction: column;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--blue-main); }
-        .card h3 { font-size: 16px; margin-bottom: 10px; color: var(--blue-main); }
-        .card p { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 20px; flex-grow: 1; }
+        .card:hover { transform: translateY(-5px); border-color: #3b8fd4; }
+        .card-icon { font-size: 24px; margin-bottom: 15px; }
+        .card h3 { font-size: 16px; margin-bottom: 10px; }
+        .card p { font-size: 14px; color: var(--color-text-secondary); flex-grow: 1; margin-bottom: 20px; }
         .card-link { 
-            background-color: var(--blue-main); color: white; text-align: center;
+            background-color: #3b8fd4; color: white; text-align: center;
             text-decoration: none; font-size: 12px; font-weight: 600; 
             padding: 10px; border-radius: 6px;
         }
 
         .badge {
-            display: inline-block; font-size: 12px; background: #dbeeff; color: var(--blue-main);
+            display: inline-block; font-size: 12px; background: #dbeeff; color: #3b8fd4;
             padding: 6px 12px; border-radius: 20px; margin: 5px; font-weight: 500;
         }
     </style>
@@ -110,13 +105,12 @@
 <body>
 
 <nav>
+  <a href="#" class="nav-logo">Sabrina Askour</a>
   <div class="nav-links">
     <a href="#">Accueil</a>
-    <a href="#bts-sio">BTS SIO</a>
-    <a href="#parcours">Ecole et Entreprise</a>
-    <a href="#missions">Missions et Projets</a>
-    <a href="#certifications">Veille technologique</a>
-    <a href="#contact">Contact</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#">Contact</a>
   </div>
 </nav>
 
@@ -124,28 +118,22 @@
   <div class="hero-tag">BTS SIO — option SISR</div>
   <h1>Sabrina Askour</h1>
   <h2>Étudiante en infrastructure systèmes et réseaux</h2>
-  <p>Passionnée par les technologies de l'information, je développe des compétences en administration réseau, sécurité informatique et systèmes.</p>
+  <p>Passionnée par les technologies de l'information, je développe des compétences en administration réseau, sécurité informatique et systèmes. Toujours en quête de nouvelles connaissances, je suis déterminée à évoluer dans un domaine en constante mutation.</p>
   <div class="btn-group">
     <a href="CV_Sabrina.pdf" target="_blank" class="btn-primary">Voir mon CV</a>
     <a href="Tableau_Synthese.pdf" target="_blank" class="btn-secondary">Tableau de synthèse</a>
   </div>
 </div>
 
-<section id="bts-sio">
-  <div class="section-title">BTS SIO</div>
-  <div class="section-sub">Services Informatiques aux Organisations</div>
-  <p>Le BTS SIO option SISR forme à l'installation, la maintenance et la sécurisation des infrastructures réseaux. Il permet d'acquérir des compétences solides en administration système (Windows/Linux), en réseaux (Cisco) et en cybersécurité.</p>
-</section>
-
 <section id="parcours">
-  <div class="section-title">Ecole et Entreprise</div>
-  <div class="section-sub">Mon parcours académique</div>
+  <div class="section-title">Mon parcours scolaire</div>
+  <div class="section-sub">De Louvres à Paris, mon chemin vers l'informatique</div>
   <div class="timeline">
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div>
         <div class="tl-date">2025 – 2026</div>
-        <div class="tl-title">BTS SIO 2 — SISR</div>
+        <div class="tl-title">BTS SIO 2 — SISR en initial</div>
         <div class="tl-sub">INSTA, Paris</div>
       </div>
     </div>
@@ -153,61 +141,67 @@
       <div class="tl-dot"></div>
       <div>
         <div class="tl-date">2024 – 2025</div>
-        <div class="tl-title">BTS SIO 1 — SISR</div>
+        <div class="tl-title">BTS SIO 1 — SISR en initial</div>
         <div class="tl-sub">Webitech, Paris</div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="missions" style="background-color: var(--color-background-secondary);">
-  <div class="section-title">Missions et Projets</div>
-  <div class="section-sub">Réalisations techniques de 2ème année</div>
-  <div class="cards">
-    <div class="card">
-      <h3>Supervision Zabbix</h3>
-      <p>Mise en place de monitoring pour surveiller l'état des serveurs et du réseau.</p>
-    </div>
-    <div class="card">
-      <h3>Gestion de parc GLPI</h3>
-      <p>Installation de GLPI et FusionInventory pour l'inventaire et le ticketing.</p>
-    </div>
-    <div class="card">
-      <h3>Windows Server 2019</h3>
-      <p>Administration AD, GPO et services réseaux (DNS/DHCP) sur VMware ESXi.</p>
-    </div>
-    <div class="card">
-      <h3>Segmentation VLAN</h3>
-      <p>Configuration de réseaux virtuels pour sécuriser les flux de l'infrastructure.</p>
-    </div>
-  </div>
-</section>
-
-<section id="certifications">
-  <div class="section-title">Veille technologique</div>
-  <div class="section-sub">Certifications et apprentissage</div>
-  <div class="cards">
-    <div class="card">
-      <h3>Cisco Networking</h3>
-      <p>Bases des réseaux et adressage IP.</p>
-      <a href="notion%20de%20base%20sur%20les%20reseaux.pdf" target="_blank" class="card-link">Voir le diplôme</a>
-    </div>
-    <div class="card">
-      <h3>SecNumAcadémie</h3>
-      <p>MOOC Cybersécurité de l'ANSSI.</p>
-      <a href="mooc.pdf" target="_blank" class="card-link">Voir le diplôme</a>
-    </div>
-    <div class="card">
-        <h3>EBIOS Risk Manager</h3>
-        <p>Analyse et gestion des risques numériques.</p>
-        <a href="ebios.pdf" target="_blank" class="card-link">Voir le diplôme</a>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-date">2020 – 2024</div>
+        <div class="tl-title">Baccalauréat Général</div>
+        <div class="tl-sub">Lycée Romain Rolland, Goussainville — Spécialités NSI et Mathématiques</div>
       </div>
+    </div>
   </div>
 </section>
 
-<footer id="contact" style="padding: 60px 10%; text-align: center;">
+<section id="certifications" style="background-color: var(--color-background-secondary);">
+  <div class="section-title">Mes certifications</div>
+  <div class="section-sub">Cybersécurité, réseaux et simulation</div>
+  <div class="cards">
+    
+    <div class="card">
+      <div class="card-icon">🔵</div>
+      <h3>Cisco Notions de base sur les réseaux</h3>
+      <p>Architecture réseau, adressage IP (IPv4/IPv6) et équipements essentiels.</p>
+      <a href="notion%20de%20base%20sur%20les%20reseaux.pdf" target="_blank" class="card-link">Voir la certification →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Cisco Introduction à la cybersécurité</h3>
+      <p>Fondamentaux de la cybersécurité et protection des systèmes informatiques.</p>
+      <a href="intro%20cyber.pdf" target="_blank" class="card-link">Voir la certification →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🇫🇷</div>
+      <h3>SecNumAcadémie (ANSSI)</h3>
+      <p>MOOC de l'ANSSI dédié à la Cybersécurité et à la sécurité numérique.</p>
+      <a href="mooc.pdf" target="_blank" class="card-link">Voir la certification →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>Introduction à Packet Tracer</h3>
+      <p>Simulation réseau : concevoir, configurer et tester des réseaux virtuels.</p>
+      <a href="getting.pdf" target="_blank" class="card-link">Voir la certification →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">⚖️</div>
+      <h3>EBIOS Risk Manager</h3>
+      <p>Gestion des risques numériques selon la méthode EBIOS.</p>
+      <a href="ebios.pdf" target="_blank" class="card-link">Voir la certification →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer style="padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary);">
   <div class="section-title">Contact</div>
-  <p class="section-sub">Contactez-moi pour plus d'informations</p>
+  <p class="section-sub">N'hésitez pas à me contacter</p>
   <div>
     <span class="badge">📧 sabrina2ask@gmail.com</span>
     <span class="badge">💼 LinkedIn</span>
@@ -217,3 +211,4 @@
 
 </body>
 </html>
+
