@@ -10,7 +10,6 @@
             --color-text-secondary: #4a4a4a;
             --color-border-tertiary: #e1e1e1;
             --color-background-primary: #ffffff;
-            --color-background-secondary: #f9f9f9;
             --blue-main: #3b8fd4;
             --blue-light: #e8f4fd;
             --border-radius-lg: 12px;
@@ -19,7 +18,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--color-background-primary); color: var(--color-text-primary); line-height: 1.6; }
 
-        /* Navigation Style Image 1 */
+        /* Navigation Style Image 1 & 5e3aeb */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
@@ -31,8 +30,8 @@
             font-size: 14px; text-decoration: none; color: var(--color-text-secondary);
             padding: 8px 16px; border-radius: 25px; transition: 0.3s;
         }
-        .nav-links a.active { background: var(--blue-light); color: var(--blue-main); font-weight: 600; }
-        .nav-links a:hover:not(.active) { background: var(--color-background-secondary); }
+        /* Onglet Actif Style Pilule Bleue */
+        .nav-links a.active { background: var(--blue-light); color: var(--blue-main); font-weight: 600; border: 1px solid var(--blue-main); }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         
@@ -40,29 +39,27 @@
         .hero-tag { display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600; background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 15px; }
         h1 { font-size: 32px; font-weight: 600; }
 
-        h2 { font-size: 24px; margin: 40px 0 30px; color: var(--color-text-primary); text-align: center; }
+        h2 { font-size: 24px; margin: 60px 0 30px; color: var(--color-text-primary); text-align: center; position: relative; }
+        h2::after { content: ""; display: block; width: 50px; height: 3px; background: var(--blue-main); margin: 10px auto; }
 
-        /* Grille pour les Ecoles (Style Image 5eac02) */
+        /* Grille pour les Ecoles (Inspiré Image 5eac02) */
         .school-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px; }
-        .school-card { text-align: center; }
-        .school-card img { width: 250px; height: auto; margin-bottom: 20px; }
-        .school-card h3 { font-size: 14px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
-        .school-card p { font-size: 14px; color: var(--color-text-secondary); text-align: justify; margin-bottom: 20px; }
+        .school-card { text-align: center; padding: 20px; }
+        .school-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; }
+        .school-card img { width: 100%; max-width: 280px; height: auto; margin-bottom: 20px; border-radius: 8px; }
+        .school-card p { font-size: 14px; color: var(--color-text-secondary); text-align: justify; margin-bottom: 20px; border-top: 1px dashed #ccc; padding-top: 15px; }
 
-        /* Grille Stages */
+        /* Grille Entreprises / Stages */
         .stages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .card { 
             background: white; border: 1px solid var(--color-border-tertiary); 
             border-radius: var(--border-radius-lg); padding: 30px; transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-        .card:hover { border-color: var(--blue-main); transform: translateY(-5px); }
+        .card:hover { border-color: var(--blue-main); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .card h3 { font-size: 17px; margin-bottom: 15px; color: var(--blue-main); }
         .card p { font-size: 14px; color: var(--color-text-secondary); text-align: justify; }
 
-        @media (max-width: 768px) { 
-            .school-grid, .stages-grid { grid-template-columns: 1fr; } 
-        }
+        @media (max-width: 768px) { .school-grid, .stages-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -87,26 +84,27 @@
 
     <div class="school-grid">
         <div class="school-card">
-            <h3>Première Année BTS SIO SISR</h3>
-            <img src="webitech-logo.png" alt="Logo Webitech"> <p>Webitech est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5 en alternance ou en initial. Les diplômes proposés sont reconnus par l'État.</p>
+            <h3>PREMIÈRE ANNÉE BTS SIO SISR</h3>
+            <img src="webitech.png" alt="Logo Webitech">
+            <p>Webitech est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5 en alternance ou en initial. Les diplômes proposés par l'école sont reconnus par l'État et tous les titres sont certifiés au RNCP.</p>
         </div>
+
         <div class="school-card">
-            <h3>Deuxième Année BTS SIO SISR</h3>
-            <img src="insta-logo.png" alt="Logo Insta"> <p>INSTA est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5. Tous les diplômes sont reconnus par l'État et certifiés au RNCP.</p>
+            <h3>DEUXIÈME ANNÉE BTS SIO SISR</h3>
+            <img src="insta.png" alt="Logo Insta">
+            <p>INSTA est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5 en alternance ou en initial. Tous les diplômes proposés par l'école sont reconnus par l'État et tous les titres sont certifiés au RNCP.</p>
         </div>
     </div>
 
-    <hr style="border: 0; border-top: 1px solid var(--color-border-tertiary); margin: 60px 0;">
-
-    <h2>Stages en Entreprise</h2>
+    <h2>Mes Stages en Entreprise</h2>
     <div class="stages-grid">
         <div class="card">
             <h3>Stage Première Année — NYX</h3>
-            <p>Stage support réseau chez NYX à Paris : administration des serveurs, gestion et sécurisation des réseaux. Ce stage m'a permis de renforcer mes compétences en maintenance des équipements et mise en place de mesures de sécurité.</p>
+            <p>Stage support réseau chez NYX à Paris 5ème : administration des serveurs et des infrastructures, gestion et sécurisation des réseaux. Ce stage m'a permis de renforcer mes compétences en surveillance des systèmes et maintenance des équipements.</p>
         </div>
         <div class="card">
             <h3>Stage Deuxième Année — INSTA</h3>
-            <p>Stage technicienne réseau chez INSTA à Paris : administration des infrastructures informatiques et sécurisation des accès. Mission axée sur la surveillance des systèmes et la protection des données.</p>
+            <p>Stage technicienne réseau chez INSTA à Paris 5ème : administration des serveurs et des infrastructures, gestion et sécurisation des réseaux. Mission axée sur la protection des données et la continuité des services numériques.</p>
         </div>
     </div>
 </div>
