@@ -49,6 +49,13 @@
         .school-card img { width: 100%; max-width: 280px; height: auto; margin-bottom: 20px; border-radius: 8px; }
         .school-card p { font-size: 14px; color: var(--color-text-secondary); text-align: justify; margin-bottom: 20px; border-top: 1px dashed #ccc; padding-top: 15px; }
 
+        /* Style pour les cartes Google Maps rajouté */
+        .map-container { 
+            width: 100%; height: 200px; border-radius: 8px; overflow: hidden; 
+            border: 1px solid var(--color-border-tertiary); margin-top: 20px; 
+        }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
         /* Grille Entreprises / Stages */
         .stages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .card { 
@@ -87,12 +94,18 @@
             <h3>PREMIÈRE ANNÉE BTS SIO SISR</h3>
             <img src="webitech.svg" alt="Logo Webitech">
             <p>Webitech est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5 en alternance ou en initial. Les diplômes proposés par l'école sont reconnus par l'État et tous les titres sont certifiés au RNCP.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.330752538965!2d2.2854332768564567!3d48.83383040248881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6709bade6b3cf%3A0x26a7bae1152f272b!2sWebitech%20Paris!5e0!3m2!1sfr!2sfr!4v1715870000000!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
 
         <div class="school-card">
             <h3>DEUXIÈME ANNÉE BTS SIO SISR</h3>
             <img src="insta.svg" alt="Logo Insta">
             <p>INSTA est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5 en alternance ou en initial. Tous les diplômes proposés par l'école sont reconnus par l'État et tous les titres sont certifiés au RNCP.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3582531065126!2d2.35032507685746!3d48.8456488011831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67183e07d1b5f%3A0xfa3bcbd920821c7e!2sINSTA%20-%20CFA%20-%20Ecole!5e0!3m2!1sfr!2sfr!4v1715870000000!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     </div>
 
@@ -111,5 +124,4 @@
 
 </body>
 </html>
-</body>
 </html>
