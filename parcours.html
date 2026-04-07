@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcours | Sabrina Askour</title>
+    <title>Ecoles & Entreprises | Sabrina Askour</title>
     <style>
         :root {
             --color-text-primary: #1a1a1a;
@@ -13,65 +13,66 @@
             --color-background-secondary: #f9f9f9;
             --blue-main: #3b8fd4;
             --blue-light: #e8f4fd;
+            --border-radius-lg: 12px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--color-background-primary); color: var(--color-text-primary); line-height: 1.6; }
 
-        /* Navigation */
+        /* Navigation Style Image 1 */
         nav {
-            display: flex; justify-content: center; padding: 20px 5%; 
-            border-bottom: 0.5px solid var(--color-border-tertiary);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
             background: #fff; position: sticky; top: 0; z-index: 100;
         }
+        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-main); text-decoration: none; }
         .nav-links { display: flex; gap: 10px; }
         .nav-links a {
-            font-size: 13px; text-decoration: none; color: var(--color-text-primary);
-            padding: 8px 16px; border-radius: 25px; border: 1px solid #1a1a1a; transition: 0.3s;
+            font-size: 14px; text-decoration: none; color: var(--color-text-secondary);
+            padding: 8px 16px; border-radius: 25px; transition: 0.3s;
         }
-        .nav-links a.active { background: var(--blue-light); border-color: var(--blue-main); color: var(--blue-main); font-weight: 600; }
+        .nav-links a.active { background: var(--blue-light); color: var(--blue-main); font-weight: 600; }
+        .nav-links a:hover:not(.active) { background: var(--color-background-secondary); }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        h1 { font-size: 32px; margin-bottom: 40px; text-align: center; }
-        h2 { font-size: 24px; margin: 40px 0 20px; color: var(--blue-main); border-bottom: 2px solid var(--blue-light); display: inline-block; }
-
-        /* Timeline Style */
-        .timeline { border-left: 3px solid var(--blue-main); padding-left: 30px; margin-left: 20px; }
-        .timeline-item { position: relative; margin-bottom: 40px; }
-        .timeline-item::before {
-            content: ""; position: absolute; left: -38px; top: 5px;
-            width: 12px; height: 12px; background: white; border: 3px solid var(--blue-main); border-radius: 50%;
-        }
-        .year { font-weight: 700; color: var(--blue-main); font-size: 14px; }
-        .school-name { font-weight: 700; font-size: 18px; margin: 5px 0; }
-        .diploma { font-style: italic; color: var(--color-text-secondary); margin-bottom: 10px; }
         
-        .btn-ecole {
-            display: inline-block; padding: 6px 16px; border-radius: 20px; 
-            background: white; color: var(--blue-main); border: 1px solid var(--blue-main); 
-            text-decoration: none; font-size: 13px; transition: 0.3s;
-        }
-        .btn-ecole:hover { background: var(--blue-main); color: white; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .hero-tag { display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600; background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 15px; }
+        h1 { font-size: 32px; font-weight: 600; }
+
+        h2 { font-size: 24px; margin: 40px 0 30px; color: var(--color-text-primary); text-align: center; }
+
+        /* Grille pour les Ecoles (Style Image 5eac02) */
+        .school-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px; }
+        .school-card { text-align: center; }
+        .school-card img { width: 250px; height: auto; margin-bottom: 20px; }
+        .school-card h3 { font-size: 14px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
+        .school-card p { font-size: 14px; color: var(--color-text-secondary); text-align: justify; margin-bottom: 20px; }
 
         /* Grille Stages */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+        .stages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .card { 
             background: white; border: 1px solid var(--color-border-tertiary); 
-            border-radius: 12px; padding: 25px; transition: 0.3s;
+            border-radius: var(--border-radius-lg); padding: 30px; transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-        .card h3 { font-size: 16px; margin-bottom: 10px; color: var(--blue-main); }
+        .card:hover { border-color: var(--blue-main); transform: translateY(-5px); }
+        .card h3 { font-size: 17px; margin-bottom: 15px; color: var(--blue-main); }
         .card p { font-size: 14px; color: var(--color-text-secondary); text-align: justify; }
 
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .school-grid, .stages-grid { grid-template-columns: 1fr; } 
+        }
     </style>
 </head>
 <body>
 
 <nav>
+  <a href="index.html" class="nav-logo">Sabrina Askour</a>
   <div class="nav-links">
     <a href="index.html">Accueil</a>
     <a href="bts-sio.html">BTS SIO</a>
-    <a href="parcours.html" class="active">Parcours</a>
+    <a href="parcours.html" class="active">Ecoles & Entreprises</a>
     <a href="missions.html">Missions</a>
     <a href="veille.html">Veille</a>
     <a href="contact.html">Contact</a>
@@ -79,48 +80,38 @@
 </nav>
 
 <div class="container">
-    <h1>Mon Parcours & Expériences</h1>
+    <div class="section-header">
+        <div class="hero-tag">EXPÉRIENCES</div>
+        <h1>Mes Écoles & Mes Entreprises</h1>
+    </div>
 
-    <h2>Parcours Scolaire</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="year">2025 – 2026</div>
-            <div class="school-name">INSTA, Paris</div>
-            <div class="diploma">BTS SIO 2 — SISR en initial</div>
-            <a href="https://www.insta.fr/" target="_blank" class="btn-ecole">Voir l'école 🏫</a>
+    <div class="school-grid">
+        <div class="school-card">
+            <h3>Première Année BTS SIO SISR</h3>
+            <img src="webitech-logo.png" alt="Logo Webitech"> <p>Webitech est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5 en alternance ou en initial. Les diplômes proposés sont reconnus par l'État.</p>
         </div>
-        <div class="timeline-item">
-            <div class="year">2024 – 2025</div>
-            <div class="school-name">Webitech, Paris</div>
-            <div class="diploma">BTS SIO 1 — SISR en initial</div>
-            <a href="https://www.webitechparis.com/" target="_blank" class="btn-ecole">Voir l'école 🏫</a>
-        </div>
-        <div class="timeline-item">
-            <div class="year">2020 – 2024</div>
-            <div class="school-name">Lycée Romain Rolland, Goussainville</div>
-            <div class="diploma">Baccalauréat Général — Spécialités NSI & Mathématiques</div>
-            <a href="https://lyc-rolland-goussainville.ac-versailles.fr/" target="_blank" class="btn-ecole">Voir l'école 🏫</a>
-        </div>
-        <div class="timeline-item">
-            <div class="year">2017 – 2020</div>
-            <div class="school-name">Collège François Mauriac, Louvres</div>
-            <div class="diploma">Brevet des Collèges — Mention Assez Bien</div>
-            <a href="https://clg-mauriac-louvres.ac-versailles.fr/" target="_blank" class="btn-ecole">Voir l'école 🏫</a>
+        <div class="school-card">
+            <h3>Deuxième Année BTS SIO SISR</h3>
+            <img src="insta-logo.png" alt="Logo Insta"> <p>INSTA est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5. Tous les diplômes sont reconnus par l'État et certifiés au RNCP.</p>
         </div>
     </div>
 
-    <h2>Expériences en Entreprise</h2>
-    <div class="grid">
+    <hr style="border: 0; border-top: 1px solid var(--color-border-tertiary); margin: 60px 0;">
+
+    <h2>Stages en Entreprise</h2>
+    <div class="stages-grid">
         <div class="card">
-            <h3>Stage Première Année (NYX)</h3>
-            <p>Stage support réseau chez NYX à Paris 5ème : administration des serveurs et des infrastructures, gestion et sécurisation des réseaux. Ce stage m'a permis de renforcer mes compétences en surveillance des systèmes, maintenance des équipements, et mise en place de mesures de sécurité.</p>
+            <h3>Stage Première Année — NYX</h3>
+            <p>Stage support réseau chez NYX à Paris : administration des serveurs, gestion et sécurisation des réseaux. Ce stage m'a permis de renforcer mes compétences en maintenance des équipements et mise en place de mesures de sécurité.</p>
         </div>
         <div class="card">
-            <h3>Stage Deuxième Année (INSTA)</h3>
-            <p>Stage technicienne réseau chez INSTA à Paris 5ème : administration des serveurs et des infrastructures, gestion et sécurisation des réseaux. Mission axée sur le renforcement des compétences en surveillance des systèmes, protection des données et continuité des services.</p>
+            <h3>Stage Deuxième Année — INSTA</h3>
+            <p>Stage technicienne réseau chez INSTA à Paris : administration des infrastructures informatiques et sécurisation des accès. Mission axée sur la surveillance des systèmes et la protection des données.</p>
         </div>
     </div>
 </div>
 
+</body>
+</html>
 </body>
 </html>
