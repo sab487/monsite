@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missions | Sabrina Askour</title>
+    <style>
+        :root {
+            --bg-dark: #1a1f2b;
+            --card-bg: #242b3d;
+            --border-color: #303a4f;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --blue-accent: #3b8fd4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; border-bottom: 1px solid var(--border-color);
+            background: #1e2433; position: sticky; top: 0; z-index: 100;
+        }
+        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-accent); text-decoration: none; }
+        .nav-links a {
+            font-size: 14px; text-decoration: none; color: var(--text-dim);
+            padding: 8px 16px; transition: 0.3s;
+        }
+        .nav-links a.active { color: var(--text-main); font-weight: 600; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+
+        .header-section {
+            display: flex; align-items: center; gap: 15px; margin-bottom: 40px;
+        }
+        .header-icon { 
+            background: rgba(255, 140, 0, 0.1); color: #ff8c00;
+            padding: 10px; border-radius: 8px; font-size: 24px;
+        }
+        h1 { font-size: 26px; font-weight: 600; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: 0.3s ease;
+        }
+        .card:hover { border-color: var(--blue-accent); transform: translateY(-5px); }
+
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .card-header img { width: 35px; height: 35px; object-fit: contain; }
+        .card-header h3 { font-size: 18px; font-weight: 600; }
+
+        .card p { font-size: 14px; color: var(--text-dim); text-align: justify; }
+
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Sabrina Askour</a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="bts-sio.html">BTS SIO</a>
+    <a href="parcours.html">Ecoles & Entreprises</a>
+    <a href="mission.html" class="active">Missions</a>
+    <a href="veille.html">Veille</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="container">
+    <div class="header-section">
+        <div class="header-icon">🔧</div>
+        <h1>Support et mise à disposition des services informatiques</h1>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" alt="Windows">
+                <h3>Windows Server</h3>
+            </div>
+            <p>Compétence acquise en BTS SIO SISR via des TP et projets. Installation et configuration de services AD et DHCP sur des machines virtuelles (VM).</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Windows_11_logo.svg" alt="Windows 11">
+                <h3>Windows 11</h3>
+            </div>
+            <p>Expérience personnelle et en environnement de test. Installation, configuration système, gestion des comptes utilisateurs et dépannage technique.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux">
+                <h3>Linux</h3>
+            </div>
+            <p>Autoformation et BTS : installation/configuration sur Debian, Arch Linux et Ubuntu. Expérience sur dual boot et environnements virtualisés.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo-glpi.png" alt="GLPI">
+                <h3>GLPI</h3>
+            </div>
+            <p>Utilisé dans le cadre du BTS. Installation, configuration de base, gestion des tickets et inventaire de parc informatique simulé.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span style="font-size: 30px;">🌍</span>
+                <h3>Active Directory</h3>
+            </div>
+            <p>Manipulation dans des environnements de TP. Création de comptes, groupes, stratégies de sécurité et mise en place de GPO.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
