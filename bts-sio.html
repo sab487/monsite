@@ -10,106 +10,93 @@
             --color-text-secondary: #4a4a4a;
             --color-border-tertiary: #e1e1e1;
             --color-background-primary: #ffffff;
-            --color-background-secondary: #f9f9f9;
-            --border-radius-md: 8px;
-            --border-radius-lg: 12px;
-            --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             --blue-main: #3b8fd4;
+            --blue-light: #e8f4fd;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: var(--font-sans); 
-            background-color: var(--color-background-primary);
-            color: var(--color-text-primary);
-            line-height: 1.5;
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--color-background-primary); color: var(--color-text-primary); line-height: 1.6; }
 
-        /* Navigation Style Pilules */
+        /* Navigation */
         nav {
-            display: flex; justify-content: center; align-items: center;
-            padding: 20px 5%; border-bottom: 0.5px solid var(--color-border-tertiary);
-            background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
+            display: flex; justify-content: center; padding: 20px 5%; 
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+            background: #fff; position: sticky; top: 0; z-index: 100;
         }
-        .nav-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .nav-links { display: flex; gap: 10px; }
         .nav-links a {
-            font-size: 13px; color: var(--color-text-primary); text-decoration: none;
-            padding: 8px 16px; border-radius: 25px; border: 1px solid #1a1a1a;
-            transition: all 0.2s;
+            font-size: 13px; text-decoration: none; color: var(--color-text-primary);
+            padding: 8px 16px; border-radius: 25px; border: 1px solid #1a1a1a; transition: 0.3s;
         }
-        .nav-links a:hover { background: #e8f4fd; border-color: var(--blue-main); color: var(--blue-main); }
-        .nav-links a.active { background: #e8f4fd; border-color: var(--blue-main); color: var(--blue-main); font-weight: 500;}
+        .nav-links a.active { background: var(--blue-light); border-color: var(--blue-main); color: var(--blue-main); font-weight: 600; }
 
-        /* Sections */
-        section { padding: 80px 10%; border-bottom: 1px solid var(--color-border-tertiary); }
-        .section-title { font-size: 26px; font-weight: 600; margin-bottom: 8px; }
-        .section-sub { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 40px; }
+        /* Mise en page */
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        .hero-tag { display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 700; background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase; }
+        h1 { font-size: 32px; margin-bottom: 30px; }
 
-        .badge {
-            display: inline-block; font-size: 12px; background: #dbeeff; color: var(--blue-main);
-            padding: 6px 12px; border-radius: 20px; margin: 5px; font-weight: 500;
-        }
-        
-        /* Style spécifique pour les blocs d'explication du BTS */
-        .bts-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .bts-header-tag {
-            font-size: 12px;
-            color: #3b8fd4;
-            font-weight: 600;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .bts-main-title {
-            font-size: 38px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-        
-        .bts-sub-title {
-            font-size: 18px;
-            color: #4a4a4a;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-        
-        .explanation-box {
-            background-color: #e8f4fd;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            color: #4a4a4a;
+        /* Section Définition en 2 colonnes */
+        .definition-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            text-align: justify;
             font-size: 15px;
-            line-height: 1.7;
-        }
-        
-        .option-box {
-            border: 2px solid #3b8fd4;
-            padding: 25px;
-            border-radius: 12px;
-            color: #1a1a1a;
-        }
-        
-        .option-box h2 {
-            font-size: 20px;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-        
-        .option-box p {
-            font-size: 14px;
-            color: #4a4a4a;
-            line-height: 1.6;
         }
 
+        /* Blocs Options SISR / SLAM avec angles coupés */
+        .option-section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .option-block {
+            background: #98d8f4; /* Bleu ciel comme sur l'image */
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%); /* Forme biseautée */
+            padding-bottom: 80px;
+        }
+
+        .option-title-badge {
+            background: var(--blue-main);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .option-subtitle { font-weight: 700; color: white; margin-bottom: 15px; display: block; }
+        .option-text { color: white; max-width: 800px; margin: 0 auto; font-size: 15px; }
+        
+        .btn-plus-infos {
+            background: white;
+            color: var(--blue-main);
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        
+        .btn-plus-infos:hover {
+            transform: scale(1.05);
+            background: #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .definition-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -125,25 +112,37 @@
   </div>
 </nav>
 
-<section id="bts-presentation">
-    <div class="bts-container">
-        <div class="bts-header-tag">FORMATION</div>
-        <h1 class="bts-main-title">Qu'est-ce que le BTS SIO ?</h1>
-        <p class="bts-sub-title">Le Brevet de Technicien Supérieur en Services Informatiques aux Organisations</p>
+<div class="container">
+    <div class="hero-tag">FORMATION</div>
+    <h1>Qu'est-ce que le BTS SIO ?</h1>
 
-        <div class="explanation-box">
-            <p>Le BTS SIO est une formation de deux ans (niveau Bac+2) qui prépare les étudiants aux métiers d'administrateur réseau ou de développeur. Il remplace depuis 2011 l'ancien BTS IG et a évolué en fonction de la place des TIC dans les organisations.</p>
-            <br>
-            <p>Le BTS SIO propose deux spécialités bien distinctes : SISR et SLAM. Il peut être suivi en initial ou en alternance, avec deux stages en entreprise de 10 à 11 semaines réparties sur les deux années. À l'issue de la formation, les diplômés peuvent intégrer le marché du travail ou poursuivre leurs études.</p>
+    <div class="definition-grid">
+        <div class="col">
+            <p>• Le Brevet de Technicien Supérieur en Services Informatiques aux Organisations est une formation de deux ans (reconnu par l'état de niveau Bac+2) qui prépare les étudiants aux métiers d'administrateur réseau ou de développeur. Il remplace depuis Septembre 2011, l'ancien BTS IG (Informatique de gestion). Le programme a évolué en fonction de la place et du rôle des TIC (Technologies de l'Information et de la Communication).</p>
         </div>
-
-        <div class="option-box">
-            <span class="badge">Mon option</span>
-            <h2>BTS SIO SISR</h2>
-            <p>Solutions d'Infrastructure, Systèmes et Réseaux. Cette option forme des professionnels capables d'installer, de configurer et de gérer les équipements réseau...</p>
+        <div class="col">
+            <p>• Le BTS SIO propose deux spécialités bien distinctes : Le BTS SIO Option SISR et Option SLAM. Le BTS SIO peut être suivi en initial ou en alternance, permettant ainsi aux étudiants d'acquérir des compétences pratiques, il associe aux enseignements théoriques et professionnels (en contrôle continu et final) deux stages en entreprise (10 à 11 semaines réparties sur les deux années d'études) pour ceux qui ont choisis de le faire en initial. À l'issue de la formation, les diplômés peuvent intégrer directement le marché du travail ou poursuivre leurs études dans le domaine de l'informatique.</p>
         </div>
     </div>
-</section>
+
+    <div class="option-section">
+        
+        <div class="option-block">
+            <div class="option-title-badge">BTS SIO SISR</div>
+            <span class="option-subtitle">SISR : (Services Informatiques aux Organisations, option Solutions d'Infrastructure, Systèmes et Réseaux)</span>
+            <p class="option-text">Le BTS SIO SISR est une formation en 2 ans qui prépare des étudiants à gérer l'infrastructure informatique des entreprises. Ils apprennent à installer, configurer et maintenir des réseaux et des systèmes informatiques. Cela inclut la sécurité, la gestion des serveurs et des réseaux pour assurer le bon fonctionnement des systèmes informatiques.</p>
+            <a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-a-solutions-d-infrastructure-systemes-et-reseaux" target="_blank" class="btn-plus-infos">Plus d'infos</a>
+        </div>
+
+        <div class="option-block" style="background: #add8e6; clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%); padding-top: 80px;">
+            <div class="option-title-badge">BTS SIO SLAM</div>
+            <span class="option-subtitle">SLAM : (Solutions Logicielles et Applications Métiers)</span>
+            <p class="option-text">Le BTS SIO SLAM est une formation en 2 ans qui prépare les étudiants à concevoir, développer et maintenir des applications informatiques. Ils apprennent à programmer, gérer des bases de données et développer des solutions logicielles adaptées aux besoins des entreprises. Cela inclut la création d'applications web, mobiles ou de bureau, ainsi que la gestion de projets et la sécurité des développements.</p>
+            <a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers" target="_blank" class="btn-plus-infos">Plus d'infos</a>
+        </div>
+
+    </div>
+</div>
 
 </body>
 </html>
