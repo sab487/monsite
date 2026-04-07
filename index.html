@@ -82,4 +82,17 @@
             border: 3px solid #3b8fd4; flex-shrink: 0; z-index: 1;
         }
         .tl-date { font-size: 13px; color: #3b8fd4; font-weight: 700; margin-bottom: 4px; }
-        .tl-title { font-
+        .tl-title { font-size: 16px; font-weight: 600; }
+        .tl-sub { font-size: 14px; color: var(--color-text-secondary); }
+
+        /* Cards */
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card {
+            background: #fff; border: 1px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #3b8fd4; }
+        .card-icon { font-size: 24px; margin-bottom: 15px; }
+        .card h3 { font-size: 16px; margin-bottom: 10px; }
+        .card p { font-size: 14px; color: var(--color-text-
