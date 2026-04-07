@@ -10,12 +10,13 @@
             --color-text-secondary: #4a4a4a;
             --color-border-tertiary: #e1e1e1;
             --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
             --blue-main: #3b8fd4;
             --blue-light: #e8f4fd;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #fcfcfc; color: var(--color-text-primary); line-height: 1.6; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--color-background-primary); color: var(--color-text-primary); line-height: 1.6; }
 
         /* Navigation */
         nav {
@@ -34,7 +35,7 @@
         h1 { font-size: 32px; margin-bottom: 40px; text-align: center; }
         h2 { font-size: 24px; margin: 40px 0 20px; color: var(--blue-main); border-bottom: 2px solid var(--blue-light); display: inline-block; }
 
-        /* Style Timeline Scolaire */
+        /* Timeline Style */
         .timeline { border-left: 3px solid var(--blue-main); padding-left: 30px; margin-left: 20px; }
         .timeline-item { position: relative; margin-bottom: 40px; }
         .timeline-item::before {
@@ -43,18 +44,22 @@
         }
         .year { font-weight: 700; color: var(--blue-main); font-size: 14px; }
         .school-name { font-weight: 700; font-size: 18px; margin: 5px 0; }
-        .diploma { font-style: italic; color: var(--color-text-secondary); }
+        .diploma { font-style: italic; color: var(--color-text-secondary); margin-bottom: 10px; }
+        
+        .btn-ecole {
+            display: inline-block; padding: 6px 16px; border-radius: 20px; 
+            background: white; color: var(--blue-main); border: 1px solid var(--blue-main); 
+            text-decoration: none; font-size: 13px; transition: 0.3s;
+        }
+        .btn-ecole:hover { background: var(--blue-main); color: white; }
 
-        /* Grille Ecoles & Entreprises */
+        /* Grille Stages */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
         .card { 
             background: white; border: 1px solid var(--color-border-tertiary); 
             border-radius: 12px; padding: 25px; transition: 0.3s;
-            display: flex; flex-direction: column; align-items: center; text-align: center;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .card img { height: 60px; margin-bottom: 20px; object-fit: contain; }
-        .card h3 { font-size: 16px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .card h3 { font-size: 16px; margin-bottom: 10px; color: var(--blue-main); }
         .card p { font-size: 14px; color: var(--color-text-secondary); text-align: justify; }
 
         @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
@@ -66,9 +71,9 @@
   <div class="nav-links">
     <a href="index.html">Accueil</a>
     <a href="bts-sio.html">BTS SIO</a>
-    <a href="parcours.html" class="active">Ecole et Entreprise</a>
-    <a href="missions.html">Missions et Projets</a>
-    <a href="veille.html">Veille technologique</a>
+    <a href="parcours.html" class="active">Parcours</a>
+    <a href="missions.html">Missions</a>
+    <a href="veille.html">Veille</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
@@ -82,45 +87,37 @@
             <div class="year">2025 – 2026</div>
             <div class="school-name">INSTA, Paris</div>
             <div class="diploma">BTS SIO 2 — SISR en initial</div>
+            <a href="https://www.insta.fr/" target="_blank" class="btn-ecole">Voir l'école 🏫</a>
         </div>
         <div class="timeline-item">
             <div class="year">2024 – 2025</div>
             <div class="school-name">Webitech, Paris</div>
             <div class="diploma">BTS SIO 1 — SISR en initial</div>
+            <a href="https://www.webitechparis.com/" target="_blank" class="btn-ecole">Voir l'école 🏫</a>
         </div>
         <div class="timeline-item">
             <div class="year">2020 – 2024</div>
             <div class="school-name">Lycée Romain Rolland, Goussainville</div>
             <div class="diploma">Baccalauréat Général — Spécialités NSI & Mathématiques</div>
+            <a href="https://lyc-rolland-goussainville.ac-versailles.fr/" target="_blank" class="btn-ecole">Voir l'école 🏫</a>
         </div>
         <div class="timeline-item">
             <div class="year">2017 – 2020</div>
             <div class="school-name">Collège François Mauriac, Louvres</div>
             <div class="diploma">Brevet des Collèges — Mention Assez Bien</div>
+            <a href="https://clg-mauriac-louvres.ac-versailles.fr/" target="_blank" class="btn-ecole">Voir l'école 🏫</a>
         </div>
     </div>
 
-    <h2>Mes Écoles</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Première Année BTS</h3>
-            <p>Webitech est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac+2 à Bac+5 en alternance ou en initial.</p>
-        </div>
-        <div class="card">
-            <h3>Deuxième Année BTS</h3>
-            <p>INSTA est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac+2 à Bac+5 en alternance ou en initial.</p>
-        </div>
-    </div>
-
-    <h2>Mes Stages en Entreprise</h2>
+    <h2>Expériences en Entreprise</h2>
     <div class="grid">
         <div class="card">
             <h3>Stage Première Année (NYX)</h3>
-            <p>Stage support réseau chez NYX à Paris 5ème : administration des serveurs et des infrastructures, gestion et sécurisation des réseaux. Ce stage m'a permis de renforcer mes compétences en surveillance des systèmes et maintenance des équipements.</p>
+            <p>Stage support réseau chez NYX à Paris 5ème : administration des serveurs et des infrastructures, gestion et sécurisation des réseaux. Ce stage m'a permis de renforcer mes compétences en surveillance des systèmes, maintenance des équipements, et mise en place de mesures de sécurité.</p>
         </div>
         <div class="card">
             <h3>Stage Deuxième Année (INSTA)</h3>
-            <p>Stage technicienne réseau chez INSTA à Paris 5ème : administration des serveurs et des infrastructures, gestion et sécurisation des réseaux. Mission axée sur la continuité des services et la protection des données.</p>
+            <p>Stage technicienne réseau chez INSTA à Paris 5ème : administration des serveurs et des infrastructures, gestion et sécurisation des réseaux. Mission axée sur le renforcement des compétences en surveillance des systèmes, protection des données et continuité des services.</p>
         </div>
     </div>
 </div>
