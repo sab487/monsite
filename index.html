@@ -17,60 +17,100 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-sans); background: var(--color-background-primary); color: var(--color-text-primary); line-height: 1.5; }
+        
+        body { 
+            font-family: var(--font-sans); 
+            background-color: var(--color-background-primary);
+            color: var(--color-text-primary);
+            line-height: 1.5;
+        }
 
-        /* Navigation Style "Pilules" */
         nav {
-            display: flex; justify-content: center; align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
             background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
         }
-        .nav-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .nav-logo { font-size: 18px; font-weight: 600; color: #3b8fd4; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; }
         .nav-links a {
-            font-size: 13px; color: var(--color-text-primary); text-decoration: none;
-            padding: 8px 16px; border-radius: 25px; border: 1px solid #1a1a1a;
+            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
+            padding: 8px 12px; border-radius: var(--border-radius-md);
             transition: all 0.2s;
         }
-        .nav-links a:hover, .nav-links a.active { background: #e8f4fd; border-color: #3b8fd4; color: #3b8fd4; }
+        .nav-links a:hover { background: var(--color-background-secondary); color: #3b8fd4; }
 
-        /* Hero */
-        .hero { padding: 80px 10%; background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%); border-bottom: 0.5px solid var(--color-border-tertiary); }
-        .hero-tag { display: inline-block; font-size: 12px; color: #3b8fd4; background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; font-weight: 600; }
+        .hero {
+            padding: 80px 10%;
+            background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .hero-tag {
+            display: inline-block; font-size: 12px; color: #3b8fd4; font-weight: 600;
+            background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
+        }
         .hero h1 { font-size: 42px; font-weight: 600; margin-bottom: 10px; }
-        .hero h2 { font-size: 20px; color: var(--color-text-secondary); margin-bottom: 24px; }
-        .btn-group { display: flex; gap: 15px; }
-        .btn-primary { background: #3b8fd4; color: #fff; padding: 12px 24px; border-radius: var(--border-radius-md); text-decoration: none; font-weight: 500; }
-        .btn-secondary { border: 1.5px solid #3b8fd4; color: #3b8fd4; padding: 12px 24px; border-radius: var(--border-radius-md); text-decoration: none; font-weight: 500; }
+        .hero h2 { font-size: 20px; font-weight: 400; color: var(--color-text-secondary); margin-bottom: 24px; }
+        .hero p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.8; max-width: 650px; margin-bottom: 32px; }
 
-        /* Sections */
-        section { padding: 60px 10%; border-bottom: 1px solid var(--color-border-tertiary); }
+        .btn-group { display: flex; gap: 15px; }
+        .btn-primary {
+            background: #3b8fd4; color: #fff; padding: 12px 24px;
+            border-radius: var(--border-radius-md); text-decoration: none; font-weight: 500;
+        }
+        .btn-secondary {
+            border: 1.5px solid #3b8fd4; color: #3b8fd4; padding: 12px 24px;
+            border-radius: var(--border-radius-md); text-decoration: none; font-weight: 500;
+        }
+
+        section { padding: 60px 10%; }
         .section-title { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
         .section-sub { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 40px; }
 
-        /* Cards & Grid */
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: #fff; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 24px; transition: 0.2s; }
-        .card:hover { transform: translateY(-5px); border-color: #3b8fd4; }
-        .card h3 { font-size: 16px; margin-bottom: 10px; color: #3b8fd4; }
-        .card p { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 15px; }
-        .card-link { display: inline-block; background: #3b8fd4; color: white; padding: 8px 15px; border-radius: 6px; text-decoration: none; font-size: 12px; }
+        .timeline { display: flex; flex-direction: column; }
+        .tl-item { display: flex; gap: 25px; padding-bottom: 35px; position: relative; }
+        .tl-item:not(:last-child)::before {
+            content: ''; position: absolute; left: 11px; top: 25px;
+            width: 2px; height: 100%; background: #dbeeff;
+        }
+        .tl-dot {
+            width: 24px; height: 24px; border-radius: 50%; background: #fff;
+            border: 3px solid #3b8fd4; flex-shrink: 0; z-index: 1;
+        }
+        .tl-date { font-size: 13px; color: #3b8fd4; font-weight: 700; margin-bottom: 4px; }
+        .tl-title { font-size: 16px; font-weight: 600; }
+        .tl-sub { font-size: 14px; color: var(--color-text-secondary); }
 
-        /* Timeline */
-        .tl-item { display: flex; gap: 20px; padding-bottom: 30px; position: relative; }
-        .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid #3b8fd4; flex-shrink: 0; }
-        .tl-date { font-size: 12px; color: #3b8fd4; font-weight: 700; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card {
+            background: #fff; border: 1px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #3b8fd4; }
+        .card-icon { font-size: 24px; margin-bottom: 15px; }
+        .card h3 { font-size: 16px; margin-bottom: 10px; }
+        .card p { font-size: 14px; color: var(--color-text-secondary); flex-grow: 1; margin-bottom: 20px; }
+        .card-link { 
+            background-color: #3b8fd4; color: white; text-align: center;
+            text-decoration: none; font-size: 12px; font-weight: 600; 
+            padding: 10px; border-radius: 6px;
+        }
+
+        .badge {
+            display: inline-block; font-size: 12px; background: #dbeeff; color: #3b8fd4;
+            padding: 6px 12px; border-radius: 20px; margin: 5px; font-weight: 500;
+        }
     </style>
 </head>
 <body>
 
 <nav>
+  <a href="#" class="nav-logo">Sabrina Askour</a>
   <div class="nav-links">
-    <a href="#" class="active">Accueil</a>
-    <a href="#bts-sio">BTS SIO</a>
-    <a href="#ecole-entreprise">Ecole et Entreprise</a>
-    <a href="#missions-projets">Missions et Projets</a>
-    <a href="#veille-techno">Veille technologique</a>
-    <a href="#contact">Contact</a>
+    <a href="#">Accueil</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#">Contact</a>
   </div>
 </nav>
 
@@ -78,92 +118,97 @@
   <div class="hero-tag">BTS SIO — option SISR</div>
   <h1>Sabrina Askour</h1>
   <h2>Étudiante en infrastructure systèmes et réseaux</h2>
+  <p>Passionnée par les technologies de l'information, je développe des compétences en administration réseau, sécurité informatique et systèmes. Toujours en quête de nouvelles connaissances, je suis déterminée à évoluer dans un domaine en constante mutation.</p>
   <div class="btn-group">
     <a href="CV_Sabrina.pdf" target="_blank" class="btn-primary">Voir mon CV</a>
     <a href="Tableau_Synthese.pdf" target="_blank" class="btn-secondary">Tableau de synthèse</a>
   </div>
 </div>
 
-<section id="bts-sio">
-  <div class="section-title">BTS SIO</div>
-  <div class="section-sub">Services Informatiques aux Organisations - Option SISR</div>
-  <p>Le BTS SIO est un diplôme d'État formant aux métiers de l'informatique de gestion. L'option SISR (Solutions d’Infrastructure, Systèmes et Réseaux) se concentre sur la mise en place, la cybersécurité et l'administration des infrastructures réseaux.</p>
-</section>
-
-<section id="ecole-entreprise">
-  <div class="section-title">Ecole et Entreprise</div>
-  <div class="section-sub">Mon parcours académique et professionnel</div>
-  <div class="tl-item">
-    <div class="tl-dot"></div>
-    <div>
-      <div class="tl-date">2025 – 2026</div>
-      <div class="tl-title">BTS SIO 2 — INSTA, Paris</div>
-      <p style="font-size: 13px; color: grey;">Apprentissage des solutions complexes d'infrastructure.</p>
+<section id="parcours">
+  <div class="section-title">Mon parcours scolaire</div>
+  <div class="section-sub">De Louvres à Paris, mon chemin vers l'informatique</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-date">2025 – 2026</div>
+        <div class="tl-title">BTS SIO 2 — SISR en initial</div>
+        <div class="tl-sub">INSTA, Paris</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-date">2024 – 2025</div>
+        <div class="tl-title">BTS SIO 1 — SISR en initial</div>
+        <div class="tl-sub">Webitech, Paris</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-date">2020 – 2024</div>
+        <div class="tl-title">Baccalauréat Général</div>
+        <div class="tl-sub">Lycée Romain Rolland, Goussainville — Spécialités NSI et Mathématiques</div>
+      </div>
     </div>
   </div>
-  <div class="tl-item">
-    <div class="tl-dot"></div>
-    <div>
-      <div class="tl-date">2024 – 2025</div>
-      <div class="tl-title">BTS SIO 1 — Webitech, Paris</div>
-      <p style="font-size: 13px; color: grey;">Bases de l'administration réseaux et systèmes.</p>
-    </div>
-  </div>
 </section>
 
-<section id="missions-projets" style="background: var(--color-background-secondary);">
-  <div class="section-title">Missions et Projets</div>
-  <div class="section-sub">Réalisations techniques de 2ème année</div>
+<section id="certifications" style="background-color: var(--color-background-secondary);">
+  <div class="section-title">Mes certifications</div>
+  <div class="section-sub">Cybersécurité, réseaux et simulation</div>
   <div class="cards">
+    
     <div class="card">
-      <h3>Supervision avec Zabbix</h3>
-      <p>Mise en place de monitoring en temps réel pour serveurs et équipements réseaux.</p>
+      <div class="card-icon">🔵</div>
+      <h3>Cisco Notions de base sur les réseaux</h3>
+      <p>Architecture réseau, adressage IP (IPv4/IPv6) et équipements essentiels.</p>
+      <a href="notion%20de%20base%20sur%20les%20reseaux.pdf" target="_blank" class="card-link">Voir la certification →</a>
     </div>
-    <div class="card">
-      <h3>Gestion de parc - GLPI</h3>
-      <p>Installation de GLPI avec FusionInventory pour l'inventaire et le helpdesk.</p>
-    </div>
-    <div class="card">
-      <h3>Segmentation Réseau (VLAN)</h3>
-      <p>Configuration de VLANs sur Switch Cisco pour sécuriser les flux de l'entreprise.</p>
-    </div>
-    <div class="card">
-      <h3>Windows Server 2019</h3>
-      <p>Installation sur VMware ESXi, configuration AD, DNS, DHCP et GPO.</p>
-    </div>
-  </div>
-</section>
 
-<section id="veille-techno">
-  <div class="section-title">Veille technologique</div>
-  <div class="section-sub">Certifications et apprentissage continu</div>
-  <div class="cards">
     <div class="card">
-      <h3>Cisco Networking</h3>
-      <p>Notions de base sur les réseaux.</p>
-      <a href="notion%20de%20base%20sur%20les%20reseaux.pdf" target="_blank" class="card-link">Consulter</a>
+      <div class="card-icon">🛡️</div>
+      <h3>Cisco Introduction à la cybersécurité</h3>
+      <p>Fondamentaux de la cybersécurité et protection des systèmes informatiques.</p>
+      <a href="intro%20cyber.pdf" target="_blank" class="card-link">Voir la certification →</a>
     </div>
+
     <div class="card">
-      <h3>SecNumAcadémie</h3>
-      <p>MOOC Cybersécurité de l'ANSSI.</p>
-      <a href="mooc.pdf" target="_blank" class="card-link">Consulter</a>
+      <div class="card-icon">🇫🇷</div>
+      <h3>SecNumAcadémie (ANSSI)</h3>
+      <p>MOOC de l'ANSSI dédié à la Cybersécurité et à la sécurité numérique.</p>
+      <a href="mooc.pdf" target="_blank" class="card-link">Voir la certification →</a>
     </div>
+
     <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>Introduction à Packet Tracer</h3>
+      <p>Simulation réseau : concevoir, configurer et tester des réseaux virtuels.</p>
+      <a href="getting.pdf" target="_blank" class="card-link">Voir la certification →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">⚖️</div>
       <h3>EBIOS Risk Manager</h3>
-      <p>Gestion des risques numériques.</p>
-      <a href="ebios.pdf" target="_blank" class="card-link">Consulter</a>
+      <p>Gestion des risques numériques selon la méthode EBIOS.</p>
+      <a href="ebios.pdf" target="_blank" class="card-link">Voir la certification →</a>
     </div>
+
   </div>
 </section>
 
-<section id="contact" style="text-align: center;">
+<footer style="padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary);">
   <div class="section-title">Contact</div>
-  <p>sabrina2ask@gmail.com</p>
-  <div style="margin-top: 20px;">
-    <span style="padding: 10px 20px; background: #e8f4fd; border-radius: 20px; color: #3b8fd4;">LinkedIn</span>
-    <span style="padding: 10px 20px; background: #e8f4fd; border-radius: 20px; color: #3b8fd4; margin-left: 10px;">GitHub : sab487</span>
+  <p class="section-sub">N'hésitez pas à me contacter</p>
+  <div>
+    <span class="badge">📧 sabrina2ask@gmail.com</span>
+    <span class="badge">💼 LinkedIn</span>
+    <span class="badge">🐙 GitHub : sab487</span>
   </div>
-</section>
+</footer>
 
 </body>
 </html>
+
