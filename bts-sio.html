@@ -5,79 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTS SIO | Sabrina Askour</title>
     <style>
-        /* Les variables de couleur pour rester cohérent */
         :root {
+            --color-text-primary: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-border-tertiary: #e1e1e1;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
             --blue-main: #3b8fd4;
             --blue-light: #e8f4fd;
-            --text-dark: #1a1a1a;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-dark); }
+        
+        body { 
+            font-family: var(--font-sans); 
+            background-color: var(--color-background-primary);
+            color: var(--color-text-primary);
+            line-height: 1.5;
+        }
 
-        /* Style de la navigation comme sur ta capture */
+        /* Navigation identique à l'accueil */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            border-bottom: 1px solid #f0f0f0;
-            background: #fff;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
+            background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
         }
-        .nav-logo { 
-            font-size: 20px; 
-            font-weight: bold; 
-            color: var(--blue-main); 
-            text-decoration: none; 
-        }
-        .nav-links { display: flex; gap: 20px; }
+        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-main); text-decoration: none; }
+        .nav-links { display: flex; gap: 10px; }
         .nav-links a {
-            text-decoration: none;
-            color: #555;
-            font-size: 14px;
-            font-weight: 500;
-            transition: 0.3s;
+            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
+            padding: 8px 16px; border-radius: 25px; /* Style pilule */
+            transition: all 0.2s;
+            border: 1px solid transparent;
         }
-        .nav-links a:hover { color: var(--blue-main); }
+        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-main); }
+        .nav-links a.active { 
+            background: var(--blue-light); 
+            color: var(--blue-main); 
+            border-color: var(--blue-main);
+            font-weight: 600;
+        }
 
-        /* Mise en page du contenu */
-        #bts-presentation {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px;
+        /* Style Hero adapté pour le titre de section */
+        .header-section {
+            padding: 60px 10% 40px 10%;
+            background: linear-gradient(160deg, #e8f4fd 0%, #ffffff 100%);
+            border-bottom: 0.5px solid var(--color-border-tertiary);
         }
+
+        .container { padding: 40px 10%; }
 
         .hero-tag {
-            display: inline-block;
-            background: #dbeeff;
-            color: var(--blue-main);
-            font-size: 11px;
-            font-weight: 800;
-            padding: 5px 12px;
-            border-radius: 20px;
-            margin-bottom: 10px;
+            display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600;
+            background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
         }
 
-        h1 { font-size: 32px; margin-bottom: 10px; }
-        .section-sub { color: #666; margin-bottom: 30px; font-size: 18px; }
+        h1 { font-size: 36px; font-weight: 600; margin-bottom: 10px; }
+        .section-sub { font-size: 18px; color: var(--color-text-secondary); margin-bottom: 30px; }
+
+        /* Blocs de contenu avec le style des "cards" de l'accueil */
+        .info-card {
+            background: var(--blue-light); 
+            padding: 30px; 
+            border-radius: var(--border-radius-lg); 
+            margin-bottom: 30px;
+            border: 1px solid var(--color-border-tertiary);
+        }
+
+        .option-card {
+            border: 2px solid var(--blue-main); 
+            padding: 30px; 
+            border-radius: var(--border-radius-lg);
+            background: #fff;
+        }
 
         .badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
+            display: inline-block; font-size: 12px; background: var(--blue-main); color: #fff;
+            padding: 4px 12px; border-radius: 4px; font-weight: 600; text-transform: uppercase;
         }
+
+        h2 { font-size: 24px; margin-top: 15px; margin-bottom: 15px; color: var(--blue-main); }
+        p { color: var(--color-text-secondary); line-height: 1.7; }
+
     </style>
 </head>
-<body>        
+<body>
 
 <nav>
   <a href="index.html" class="nav-logo">Sabrina Askour</a>
   <div class="nav-links">
     <a href="index.html">Accueil</a>
-    <a href="bts-sio.html" style="color: #3b8fd4; font-weight: bold;">BTS SIO</a>
+    <a href="bts-sio.html" class="active">BTS SIO</a>
     <a href="parcours.html">Ecoles & Entreprises</a>
     <a href="missions.html">Missions & Projet</a>
     <a href="veille.html">Veille technologique</a>
@@ -85,23 +106,25 @@
   </div>
 </nav>
 
-<section id="bts-presentation">
+<header class="header-section">
     <div class="hero-tag">FORMATION</div>
     <h1>Qu'est-ce que le BTS SIO ?</h1>
     <p class="section-sub">Le Brevet de Technicien Supérieur en Services Informatiques aux Organisations</p>
+</header>
 
-    <div style="background-color: #e8f4fd; padding: 30px; border-radius: 12px; margin-bottom: 40px;">
-        <p>Le BTS SIO est une formation de deux ans (niveau Bac+2) qui prépare les étudiants aux métiers d'administrateur réseau ou de développeur...</p>
-        <br>
-        <p><strong>Le BTS SIO propose deux spécialités bien distinctes : SISR et SLAM.</strong></p>
+<div class="container">
+    <div class="info-card">
+        <p>Le BTS SIO est une formation de deux ans (niveau Bac+2) qui prépare les étudiants aux métiers d'administrateur réseau ou de développeur. Il permet d'acquérir les compétences nécessaires pour gérer les parcs informatiques et concevoir des solutions applicatives.</p>
+        <p style="margin-top: 15px;"><strong>Le BTS SIO propose deux spécialités : SISR (Infrastructure) et SLAM (Logiciel).</strong></p>
     </div>
 
-    <div style="border: 2px solid #3b8fd4; padding: 25px; border-radius: 12px;">
-        <span class="badge" style="background: #3b8fd4; color: white;">Mon option</span>
-        <h2 style="margin-top: 15px; color: #3b8fd4;">BTS SIO SISR</h2>
-        <p>Solutions d'Infrastructure, Systèmes et Réseaux. Cette option forme des professionnels capables d'installer, de configurer et de gérer les équipements réseau (routeurs, switchs, serveurs)...</p>
+    <div class="option-card">
+        <span class="badge">Mon option</span>
+        <h2>BTS SIO SISR</h2>
+        <p>L'option <strong>Solutions d'Infrastructure, Systèmes et Réseaux</strong> forme des spécialistes capables de gérer et sécuriser les infrastructures informatiques. Les missions incluent l'installation de serveurs, la configuration de commutateurs et routeurs, ainsi que la protection des données de l'organisation.</p>
     </div>
-</section>
+</div>
 
 </body>
+</html>
 </html>
