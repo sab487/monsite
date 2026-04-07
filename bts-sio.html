@@ -44,6 +44,64 @@
         </div>
     </div>
 </div>
+<style>
+    /* Le bloc de l'option avec l'effet visuel */
+    .option-block {
+        background: #98d8f4; /* Le bleu clair du fond */
+        padding: 40px; 
+        text-align: center;
+        position: relative;
+        /* Crée la pointe vers le bas */
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        padding-bottom: 80px; 
+        margin-top: 30px;
+    }
 
+    .option-title-badge {
+        background: #3b8fd4; 
+        color: white;
+        padding: 8px 25px; 
+        border-radius: 25px;
+        display: inline-block; 
+        font-weight: 800; 
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .option-text { 
+        color: white; 
+        max-width: 800px; 
+        margin: 0 auto; 
+        font-weight: 500;
+    }
+    
+    /* Le bouton "Plus d'infos" */
+    .btn-plus-infos {
+        background: white; 
+        color: #3b8fd4;
+        padding: 10px 25px; 
+        border-radius: 5px;
+        text-decoration: none; 
+        font-size: 14px; 
+        font-weight: bold;
+        display: inline-block; 
+        margin-top: 25px;
+        transition: 0.3s;
+    }
+
+    .btn-plus-infos:hover {
+        background: #f0f0f0;
+        transform: scale(1.05);
+    }
+</style>
+
+<div class="option-block">
+    <div class="option-title-badge">BTS SIO SISR</div>
+    <p class="option-text">
+        Solutions d'Infrastructure, Systèmes et Réseaux. <br>
+        Installation, configuration et maintenance des réseaux et des systèmes informatiques.
+    </p>
+    <a href="#" class="btn-plus-infos">Plus d'infos</a>
+</div>
 </body>
 </html>
