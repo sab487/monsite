@@ -2,15 +2,86 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTS SIO | Sabrina Askour</title>
-    </head>
-<body>
+    <style>
+        /* Les variables de couleur pour rester cohérent */
+        :root {
+            --blue-main: #3b8fd4;
+            --blue-light: #e8f4fd;
+            --text-dark: #1a1a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-dark); }
+
+        /* Style de la navigation comme sur ta capture */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            border-bottom: 1px solid #f0f0f0;
+            background: #fff;
+        }
+        .nav-logo { 
+            font-size: 20px; 
+            font-weight: bold; 
+            color: var(--blue-main); 
+            text-decoration: none; 
+        }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--blue-main); }
+
+        /* Mise en page du contenu */
+        #bts-presentation {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #dbeeff;
+            color: var(--blue-main);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        h1 { font-size: 32px; margin-bottom: 10px; }
+        .section-sub { color: #666; margin-bottom: 30px; font-size: 18px; }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>        
 
 <nav>
   <a href="index.html" class="nav-logo">Sabrina Askour</a>
   <div class="nav-links">
     <a href="index.html">Accueil</a>
-    <a href="bts-sio.html" style="color: #3b8fd4;">BTS SIO</a>
+    <a href="bts-sio.html" style="color: #3b8fd4; font-weight: bold;">BTS SIO</a>
+    <a href="parcours.html">Ecoles & Entreprises</a>
+    <a href="missions.html">Missions & Projet</a>
+    <a href="veille.html">Veille technologique</a>
+    <a href="contact.html">Contact</a>
   </div>
 </nav>
 
@@ -22,16 +93,15 @@
     <div style="background-color: #e8f4fd; padding: 30px; border-radius: 12px; margin-bottom: 40px;">
         <p>Le BTS SIO est une formation de deux ans (niveau Bac+2) qui prépare les étudiants aux métiers d'administrateur réseau ou de développeur...</p>
         <br>
-        <p>Le BTS SIO propose deux spécialités bien distinctes : SISR et SLAM.</p>
+        <p><strong>Le BTS SIO propose deux spécialités bien distinctes : SISR et SLAM.</strong></p>
     </div>
 
     <div style="border: 2px solid #3b8fd4; padding: 25px; border-radius: 12px;">
         <span class="badge" style="background: #3b8fd4; color: white;">Mon option</span>
-        <h2 style="margin-top: 15px;">BTS SIO SISR</h2>
-        <p>Solutions d'Infrastructure, Systèmes et Réseaux. Cette option forme des professionnels capables d'installer, de configurer et de gérer les équipements réseau...</p>
+        <h2 style="margin-top: 15px; color: #3b8fd4;">BTS SIO SISR</h2>
+        <p>Solutions d'Infrastructure, Systèmes et Réseaux. Cette option forme des professionnels capables d'installer, de configurer et de gérer les équipements réseau (routeurs, switchs, serveurs)...</p>
     </div>
 </section>
 
 </body>
 </html>
-                
