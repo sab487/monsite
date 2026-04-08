@@ -27,22 +27,49 @@
             line-height: 1.5;
         }
 
-        /* --- NAVIGATION (STYLE CLAIR) --- */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
-            background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
-        }
-        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-accent); text-decoration: none; }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a {
-            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
-            padding: 8px 12px; border-radius: var(--border-radius-md);
-            transition: all 0.2s;
-        }
-        .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
-        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-accent); }
+       nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 10%; 
+    border-bottom: 0.5px solid var(--color-border-tertiary); /* La ligne fine sous le menu */
+    background: var(--color-background-primary); 
+    position: sticky; 
+    top: 0; 
+    z-index: 10;
+}
 
+.nav-logo { 
+    font-size: 18px; 
+    font-weight: 600; 
+    color: #3b8fd4; 
+    text-decoration: none; 
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 20px; 
+}
+
+.nav-links a {
+    font-size: 14px; 
+    color: var(--color-text-secondary); 
+    text-decoration: none;
+    padding: 8px 12px; 
+    border-radius: var(--border-radius-md);
+    transition: all 0.2s;
+}
+
+.nav-links a:hover { 
+    background: var(--color-background-secondary); 
+    color: #3b8fd4; 
+}
+
+/* Optionnel : pour que le lien "BTS SIO" soit mis en avant quand on est sur cette page */
+.nav-links a.active {
+    color: #3b8fd4;
+    font-weight: 600;
+}
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
 
         /* --- EN-TÊTE DE SECTION --- */
