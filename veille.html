@@ -43,7 +43,7 @@
         .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-accent); }
         .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
 
-        /* --- HERO VEILLE --- */
+        /* --- HERO --- */
         .hero {
             padding: 60px 10%;
             background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
@@ -80,6 +80,12 @@
             padding: 10px; border-radius: 6px;
         }
 
+        /* --- MÉTHODO GRID --- */
+        .methode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .methode-item { background: var(--color-background-secondary); padding: 20px; border-radius: 8px; border-left: 4px solid var(--blue-accent); }
+        .methode-item strong { display: block; color: var(--blue-accent); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .methode-item span { font-size: 14px; color: var(--color-text-secondary); }
+
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); }
     </style>
 </head>
@@ -98,16 +104,75 @@
 </nav>
 
 <div class="hero">
-  <div class="hero-tag">VEILLE TECHNOLOGIQUE</div>
-  <h1>L'Authentification à Double Facteur (2FA)</h1>
-  <p>Comment renforcer la sécurité des accès au-delà du simple mot de passe. Analyse des enjeux de cybersécurité pour les entreprises et les utilisateurs.</p>
+  <div class="hero-tag">SISR & CYBERSÉCURITÉ</div>
+  <h1>Veille : L'Authentification à Double Facteur (2FA)</h1>
+  <p>Analyse des évolutions des méthodes d'authentification pour sécuriser les infrastructures réseaux et protéger les accès SI contre le vol d'identifiants.</p>
 </div>
 
-<section id="methode">
-  <div class="section-title">Ma Méthodologie</div>
-  <div class="section-sub">Comment je récupère mes informations</div>
+<section id="definition">
+  <div class="section-title">1. Qu'est-ce que la veille technologique ?</div>
+  <p style="color: var(--color-text-secondary); line-height: 1.8; max-width: 900px; margin-bottom: 30px;">
+    La veille technologique est une activité de surveillance systématique des innovations et des évolutions du secteur informatique. Elle permet à l'administrateur système et réseau d'anticiper les menaces, de découvrir de nouveaux outils et de maintenir l'infrastructure de l'entreprise à un niveau de sécurité optimal.
+  </p>
+
+  <div class="methode-grid">
+    <div class="methode-item">
+        <strong>Pourquoi ?</strong>
+        <span>Sécuriser les accès et prévenir les attaques liées au phishing.</span>
+    </div>
+    <div class="methode-item">
+        <strong>Comment ?</strong>
+        <span>Flux RSS, Google Alerts, et rapports de l'ANSSI.</span>
+    </div>
+    <div class="methode-item">
+        <strong>Où ?</strong>
+        <span>Sites spécialisés (Zataz, LMI) et réseaux professionnels.</span>
+    </div>
+    <div class="methode-item">
+        <strong>Quand ?</strong>
+        <span>Surveillance quotidienne pour rester réactive face aux failles.</span>
+    </div>
+  </div>
+</section>
+
+<section id="sujets" style="background-color: var(--color-background-secondary);">
+  <div class="section-title">2. Articles et Sujets Étudiés</div>
+  <div class="section-sub">Les piliers de ma veille sur le 2FA</div>
+  
   <div class="cards">
     <div class="card">
-        <div class="card-icon">🗞️</div>
-        <h3>Sources d'information</h3>
-        <p>Utilisation de flux RSS (Feedly), alertes Google sur les mots-clés "Cybersecurity" et "MFA", et suivi
+      <div class="card-icon">📱</div>
+      <h3>SMS vs TOTP</h3>
+      <p>Analyse de la vulnérabilité des SMS (SIM-swapping) au profit des applications générant des codes temporaires (TOTP) comme Microsoft Authenticator.</p>
+      <a href="https://www.ssi.gouv.fr/" target="_blank" class="card-link">Source : ANSSI →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🔑</div>
+      <h3>Clés Physiques (Yubikey)</h3>
+      <p>Étude sur l'adoption des clés physiques FIDO2 en entreprise pour éliminer totalement le risque de phishing à distance.</p>
+      <a href="https://www.lemondeinformatique.fr/" target="_blank" class="card-link">Source : LMI →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🆔</div>
+      <h3>Standard Passkeys</h3>
+      <p>Le futur de l'authentification "Passwordless" utilisant la biométrie des appareils pour remplacer les mots de passe traditionnels.</p>
+      <a href="https://www.zataz.com/" target="_blank" class="card-link">Source : Zataz →</a>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">⚠️</div>
+        <h3>MFA Fatigue</h3>
+        <p>Analyse des nouvelles techniques d'attaques par bombardement de notifications MFA pour forcer l'utilisateur à accepter un accès frauduleux.</p>
+        <a href="#" class="card-link">Synthèse perso →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour - Portfolio BTS SIO SISR</p>
+</footer>
+
+</body>
+</html>
