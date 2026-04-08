@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique | Sabrina Askour</title>
+    <style>
+        /* --- VARIABLES DE TON INDEX --- */
+        :root {
+            --color-text-primary: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-border-tertiary: #e1e1e1;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --blue-accent: #3b8fd4;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: var(--font-sans); 
+            background-color: var(--color-background-primary);
+            color: var(--color-text-primary);
+            line-height: 1.5;
+        }
+
+        /* --- TON MENU --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
+            background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
+        }
+        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-accent); text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a {
+            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
+            padding: 8px 12px; border-radius: var(--border-radius-md);
+            transition: all 0.2s;
+        }
+        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-accent); }
+        .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
+
+        /* --- HERO VEILLE --- */
+        .hero {
+            padding: 60px 10%;
+            background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .hero-tag {
+            display: inline-block; font-size: 12px; color: var(--blue-accent); font-weight: 600;
+            background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
+        }
+        .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 15px; }
+        .hero p { font-size: 16px; color: var(--color-text-secondary); max-width: 800px; line-height: 1.8; }
+
+        /* --- SECTIONS --- */
+        section { padding: 60px 10%; }
+        .section-title { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+        .section-sub { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 40px; }
+
+        /* --- GRILLE DE CARTES (STYLE INDEX) --- */
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        
+        .card {
+            background: #fff; border: 1px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
+            display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--blue-accent); }
+        .card-icon { font-size: 28px; margin-bottom: 15px; }
+        .card h3 { font-size: 18px; margin-bottom: 12px; color: var(--color-text-primary); }
+        .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+        
+        .card-link { 
+            background-color: var(--blue-accent); color: white; text-align: center;
+            text-decoration: none; font-size: 12px; font-weight: 600; 
+            padding: 10px; border-radius: 6px;
+        }
+
+        footer { padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); }
+    </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Sabrina Askour</a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="bts-sio.html">BTS SIO</a>
+    <a href="parcours.html">Ecoles & Entreprises</a>
+    <a href="mission.html">Missions & Projet</a>
+    <a href="veille.html" class="active">Veille technologique</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">VEILLE TECHNOLOGIQUE</div>
+  <h1>L'Authentification à Double Facteur (2FA)</h1>
+  <p>Comment renforcer la sécurité des accès au-delà du simple mot de passe. Analyse des enjeux de cybersécurité pour les entreprises et les utilisateurs.</p>
+</div>
+
+<section id="methode">
+  <div class="section-title">Ma Méthodologie</div>
+  <div class="section-sub">Comment je récupère mes informations</div>
+  <div class="cards">
+    <div class="card">
+        <div class="card-icon">🗞️</div>
+        <h3>Sources d'information</h3>
+        <p>Utilisation de flux RSS (Feedly), alertes Google sur les mots-clés "Cybersecurity" et "MFA", et suivi
