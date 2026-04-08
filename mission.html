@@ -1,81 +1,178 @@
-<style>
-    /* VARIABLES LUMINUES DE L'INDEX */
-    :root {
-        --color-text-primary: #1a1a1a;
-        --color-text-secondary: #4a4a4a;
-        --color-border-tertiary: #e1e1e1;
-        --color-background-primary: #ffffff;
-        --color-background-secondary: #f9f9f9;
-        --blue-accent: #3b8fd4;
-        --border-radius-lg: 12px;
-        --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missions | Sabrina Askour</title>
+    <style>
+        /* --- TES VARIABLES EXACTES DE L'INDEX --- */
+        :root {
+            --color-text-primary: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-border-tertiary: #e1e1e1;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body { 
-        font-family: var(--font-sans); 
-        background-color: var(--color-background-primary);
-        color: var(--color-text-primary);
-        line-height: 1.5;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: var(--font-sans); 
+            background-color: var(--color-background-primary);
+            color: var(--color-text-primary);
+            line-height: 1.5;
+        }
 
-    /* NAVIGATION - STYLE LUMINUX DE L'INDEX */
-    nav {
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
-        background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
-    }
-    .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-accent); text-decoration: none; }
-    .nav-links { display: flex; gap: 20px; }
-    .nav-links a { font-size: 14px; color: var(--color-text-secondary); text-decoration: none; padding: 8px 12px; }
-    .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
+        /* --- TON MENU INDEX --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
+            background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
+        }
+        .nav-logo { font-size: 18px; font-weight: 600; color: #3b8fd4; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a {
+            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
+            padding: 8px 12px; border-radius: var(--border-radius-md);
+            transition: all 0.2s;
+        }
+        .nav-links a:hover { background: var(--color-background-secondary); color: #3b8fd4; }
+        .nav-links a.active { color: #3b8fd4; font-weight: 600; }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        /* --- STRUCTURE DE LA PAGE --- */
+        section { padding: 40px 10%; }
+        .container { max-width: 1200px; margin: 0 auto; }
 
-    /* TITRE DE SECTION */
-    .header-section { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; margin-top: 40px; }
-    .header-icon { 
-        background: #fdf2e9; color: #ff8c00;
-        padding: 10px; border-radius: 8px; font-size: 24px;
-    }
-    h1 { font-size: 26px; font-weight: 600; color: var(--color-text-primary); }
+        .header-section {
+            display: flex; align-items: center; gap: 15px; margin-bottom: 30px;
+        }
+        .header-icon { 
+            background: #dbeeff; color: #3b8fd4;
+            padding: 10px; border-radius: var(--border-radius-md); font-size: 24px;
+        }
 
-    /* GRILLE ET CARTES - C'EST ÇA QUI CORRIGE LE DESIGN HORRIBLE */
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 25px;
-    }
+        h1 { font-size: 26px; font-weight: 600; }
 
-    .card {
-        background: var(--card-bg-light); 
-        border: 1px solid var(--border-color); /* Contour fin gris */
-        border-radius: var(--border-radius-lg); /* Coins arrondis */
-        padding: 25px;
-        transition: 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .card:hover { transform: translateY(-5px); border-color: var(--blue-accent); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        /* --- TES CARTES INDEX --- */
+        .cards { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+        }
+        
+        .card {
+            background: #fff; border: 1px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #3b8fd4; }
+        
+        .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .card-header img { width: 30px; height: 30px; object-fit: contain; }
+        
+        .card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+        .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 20px; }
+        
+        .card-link { 
+            background-color: #3b8fd4; color: white; text-align: center;
+            text-decoration: none; font-size: 12px; font-weight: 600; 
+            padding: 10px; border-radius: 6px;
+        }
 
-    .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-    .card-header img { width: 35px; height: 35px; object-fit: contain; }
-    .card h3 { font-size: 18px; font-weight: 600; color: var(--color-text-primary); }
-    .card p { font-size: 14px; color: var(--color-text-secondary); text-align: justify; flex-grow: 1; margin-bottom: 15px; }
+        /* --- STYLE SPÉCIFIQUE POUR E6 (Bordure plus marquée) --- */
+        .e6-card { border: 1.5px solid #3b8fd4; }
+        .badge-e6 {
+            display: inline-block; font-size: 11px; background: #3b8fd4; color: #fff;
+            padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; font-weight: 600;
+        }
 
-    /* LIEN DANS LES CARTES */
-    .card-link { 
-        background-color: var(--blue-accent); color: white; text-align: center;
-        text-decoration: none; font-size: 12px; font-weight: 600; 
-        padding: 10px; border-radius: 6px; display: block; margin-top: 15px;
-    }
+        hr { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 20px 0 50px 0; }
+    </style>
+</head>
+<body>
 
-    /* ÉLÉMENTS SPÉCIFIQUES E6 */
-    .e6-card { border: 2px solid var(--blue-accent) !important; background: linear-gradient(to bottom right, #ffffff, #f0f7ff) !important; }
-    .card-badge { background: var(--blue-accent); color: white; font-size: 10px; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
-    .separator { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 40px 0; }
+<nav>
+  <a href="index.html" class="nav-logo">Sabrina Askour</a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="bts-sio.html">BTS SIO</a>
+    <a href="parcours.html">Ecoles & Entreprises</a>
+    <a href="mission.html" class="active">Missions & Projet</a>
+    <a href="veille.html">Veille technologique</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
-</style>
+<section class="container">
+    <div class="header-section">
+        <div class="header-icon">🏆</div>
+        <h1>Épreuve E6 - Projets Cyber-SISR</h1>
+    </div>
+
+    <div class="cards">
+        <div class="card e6-card">
+            <div>
+                <span class="badge-e6">PROJET E6 - MAJEUR</span>
+                <h3>Nom de ton Projet 1</h3>
+                <p>Description de ton premier gros projet pour l'épreuve E6. Explique le besoin et la solution technique mise en place.</p>
+            </div>
+            <a href="#" class="card-link">Consulter le dossier E6</a>
+        </div>
+
+        <div class="card e6-card">
+            <div>
+                <span class="badge-e6">PROJET E6 - MAJEUR</span>
+                <h3>Nom de ton Projet 2</h3>
+                <p>Description de ton deuxième projet E6. Détaille les compétences en cybersécurité ou administration système validées.</p>
+            </div>
+            <a href="#" class="card-link">Consulter le dossier E6</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="header-section">
+        <div class="header-icon">🔧</div>
+        <h1>Missions & Travaux Pratiques (PPE)</h1>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" alt="Windows">
+                <h3>Windows Server</h3>
+            </div>
+            <p>Installation et configuration d'Active Directory, services DHCP et DNS, et gestion des GPO.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux">
+                <h3>Linux Debian</h3>
+            </div>
+            <p>Administration système Linux, gestion des droits, serveur Web Apache et sécurisation SSH.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo-glpi.png" alt="GLPI">
+                <h3>Gestion GLPI</h3>
+            </div>
+            <p>Mise en place d'un inventaire automatisé et gestion d'un parc informatique via FusionInventory.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span style="font-size: 24px;">🌐</span>
+                <h3>Réseau & VLAN</h3>
+            </div>
+            <p>Segmentation réseau et configuration de switchs pour la mise en place de VLANs.</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
