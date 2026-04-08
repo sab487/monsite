@@ -5,49 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Missions | Sabrina Askour</title>
     <style>
+        /* --- VARIABLES COPIÉES DE TA DEUXIÈME PAGE --- */
         :root {
-  --bg-color: #f5faff; /* Fond très clair et légèrement bleuté */
-  --card-bg-color: #ffffff; /* Fond des cartes blanc pur */
-  --text-main: #1a1a1a; /* Texte principal très sombre, presque noir */
-  --text-dim: #4a4a4a; /* Texte secondaire gris foncé */
-  --blue-accent: #3b8fd4; /* Bleu vif pour les accents */
-  --border-color: #e1e1e1; /* Bordure gris clair */
-  --border-radius-md: 8px; /* Rayon de bordure moyen */
-  --border-radius-lg: 12px; /* Grand rayon de bordure */
-}
+            --color-text-primary: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-border-tertiary: #e1e1e1;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
+            --blue-accent: #3b8fd4;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            background-color: var(--bg-dark); 
-            color: var(--text-main); 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: var(--font-sans); 
+            background-color: var(--color-background-primary);
+            color: var(--color-text-primary);
+            line-height: 1.5;
         }
 
+        /* --- NAVIGATION (STYLE CLAIR) --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 10%; border-bottom: 1px solid var(--border-color);
-            background: #1e2433; position: sticky; top: 0; z-index: 100;
+            padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
+            background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
         }
         .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-accent); text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; }
         .nav-links a {
-            font-size: 14px; text-decoration: none; color: var(--text-dim);
-            padding: 8px 16px; transition: 0.3s;
+            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
+            padding: 8px 12px; border-radius: var(--border-radius-md);
+            transition: all 0.2s;
         }
-        .nav-links a.active { color: var(--text-main); font-weight: 600; }
+        .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
+        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-accent); }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
 
+        /* --- EN-TÊTE DE SECTION --- */
         .header-section {
             display: flex; align-items: center; gap: 15px; margin-bottom: 40px;
         }
         .header-icon { 
-            background: rgba(255, 140, 0, 0.1); color: #ff8c00;
-            padding: 10px; border-radius: 8px; font-size: 24px;
+            background: #fdf2e9; color: #ff8c00;
+            padding: 12px; border-radius: var(--border-radius-md); font-size: 24px;
         }
         h1 { font-size: 26px; font-weight: 600; }
 
+        /* --- GRILLE ET CARTES (FORME DE LA DEUXIÈME PHOTO) --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -55,19 +63,32 @@
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: #fff;
+            border: 1px solid var(--color-border-tertiary); /* Bordure fine grise */
+            border-radius: var(--border-radius-lg); /* Coins arrondis */
             padding: 25px;
-            transition: 0.3s ease;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        .card:hover { border-color: var(--blue-accent); transform: translateY(-5px); }
 
-        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--blue-accent); /* Devient bleu au survol */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-header { display: flex; align-items: center; gap: 15px; }
         .card-header img { width: 35px; height: 35px; object-fit: contain; }
-        .card-header h3 { font-size: 18px; font-weight: 600; }
+        .card-header h3 { font-size: 18px; font-weight: 600; color: var(--color-text-primary); }
 
-        .card p { font-size: 14px; color: var(--text-dim); text-align: justify; }
+        .card p { 
+            font-size: 14px; 
+            color: var(--color-text-secondary); 
+            text-align: justify;
+            line-height: 1.6;
+        }
 
         @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
     </style>
@@ -80,7 +101,7 @@
     <a href="index.html">Accueil</a>
     <a href="bts-sio.html">BTS SIO</a>
     <a href="parcours.html">Ecoles & Entreprises</a>
-    <a href="mission.html">Missions & Projets</a>
+    <a href="mission.html" class="active">Missions & Projets</a>
     <a href="veille.html">Veille</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -89,7 +110,7 @@
 <div class="container">
     <div class="header-section">
         <div class="header-icon">🔧</div>
-        <h1>Support et mise à disposition des services informatiques</h1>
+        <h1>Support et mise à disposition des services</h1>
     </div>
 
     <div class="grid">
