@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique | Sabrina Askour</title>
     <style>
-        /* --- VARIABLES DE TON INDEX --- */
         :root {
             --color-text-primary: #1a1a1a;
             --color-text-secondary: #4a4a4a;
@@ -27,7 +26,6 @@
             line-height: 1.5;
         }
 
-        /* --- TON MENU --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
@@ -43,7 +41,6 @@
         .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-accent); }
         .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
 
-        /* --- HERO --- */
         .hero {
             padding: 60px 10%;
             background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
@@ -56,35 +53,19 @@
         .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 15px; }
         .hero p { font-size: 16px; color: var(--color-text-secondary); max-width: 800px; line-height: 1.8; }
 
-        /* --- SECTIONS --- */
         section { padding: 60px 10%; }
         .section-title { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
-        .section-sub { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 40px; }
 
-        /* --- GRILLE DE CARTES (STYLE INDEX) --- */
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        
-        .card {
-            background: #fff; border: 1px solid var(--color-border-tertiary);
-            border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
-            display: flex; flex-direction: column;
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--blue-accent); }
-        .card-icon { font-size: 28px; margin-bottom: 15px; }
-        .card h3 { font-size: 18px; margin-bottom: 12px; color: var(--color-text-primary); }
-        .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
-        
-        .card-link { 
-            background-color: var(--blue-accent); color: white; text-align: center;
-            text-decoration: none; font-size: 12px; font-weight: 600; 
-            padding: 10px; border-radius: 6px;
-        }
-
-        /* --- MÉTHODO GRID --- */
         .methode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
         .methode-item { background: var(--color-background-secondary); padding: 20px; border-radius: 8px; border-left: 4px solid var(--blue-accent); }
         .methode-item strong { display: block; color: var(--blue-accent); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
         .methode-item span { font-size: 14px; color: var(--color-text-secondary); }
+
+        .sujet-card {
+            background: white; border: 1px solid var(--color-border-tertiary);
+            border-left: 4px solid var(--blue-accent);
+            border-radius: var(--border-radius-lg); padding: 30px; margin-top: 20px;
+        }
 
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); }
     </style>
@@ -104,28 +85,29 @@
 </nav>
 
 <div class="hero">
-  <div class="hero-tag">VEILLE TECHNOLOGIQUE</div>
-  <h1>Veille technologique: L'Authentification à Double Facteur (2FA)</h1>
-  <p>Suivi et analyse de la Double Authentification (2FA), une solution clé pour renforcer la sécurité des accès au Système d'Information.</div>
+  <div class="hero-tag">SISR & CYBERSÉCURITÉ</div>
+  <h1>Veille : L'Authentification à Double Facteur (2FA)</h1>
+  <p>Analyse des évolutions des méthodes d'authentification pour sécuriser les infrastructures réseaux et protéger les accès SI contre le vol d'identifiants.</p>
+</div>
 
 <section id="definition">
-  <div class="section-title">Qu'est-ce que la veille technologique ?</div>
-  <p style="color: var(--color-text-secondary); line-height: 1.8; max-width: 900px; margin-bottom: 30px;">
+  <div class="section-title">1. Qu'est-ce que la veille technologique ?</div>
+  <p style="color: var(--color-text-secondary); line-height: 1.8; max-width: 900px;">
     La veille technologique est un suivi des évolutions dans le domaine des technologies. Cela permet aux entreprises ou aux professionnels de rester informés des dernières innovations et des tendances émergentes. L'objectif est de prendre des décisions éclairées, d'anticiper les changements et de maintenir un avantage concurrentiel via la surveillance de sources d'information fiables.
   </p>
 
   <div class="methode-grid">
     <div class="methode-item">
         <strong>Pourquoi ?</strong>
-        <span>Anticiper les innovations technologiques, identifier les nouvelles menaces et adapter ces compétences aux évolutions constantes du marché de l'informatique.</span>
+        <span>Sécuriser les accès et prévenir les attaques liées au phishing.</span>
     </div>
     <div class="methode-item">
         <strong>Comment ?</strong>
-        <span>Utilisation d'outils de regroupement automatique (flux RSS, alertes mail) suivis d'un tri et d'une analyse des informations les plus pertinentes. Par exemple : Flux RSS, Google Alerts, et rapports de l'ANSSI.</span>
+        <span>Flux RSS, Google Alerts, et rapports de l'ANSSI.</span>
     </div>
     <div class="methode-item">
         <strong>Où ?</strong>
-        <span>Consultation de la presse spécialisée, des blogs d'experts en cybersécurité, des forums techniques et de la documentation officielle des éditeurs. Pae exemple : Sites spécialisés (Zataz, LMI) et réseaux professionnels.</span>
+        <span>Sites spécialisés (Zataz, LMI) et réseaux professionnels.</span>
     </div>
     <div class="methode-item">
         <strong>Quand ?</strong>
@@ -135,75 +117,28 @@
 </section>
 
 <section id="choix-sujet" style="background-color: var(--color-background-secondary); border-top: 1px solid var(--color-border-tertiary); border-bottom: 1px solid var(--color-border-tertiary);">
-  <div class="section-title">Mon sujet de veille</div>
+  <div class="section-title">2. Mon sujet de veille</div>
   
-  <div class="methode-item" style="border-left: 4px solid var(--blue-accent); background: white; padding: 25px; margin-top: 20px;">
-    
+  <div class="sujet-card">
     <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed var(--color-border-tertiary);">
         <strong style="color: var(--blue-accent); font-size: 14px;">THÉMATIQUE RETENUE :</strong>
         <p style="font-size: 18px; font-weight: 600; color: var(--color-text-primary); margin-top: 5px;">
-            La Double Authentification (2FA)
+            L'évolution des protocoles d'authentification multi-facteurs (MFA/2FA)
         </p>
     </div>
 
     <div style="margin-bottom: 25px;">
         <strong style="color: var(--blue-accent); font-size: 14px;">DÉFINITION : LA DOUBLE AUTHENTIFICATION (2FA)</strong>
         <p style="line-height: 1.6; color: var(--color-text-secondary); font-size: 15px; margin-top: 10px;">
-            La Double Authentification (2FA), ou authentification à deux facteurs, est une méthode de sécurité informatique qui impose à l'utilisateur de fournir deux preuves d'identité distinctes avant d'accéder à un compte ou à un réseau.
-        </p>
-        <p style="line-height: 1.6; color: var(--color-text-secondary); font-size: 15px; margin-top: 10px;">
-            Elle repose généralement sur la combinaison de deux éléments parmi ces trois catégories :<br>
-            • <b>Ce que l'on sait :</b> Un mot de passe ou un code PIN.<br>
-            • <b>Ce que l'on possède :</b> Un smartphone (appli TOTP), une clé physique (Yubikey) ou un SMS.<br>
-            • <b>Ce que l'on est :</b> Une donnée biométrique (empreinte, visage).
-        </p>
-        <p style="line-height: 1.6; color: var(--color-text-secondary); font-size: 15px; margin-top: 10px;">
-            <b>L'objectif principal :</b> Protéger les accès contre le vol d'identifiants. Même si un pirate obtient le mot de passe, il ne pourra pas se connecter sans le second facteur.
+            La Double Authentification (2FA), ou authentification à deux facteurs, est une méthode de sécurité informatique qui impose à l'utilisateur de fournir deux preuves d'identité distinctes avant d'accéder à un compte ou à un réseau. Elle repose généralement sur la combinaison de deux éléments parmi ces trois catégories : Ce que l'on sait : Un mot de passe ou un code PIN. Ce que l'on possède : Un smartphone (via une application comme Microsoft Authenticator), une clé de sécurité physique (Yubikey) ou un code reçu par SMS. Ce que l'on est : Une donnée biométrique (empreinte digitale ou reconnaissance faciale). L'objectif principal : Son but est de protéger les accès contre le vol d'identifiants. Même si un pirate parvient à obtenir votre mot de passe, il ne pourra pas se connecter sans le second facteur, ce qui réduit considérablement les risques d'intrusion dans le Système d'Information de l'entreprise.
         </p>
     </div>
 
     <div style="padding-top: 15px; border-top: 1px solid var(--color-border-tertiary);">
         <strong style="color: var(--blue-accent); font-size: 14px;">POURQUOI AVOIR CHOISI CE SUJET ?</strong>
         <p style="line-height: 1.6; color: var(--color-text-secondary); font-size: 15px; margin-top: 10px;">
-            Même si tous les domaines de l'informatique sont importants, j'ai choisi la <strong>2FA</strong> parce que c'est la <strong>base de tout</strong>. 
-            On a beau avoir le meilleur pare-feu du monde, si un utilisateur se fait voler son mot de passe, l'infrastructure est vulnérable. 
-            En tant que future administratrice SISR, je considère que sécuriser l'accès des utilisateurs est le premier réflexe à avoir pour protéger un réseau efficacement.
+            Même si tous les domaines de l'informatique sont importants, j'ai choisi la <strong>2FA</strong> parce que c'est la <strong>BASE DE TOUT</strong>. On a beau avoir le meilleur pare-feu du monde, si un utilisateur se fait voler son mot de passe, l'infrastructure est vulnérable. En tant que future administratrice SISR, je considère que sécuriser l'accès des utilisateurs est le premier réflexe à avoir pour protéger un réseau efficacement.
         </p>
-    </div>
-
-  </div> </section>
-
-<section id="sujets">
-  <div class="section-title">Articles et Sujets Étudiés</div>
-  <div class="section-sub">Les piliers de ma veille sur le 2FA</div>
-  
-  <div class="cards">
-    <div class="card">
-      <div class="card-icon">📱</div>
-      <h3>SMS vs TOTP</h3>
-      <p>Analyse de la vulnérabilité des SMS (SIM-swapping) au profit des applications générant des codes temporaires (TOTP) comme Microsoft Authenticator.</p>
-      <a href="https://www.ssi.gouv.fr/" target="_blank" class="card-link">Source : ANSSI →</a>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🔑</div>
-      <h3>Clés Physiques (Yubikey)</h3>
-      <p>Étude sur l'adoption des clés physiques FIDO2 en entreprise pour éliminer totalement le risque de phishing à distance.</p>
-      <a href="https://www.lemondeinformatique.fr/" target="_blank" class="card-link">Source : LMI →</a>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🆔</div>
-      <h3>Standard Passkeys</h3>
-      <p>Le futur de l'authentification "Passwordless" utilisant la biométrie des appareils pour remplacer les mots de passe traditionnels.</p>
-      <a href="https://www.zataz.com/" target="_blank" class="card-link">Source : Zataz →</a>
-    </div>
-
-    <div class="card">
-        <div class="card-icon">⚠️</div>
-        <h3>MFA Fatigue</h3>
-        <p>Analyse des nouvelles techniques d'attaques par bombardement de notifications MFA pour forcer l'utilisateur à accepter un accès frauduleux.</p>
-        <a href="#" class="card-link">Synthèse perso →</a>
     </div>
   </div>
 </section>
@@ -213,4 +148,5 @@
 </footer>
 
 </body>
+</html>
 </html>
