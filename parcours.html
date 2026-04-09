@@ -5,88 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecoles & Entreprises | Sabrina Askour</title>
     <style>
-        /* --- VARIABLES DE TON INDEX --- */
         :root {
             --color-text-primary: #1a1a1a;
             --color-text-secondary: #4a4a4a;
             --color-border-tertiary: #e1e1e1;
             --color-background-primary: #ffffff;
-            --color-background-secondary: #f9f9f9;
-            --border-radius-md: 8px;
+            --blue-main: #3b8fd4;
+            --blue-light: #e8f4fd;
             --border-radius-lg: 12px;
-            --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --blue-accent: #3b8fd4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: var(--font-sans); 
-            background-color: var(--color-background-primary);
-            color: var(--color-text-primary);
-            line-height: 1.5;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--color-background-primary); color: var(--color-text-primary); line-height: 1.6; }
 
-        /* --- TON MENU --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
-            background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
+            background: #fff; position: sticky; top: 0; z-index: 100;
         }
-        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-accent); text-decoration: none; }
-        .nav-links { display: flex; gap: 20px; }
+        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-main); text-decoration: none; }
+        .nav-links { display: flex; gap: 10px; }
         .nav-links a {
-            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
-            padding: 8px 12px; border-radius: var(--border-radius-md);
-            transition: all 0.2s;
+            font-size: 14px; text-decoration: none; color: var(--color-text-secondary);
+            padding: 8px 16px; border-radius: 25px; transition: 0.3s;
         }
-        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-accent); }
-        .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
+        .nav-links a.active { background: var(--blue-light); color: var(--blue-main); font-weight: 600; border: 1px solid var(--blue-main); }
 
-        /* --- HERO --- */
-        .hero {
-            padding: 60px 10%;
-            background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
-            border-bottom: 0.5px solid var(--color-border-tertiary);
-        }
-        .hero-tag {
-            display: inline-block; font-size: 12px; color: var(--blue-accent); font-weight: 600;
-            background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
-        }
-        .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 15px; }
-        .hero p { font-size: 16px; color: var(--color-text-secondary); max-width: 800px; line-height: 1.8; }
-
-        /* --- SECTIONS --- */
-        section { padding: 60px 10%; }
-        .section-title { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
-        .section-sub { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 40px; }
-
-        /* --- GRILLE DE CARTES (STYLE INDEX) --- */
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         
-        .card {
-            background: #fff; border: 1px solid var(--color-border-tertiary);
-            border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
-            display: flex; flex-direction: column;
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .hero-tag { display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600; background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 15px; }
+        h1 { font-size: 32px; font-weight: 600; }
+
+        h2 { font-size: 24px; margin: 60px 0 30px; color: var(--color-text-primary); text-align: center; position: relative; }
+        h2::after { content: ""; display: block; width: 50px; height: 3px; background: var(--blue-main); margin: 10px auto; }
+
+        .school-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+            margin-bottom: 80px; 
+            align-items: start;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--blue-accent); }
-        .card-icon { font-size: 28px; margin-bottom: 15px; }
-        .card h3 { font-size: 18px; margin-bottom: 12px; color: var(--color-text-primary); }
-        .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
         
-        .card-link { 
-            background-color: var(--blue-accent); color: white; text-align: center;
-            text-decoration: none; font-size: 12px; font-weight: 600; 
-            padding: 10px; border-radius: 6px;
+        .school-card { 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
         }
 
-        /* --- MÉTHODO GRID --- */
-        .methode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .methode-item { background: var(--color-background-secondary); padding: 20px; border-radius: 8px; border-left: 4px solid var(--blue-accent); }
-        .methode-item strong { display: block; color: var(--blue-accent); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
-        .methode-item span { font-size: 14px; color: var(--color-text-secondary); }
+        .school-card h3 { 
+            font-size: 16px; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            text-transform: uppercase;
+            min-height: 40px;
+        }
 
-        footer { padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); }
+        .school-card .logo-container {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .school-card img { 
+            max-width: 250px; 
+            max-height: 100px; 
+            height: auto; 
+            border-radius: 8px; 
+        }
+
+        .school-card p { 
+            font-size: 14px; 
+            color: var(--color-text-secondary); 
+            text-align: justify; 
+            margin-bottom: 20px; 
+            border-top: 1px dashed #ccc; 
+            padding-top: 15px;
+            min-height: 120px;
+        }
+
+        .map-container { 
+            width: 100%; 
+            height: 200px; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 1px solid var(--color-border-tertiary);
+        }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        .stages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .card { 
+            background: white; border: 1px solid var(--color-border-tertiary); 
+            border-radius: var(--border-radius-lg); padding: 30px; transition: 0.3s;
+        }
+        .card:hover { border-color: var(--blue-main); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card h3 { font-size: 17px; margin-bottom: 15px; color: var(--blue-main); }
+        .card p { font-size: 14px; color: var(--color-text-secondary); text-align: justify; }
+
+        @media (max-width: 768px) { .school-grid, .stages-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -96,14 +115,12 @@
   <div class="nav-links">
     <a href="index.html">Accueil</a>
     <a href="bts-sio.html">BTS SIO</a>
-    <a href="parcours.html">Ecoles & Entreprises</a>
-    <a href="mission.html">Missions & Projet</a>
-    <a href="veille.html" class="active">Veille technologique</a>
+    <a href="parcours.html" class="active">Ecoles & Entreprises</a>
+    <a href="mission.html">Missions et Projets</a>
+    <a href="veille.html">Veille technologique</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
-
-
 
 <div class="container">
     <div class="section-header">
@@ -119,37 +136,34 @@
             </div>
             <p>Webitech est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5 en alternance ou en initial. Les diplômes proposés par l'école sont reconnus par l'État et tous les titres sont certifiés au RNCP.</p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.372574102947!2d2.287593215666577!3d48.83294391051052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6706ce9b3e5cf%3A0x26a7ba95152fa72b!2sWebitech!5e0!3m2!1sfr!2sfr!4v1715850000000!5m2!1sfr!2sfr" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.2922926!3d48.8583701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1640000000000" loading="lazy"></iframe>
             </div>
         </div>
 
         <div class="school-card">
-        <h3>DEUXIÈME ANNÉE BTS SIO SISR</h3>
-        <div class="logo-container">
-            <img src="insta.svg" alt="Logo Insta">
-        </div>
-        <p>INSTA est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5 en alternance ou en initial.
-
-Tous les diplômes proposés par l'école sont reconnus par l’état et tous les titres sont certifiés au RNCP.   <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.371842898717!2d2.351654176904612!3d48.84442650119283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671e2e07d1b5f%3A0xf8c2db1824821c7e!2sINSTA%20-%20CFA%20-%20Ecole!5e0!3m2!1sfr!2sfr!4v1715800000000!5m2!1sfr!2sfr" 
-                loading="lazy">
-            </iframe>
+            <h3>DEUXIÈME ANNÉE BTS SIO SISR</h3>
+            <div class="logo-container">
+                <img src="insta.svg" alt="Logo Insta">
+            </div>
+            <p>INSTA est une école supérieure spécialisée dans le domaine de l'informatique formant des étudiants de Bac +2 à Bac +5 en alternance ou en initial. Tous les diplômes proposés par l'école sont reconnus par l’état et tous les titres sont certifiés au RNCP.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.2922926!3d48.8583701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1640000000000" loading="lazy"></iframe>
+            </div>
         </div>
     </div>
-</div>
 
     <h2>Mes Stages en Entreprise</h2>
     <div class="stages-grid">
         <div class="card">
             <h3>Stage Première Année — NYX</h3>
-            <p>Stage support réseau chez NYX à Paris :  Stage support réseau chez NYX à Paris :Mon stage au sein de l'entreprise NYX à Paris a été ma toute première immersion concrète dans le monde de l'informatique professionnelle. J'y ai découvert le métier de technicien support en participant activement à la maintenance du parc informatique et en apportant une aide précieuse à l'assistance aux utilisateurs au quotidien. Cette expérience m'a permis d'apprendre à gérer les problèmes courants sur les postes de travail, tout en comprenant l'organisation d'un réseau local en milieu réel. Ce stage a posé les bases fondamentales de mon parcours, me permettant d'aborder avec sérénité et curiosité les concepts beaucoup plus techniques du programme BTS SIO SISR par la suite. </div>
+            <p>Mon stage au sein de l'entreprise NYX à Paris a été ma toute première immersion concrète dans le monde de l'informatique professionnelle. J'y ai découvert le métier de technicien support en participant activement à la maintenance du parc informatique et en apportant une aide précieuse à l'assistance aux utilisateurs au quotidien. Cette expérience m'a permis d'apprendre à gérer les problèmes courants sur les postes de travail, tout en comprenant l'organisation d'un réseau local en milieu réel. Ce stage a posé les bases fondamentales de mon parcours.</p>
+        </div>
         <div class="card">
             <h3>Stage Deuxième Année — INSTA</h3>
-            <p>Stage technicienne réseau chez INSTA à Paris :  Stage technicienne réseau chez INSTA à Paris : Mon stage au sein de INSTA a été un véritable accélérateur de compétences techniques. J'y ai réalisé des missions de fond sur des outils piliers de l'administration système et réseau, notamment la mise en place de supervision avec Zabbix et la gestion de parc informatique via GLPI. En travaillant quotidiennement dans des environnements Windows Server, j'ai pu appréhender concrètement toutes les bases fondamentales du programme BTS SIO SISR. Ce parcours m'a permis de maîtriser l'ensemble de la chaîne de support et d'infrastructure, de la maintenance des postes de travail à la sécurisation des services réseau, me donnant ainsi une vision globale et opérationnelle du métier de technicienne système et réseau.
- </div>
+            <p>Mon stage au sein de INSTA a été un véritable accélérateur de compétences techniques. J'y ai réalisé des missions de fond sur des outils piliers de l'administration système et réseau, notamment la mise en place de supervision avec Zabbix et la gestion de parc informatique via GLPI. En travaillant quotidiennement dans des environnements Windows Server, j'ai pu appréhender concrètement toutes les bases fondamentales du programme BTS SIO SISR. Ce parcours m'a permis de maîtriser l'ensemble de la chaîne de support et d'infrastructure.</p>
+        </div>
     </div>
 </div>
-</body>
 
+</body>
 </html>
