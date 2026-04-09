@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Missions | Sabrina Askour</title>
     <style>
-        /* --- VARIABLES EXACTES DE CONTACT.HTML --- */
+        /* --- VARIABLES EXACTES --- */
         :root {
             --color-text-primary: #1a1a1a;
             --color-text-secondary: #4a4a4a;
@@ -43,7 +43,7 @@
         .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-main); }
         .nav-links a.active { color: var(--blue-main); font-weight: 600; }
 
-        /* --- HERO (BANDEAU BLEU) --- */
+        /* --- HERO --- */
         .hero {
             padding: 60px 10%;
             background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
@@ -57,7 +57,7 @@
         .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 10px; }
         .hero p { font-size: 16px; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto; }
 
-        /* --- CONTENEUR DES CARTES --- */
+        /* --- CONTENEUR --- */
         .container { padding: 60px 10%; max-width: 1400px; margin: 0 auto; }
 
         .header-section {
@@ -74,7 +74,7 @@
 
         .header-section h1 { font-size: 24px; font-weight: 600; }
 
-        /* --- GRILLE DE CARTES --- */
+        /* --- GRILLE --- */
         .cards { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -96,10 +96,24 @@
         .card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
         .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 20px; }
         
+        /* --- BOUTONS --- */
+        .btn-group-card {
+            display: flex;
+            gap: 10px;
+        }
+
         .card-link { 
+            flex: 1;
             background-color: var(--blue-main); color: white; text-align: center;
-            text-decoration: none; font-size: 13px; font-weight: 600; 
-            padding: 12px; border-radius: var(--border-radius-md);
+            text-decoration: none; font-size: 12px; font-weight: 600; 
+            padding: 12px 5px; border-radius: var(--border-radius-md);
+        }
+
+        /* Style secondaire pour le deuxième bouton */
+        .card-link-alt {
+            background-color: white;
+            color: var(--blue-main);
+            border: 1.5px solid var(--blue-main);
         }
 
         /* --- STYLE E6 --- */
@@ -143,9 +157,12 @@
             <div>
                 <span class="badge-e6">PROJET E6 - MAJEUR</span>
                 <h3>Projet E6 n°1 : Gestion de Parc avec GLPI</h3>
-                <p>Mise en place d'une solution complète de gestion de parc informatique et de helpdesk. Installation du serveur GLPI sous environnement Debian, configuration de l'inventaire automatisé via l'agent FusionInventory et déploiement de la base de données SQL pour le suivi précis des actifs et la gestion des tickets d'assistance. </p>
+                <p>Mise en place d'une solution complète de gestion de parc informatique et de helpdesk. Installation du serveur GLPI sous environnement Debian, configuration de l'inventaire automatisé via l'agent FusionInventory et déploiement de la base de données SQL pour le suivi précis des actifs et la gestion des tickets d'assistance.</p>
             </div>
-            <a href="#" class="card-link">Consulter le dossier E6</a>
+            <div class="btn-group-card">
+                <a href="#" class="card-link">Consulter le dossier E6</a>
+                <a href="#" class="card-link card-link-alt">Fiche Situation</a>
+            </div>
         </div>
 
         <div class="card e6-card">
@@ -154,7 +171,10 @@
                 <h3>Projet E6 n°2 : Infrastructure Active Directory & Sécurisation GPO</h3>
                 <p>Déploiement d'un contrôleur de domaine Windows Server pour la centralisation des ressources. Organisation de l'annuaire via des Unités Organisationnelles (UO), gestion fine des comptes utilisateurs et sécurisation du parc informatique par l'application de stratégies de groupe (GPO) dédiées au durcissement du système et à la restriction des accès.</p>
             </div>
-            <a href="#" class="card-link">Consulter le dossier E6</a>
+            <div class="btn-group-card">
+                <a href="#" class="card-link">Consulter le dossier E6</a>
+                <a href="#" class="card-link card-link-alt">Fiche Situation</a>
+            </div>
         </div>
     </div>
 
