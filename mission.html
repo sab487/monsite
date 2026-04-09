@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Missions | Sabrina Askour</title>
     <style>
-        /* --- TES VARIABLES EXACTES DE L'INDEX --- */
+        /* --- VARIABLES EXACTES DE CONTACT.HTML --- */
         :root {
             --color-text-primary: #1a1a1a;
             --color-text-secondary: #4a4a4a;
@@ -13,8 +13,9 @@
             --color-background-primary: #ffffff;
             --color-background-secondary: #f9f9f9;
             --border-radius-md: 8px;
-            --border-radius-lg: 12px;
+            --border-radius-lg: 16px;
             --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --blue-main: #3b8fd4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,37 +27,54 @@
             line-height: 1.5;
         }
 
-        /* --- TON MENU INDEX --- */
+        /* --- NAVIGATION --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
             background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
         }
-        .nav-logo { font-size: 18px; font-weight: 600; color: #3b8fd4; text-decoration: none; }
+        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-main); text-decoration: none; }
         .nav-links { display: flex; gap: 20px; }
         .nav-links a {
             font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
             padding: 8px 12px; border-radius: var(--border-radius-md);
             transition: all 0.2s;
         }
-        .nav-links a:hover { background: var(--color-background-secondary); color: #3b8fd4; }
-        .nav-links a.active { color: #3b8fd4; font-weight: 600; }
+        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-main); }
+        .nav-links a.active { color: var(--blue-main); font-weight: 600; }
 
-        /* --- STRUCTURE DE LA PAGE --- */
-        section { padding: 40px 10%; }
-        .container { max-width: 1200px; margin: 0 auto; }
+        /* --- HERO (BANDEAU BLEU) --- */
+        .hero {
+            padding: 60px 10%;
+            background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+            text-align: center;
+        }
+        .hero-tag {
+            display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600;
+            background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
+        }
+        .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 10px; }
+        .hero p { font-size: 16px; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto; }
+
+        /* --- CONTENEUR DES CARTES --- */
+        .container { padding: 60px 10%; max-width: 1400px; margin: 0 auto; }
 
         .header-section {
-            display: flex; align-items: center; gap: 15px; margin-bottom: 30px;
+            display: flex; align-items: center; gap: 15px; margin: 40px 0 30px 0;
         }
+        .header-section:first-child { margin-top: 0; }
+        
         .header-icon { 
-            background: #dbeeff; color: #3b8fd4;
-            padding: 10px; border-radius: var(--border-radius-md); font-size: 24px;
+            width: 45px; height: 45px;
+            background: #e8f4fd; color: var(--blue-main);
+            border-radius: var(--border-radius-md); font-size: 24px;
+            display: flex; justify-content: center; align-items: center;
         }
 
-        h1 { font-size: 26px; font-weight: 600; }
+        .header-section h1 { font-size: 24px; font-weight: 600; }
 
-        /* --- TES CARTES INDEX --- */
+        /* --- GRILLE DE CARTES --- */
         .cards { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -65,10 +83,12 @@
         
         .card {
             background: #fff; border: 1px solid var(--color-border-tertiary);
-            border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
+            border-radius: var(--border-radius-lg); padding: 24px; 
+            transition: all 0.3s ease;
             display: flex; flex-direction: column; justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-        .card:hover { transform: translateY(-5px); border-color: #3b8fd4; }
+        .card:hover { transform: translateY(-5px); border-color: var(--blue-main); }
         
         .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
         .card-header img { width: 30px; height: 30px; object-fit: contain; }
@@ -77,19 +97,19 @@
         .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 20px; }
         
         .card-link { 
-            background-color: #3b8fd4; color: white; text-align: center;
-            text-decoration: none; font-size: 12px; font-weight: 600; 
-            padding: 10px; border-radius: 6px;
+            background-color: var(--blue-main); color: white; text-align: center;
+            text-decoration: none; font-size: 13px; font-weight: 600; 
+            padding: 12px; border-radius: var(--border-radius-md);
         }
 
-        /* --- STYLE SPÉCIFIQUE POUR E6 (Bordure plus marquée) --- */
-        .e6-card { border: 1.5px solid #3b8fd4; }
+        /* --- STYLE E6 --- */
+        .e6-card { border: 1.5px solid #dbeeff; }
         .badge-e6 {
-            display: inline-block; font-size: 11px; background: #3b8fd4; color: #fff;
-            padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; font-weight: 600;
+            display: inline-block; font-size: 10px; background: var(--blue-main); color: #fff;
+            padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; font-weight: 700;
         }
 
-        hr { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 20px 0 50px 0; }
+        hr { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 50px 0; }
     </style>
 </head>
 <body>
@@ -106,6 +126,12 @@
   </div>
 </nav>
 
+<div class="hero">
+  <div class="hero-tag">RÉALISATIONS</div>
+  <h1>Missions & Projet</h1>
+  <p>Découvrez les projets techniques et les travaux pratiques (PPE) réalisés durant mon parcours.</p>
+</div>
+
 <section class="container">
     <div class="header-section">
         <div class="header-icon">🏆</div>
@@ -117,7 +143,8 @@
             <div>
                 <span class="badge-e6">PROJET E6 - MAJEUR</span>
                 <h3>Projet E6 n°1 : Gestion de Parc avec GLPI</h3>
-                <p>Mise en place d'une solution complète de gestion de parc informatique et de helpdesk. Installation du serveur GLPI sous environnement Debian, configuration de l'inventaire automatisé via l'agent FusionInventory et déploiement de la base de données SQL pour le suivi précis des actifs et la gestion des tickets d'assistance. </div>
+                <p>Mise en place d'une solution complète de gestion de parc informatique et de helpdesk. Installation du serveur GLPI sous environnement Debian, configuration de l'inventaire automatisé via l'agent FusionInventory et déploiement de la base de données SQL pour le suivi précis des actifs et la gestion des tickets d'assistance. </p>
+            </div>
             <a href="#" class="card-link">Consulter le dossier E6</a>
         </div>
 
@@ -125,7 +152,8 @@
             <div>
                 <span class="badge-e6">PROJET E6 - MAJEUR</span>
                 <h3>Projet E6 n°2 : Infrastructure Active Directory & Sécurisation GPO</h3>
-                <p>Déploiement d'un contrôleur de domaine Windows Server pour la centralisation des ressources. Organisation de l'annuaire via des Unités Organisationnelles (UO), gestion fine des comptes utilisateurs et sécurisation du parc informatique par l'application de stratégies de groupe (GPO) dédiées au durcissement du système et à la restriction des accès.    </div>
+                <p>Déploiement d'un contrôleur de domaine Windows Server pour la centralisation des ressources. Organisation de l'annuaire via des Unités Organisationnelles (UO), gestion fine des comptes utilisateurs et sécurisation du parc informatique par l'application de stratégies de groupe (GPO) dédiées au durcissement du système et à la restriction des accès.</p>
+            </div>
             <a href="#" class="card-link">Consulter le dossier E6</a>
         </div>
     </div>
@@ -171,6 +199,10 @@
         </div>
     </div>
 </section>
+
+<footer style="padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); background: var(--color-background-secondary);">
+    <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour — Portfolio BTS SIO</p>
+</footer>
 
 </body>
 </html>
