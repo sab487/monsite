@@ -5,47 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTS SIO | Sabrina Askour</title>
     <style>
+        /* --- VARIABLES HARMONISÉES --- */
         :root {
             --color-text-primary: #1a1a1a;
             --color-text-secondary: #4a4a4a;
             --color-border-tertiary: #e1e1e1;
             --color-background-primary: #ffffff;
-            --blue-main: #3b8fd4;
-            --blue-light: #e8f4fd;
+            --color-background-secondary: #f9f9f9;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --blue-accent: #3b8fd4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--color-background-primary); color: var(--color-text-primary); line-height: 1.6; }
+        
+        body { 
+            font-family: var(--font-sans); 
+            background-color: var(--color-background-primary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
 
-        /* Navigation */
+        /* --- MENU HARMONISÉ --- */
         nav {
-            display: flex; justify-content: center; padding: 20px 5%; 
-            border-bottom: 0.5px solid var(--color-border-tertiary);
-            background: #fff; position: sticky; top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
+            background: var(--color-background-primary); position: sticky; top: 0; z-index: 100;
         }
-        .nav-links { display: flex; gap: 10px; }
+        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-accent); text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; }
         .nav-links a {
-            font-size: 13px; text-decoration: none; color: var(--color-text-primary);
-            padding: 8px 16px; border-radius: 25px; border: 1px solid #1a1a1a; transition: 0.3s;
+            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
+            padding: 8px 12px; border-radius: var(--border-radius-md);
+            transition: all 0.2s;
         }
-        .nav-links a.active { background: var(--blue-light); border-color: var(--blue-main); color: var(--blue-main); font-weight: 600; }
+        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-accent); }
+        .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
 
-        /* Mise en page */
+        /* --- CONTENU --- */
         .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        .hero-tag { display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 700; background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase; }
-        h1 { font-size: 32px; margin-bottom: 30px; }
+        
+        .hero-tag { 
+            display: inline-block; font-size: 12px; color: var(--blue-accent); font-weight: 700; 
+            background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; 
+            text-transform: uppercase; 
+        }
+        
+        h1 { font-size: 32px; font-weight: 600; margin-bottom: 30px; }
 
-        /* Section Définition en 2 colonnes */
         .definition-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-bottom: 60px;
-            text-align: justify;
             font-size: 15px;
         }
+        .definition-grid p { text-align: justify; color: var(--color-text-secondary); }
 
-        /* Blocs Options SISR / SLAM avec angles coupés */
+        /* --- BLOCS OPTIONS --- */
         .option-section {
             display: flex;
             flex-direction: column;
@@ -53,16 +71,17 @@
         }
 
         .option-block {
-            background: #98d8f4; /* Bleu ciel comme sur l'image */
+            background: #98d8f4;
             padding: 40px;
             text-align: center;
             position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%); /* Forme biseautée */
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
             padding-bottom: 80px;
+            color: white;
         }
 
         .option-title-badge {
-            background: var(--blue-main);
+            background: var(--blue-accent);
             color: white;
             padding: 8px 25px;
             border-radius: 25px;
@@ -78,7 +97,7 @@
         
         .btn-plus-infos {
             background: white;
-            color: var(--blue-main);
+            color: var(--blue-accent);
             padding: 8px 20px;
             border-radius: 4px;
             text-decoration: none;
@@ -94,18 +113,23 @@
             background: #f0f0f0;
         }
 
+        footer { padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); margin-top: 40px; }
+
         @media (max-width: 768px) {
             .definition-grid { grid-template-columns: 1fr; }
+            nav { padding: 15px 5%; }
+            .nav-links { gap: 10px; }
         }
     </style>
 </head>
 <body>
 
 <nav>
+  <a href="index.html" class="nav-logo">Sabrina Askour</a>
   <div class="nav-links">
     <a href="index.html">Accueil</a>
     <a href="bts-sio.html" class="active">BTS SIO</a>
-    <a href="parcours.html">Ecole et Entreprise</a>
+    <a href="parcours.html">Ecoles & Entreprises</a>
     <a href="mission.html">Missions et Projets</a>
     <a href="veille.html">Veille technologique</a>
     <a href="contact.html">Contact</a>
@@ -143,6 +167,10 @@
 
     </div>
 </div>
+
+<footer>
+    <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour - Portfolio BTS SIO SISR</p>
+</footer>
 
 </body>
 </html>
