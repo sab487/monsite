@@ -14,6 +14,7 @@
             --border-radius-md: 8px;
             --border-radius-lg: 12px;
             --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --blue-main: #3b8fd4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,14 +31,14 @@
             padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
             background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
         }
-        .nav-logo { font-size: 18px; font-weight: 600; color: #3b8fd4; text-decoration: none; }
+        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-main); text-decoration: none; }
         .nav-links { display: flex; gap: 20px; }
         .nav-links a {
             font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
             padding: 8px 12px; border-radius: var(--border-radius-md);
             transition: all 0.2s;
         }
-        .nav-links a:hover { background: var(--color-background-secondary); color: #3b8fd4; }
+        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-main); }
 
         .hero {
             padding: 80px 10%;
@@ -45,7 +46,7 @@
             border-bottom: 0.5px solid var(--color-border-tertiary);
         }
         .hero-tag {
-            display: inline-block; font-size: 12px; color: #3b8fd4; font-weight: 600;
+            display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600;
             background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
         }
         .hero h1 { font-size: 42px; font-weight: 600; margin-bottom: 10px; }
@@ -54,11 +55,11 @@
 
         .btn-group { display: flex; gap: 15px; }
         .btn-primary {
-            background: #3b8fd4; color: #fff; padding: 12px 24px;
+            background: var(--blue-main); color: #fff; padding: 12px 24px;
             border-radius: var(--border-radius-md); text-decoration: none; font-weight: 500;
         }
         .btn-secondary {
-            border: 1.5px solid #3b8fd4; color: #3b8fd4; padding: 12px 24px;
+            border: 1.5px solid var(--blue-main); color: var(--blue-main); padding: 12px 24px;
             border-radius: var(--border-radius-md); text-decoration: none; font-weight: 500;
         }
 
@@ -74,9 +75,9 @@
         }
         .tl-dot {
             width: 24px; height: 24px; border-radius: 50%; background: #fff;
-            border: 3px solid #3b8fd4; flex-shrink: 0; z-index: 1;
+            border: 3px solid var(--blue-main); flex-shrink: 0; z-index: 1;
         }
-        .tl-date { font-size: 13px; color: #3b8fd4; font-weight: 700; margin-bottom: 4px; }
+        .tl-date { font-size: 13px; color: var(--blue-main); font-weight: 700; margin-bottom: 4px; }
         .tl-title { font-size: 16px; font-weight: 600; }
         .tl-sub { font-size: 14px; color: var(--color-text-secondary); }
 
@@ -86,19 +87,47 @@
             border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
             display: flex; flex-direction: column; justify-content: space-between;
         }
-        .card:hover { transform: translateY(-5px); border-color: #3b8fd4; }
+        .card:hover { transform: translateY(-5px); border-color: var(--blue-main); }
         .card-icon { font-size: 24px; margin-bottom: 15px; }
         .card h3 { font-size: 16px; margin-bottom: 10px; }
         .card p { font-size: 14px; color: var(--color-text-secondary); flex-grow: 1; margin-bottom: 20px; }
         .card-link { 
-            background-color: #3b8fd4; color: white; text-align: center;
+            background-color: var(--blue-main); color: white; text-align: center;
             text-decoration: none; font-size: 12px; font-weight: 600; 
             padding: 10px; border-radius: 6px;
         }
 
-        .badge {
-            display: inline-block; font-size: 12px; background: #dbeeff; color: #3b8fd4;
-            padding: 6px 12px; border-radius: 20px; margin: 5px; font-weight: 500;
+        /* --- FOOTER ET CONTACT --- */
+        footer {
+            padding: 60px 10%;
+            text-align: center;
+            border-top: 1px solid var(--color-border-tertiary);
+            background: var(--color-background-secondary);
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .contact-badge {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            background: #fff;
+            color: var(--color-text-primary);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid var(--color-border-tertiary);
+            transition: all 0.2s;
+        }
+        .contact-badge:hover {
+            border-color: var(--blue-main);
+            color: var(--blue-main);
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -172,7 +201,7 @@
         <div class="tl-sub">
           <p>Lycée Romain Rolland, Goussainville — Spécialités NSI et Mathématiques</p>
           <div style="margin-top: 10px;">
-            <a href="https://https://lyc-rolland-goussainville.ac-versailles.fr//" target="_blank" class="card-link" style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: white; color: #3b8fd4; border: 1px solid #3b8fd4; text-decoration: none; font-size: 13px;">
+            <a href="https://lyc-rolland-goussainville.ac-versailles.fr/" target="_blank" class="card-link" style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: white; color: #3b8fd4; border: 1px solid #3b8fd4; text-decoration: none; font-size: 13px;">
               Voir l'école 🏫
             </a>
           </div>
@@ -189,7 +218,7 @@
           <p>Collège François Mauriac à Louvres.</p>
           <p>Brevet mention assez bien.</p>
           <div style="margin-top: 10px;">
-            <a href="https://www.https://https://clg-mauriac-louvres.ac-versailles.fr///" target="_blank" class="card-link" style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: white; color: #3b8fd4; border: 1px solid #3b8fd4; text-decoration: none; font-size: 13px;">
+            <a href="https://clg-mauriac-louvres.ac-versailles.fr/" target="_blank" class="card-link" style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: white; color: #3b8fd4; border: 1px solid #3b8fd4; text-decoration: none; font-size: 13px;">
               Voir l'école 🏫
             </a>
           </div>
@@ -243,18 +272,21 @@
   </div>
 </section>
 
-<footer style="padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary);">
+<footer>
   <div class="section-title">Contact</div>
   <p class="section-sub">N'hésitez pas à me contacter</p>
-  <div>
-    <span class="badge">📧 sabrina2ask@gmail.com</span>
-    <span class="badge">💼 LinkedIn</span>
-      <a href="https://www.linkedin.com/in/sabrina-askour-3a1230271/" target="_blank" class="info-value">Sabrina Askour</a>
-    <span class="badge">🐙 GitHub : sab487</span>
-       <a href="https://github.com/sab487" target="_blank" class="info-value">sab487</a>
+  <div class="contact-links">
+    <a href="mailto:sabrina2ask@gmail.com" class="contact-badge">
+        📧 sabrina2ask@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/sabrina-askour-3a1230271/" target="_blank" class="contact-badge">
+        💼 LinkedIn : Sabrina Askour
+    </a>
+    <a href="https://github.com/sab487" target="_blank" class="contact-badge">
+        🐙 GitHub : sab487
+    </a>
   </div>
 </footer>
 
 </body>
 </html>
-
