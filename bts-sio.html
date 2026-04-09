@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTS SIO | Sabrina Askour</title>
     <style>
-        /* --- VARIABLES HARMONISÉES --- */
+        /* --- STYLE IDENTIQUE À CONTACT.HTML --- */
         :root {
             --color-text-primary: #1a1a1a;
             --color-text-secondary: #4a4a4a;
@@ -13,11 +13,9 @@
             --color-background-primary: #ffffff;
             --color-background-secondary: #f9f9f9;
             --border-radius-md: 8px;
-            --border-radius-lg: 12px;
+            --border-radius-lg: 16px;
             --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --blue-accent: #3b8fd4;
-            --sisr-bg: #98d8f4;
-            --slam-bg: #add8e6;
+            --blue-main: #3b8fd4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,78 +24,80 @@
             font-family: var(--font-sans); 
             background-color: var(--color-background-primary);
             color: var(--color-text-primary);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        /* --- MENU HARMONISÉ --- */
+        /* --- NAVIGATION --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
-            background: var(--color-background-primary); position: sticky; top: 0; z-index: 100;
+            background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
         }
-        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-accent); text-decoration: none; }
+        .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-main); text-decoration: none; }
         .nav-links { display: flex; gap: 20px; }
         .nav-links a {
             font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
             padding: 8px 12px; border-radius: var(--border-radius-md);
             transition: all 0.2s;
         }
-        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-accent); }
-        .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
+        .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-main); }
+        .nav-links a.active { color: var(--blue-main); font-weight: 600; }
 
-        /* --- CONTENU --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        
-        .hero-tag { 
-            display: inline-block; font-size: 12px; color: var(--blue-accent); font-weight: 700; 
-            background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; 
-            text-transform: uppercase; 
+        /* --- HERO (IDENTIQUE CONTACT) --- */
+        .hero {
+            padding: 60px 10%;
+            background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+            text-align: center;
         }
-        
-        h1 { font-size: 32px; font-weight: 600; margin-bottom: 30px; }
+        .hero-tag {
+            display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600;
+            background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 10px; }
+        .hero p { font-size: 16px; color: var(--color-text-secondary); max-width: 800px; margin: 0 auto; }
+
+        /* --- CONTENEUR PRINCIPAL --- */
+        .content-container {
+            padding: 60px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
         .definition-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-bottom: 80px;
-            font-size: 15px;
+            margin-bottom: 60px;
         }
-        .definition-grid p { text-align: justify; color: var(--color-text-secondary); }
+        .definition-grid p { 
+            font-size: 15px; 
+            color: var(--color-text-secondary); 
+            text-align: justify;
+            line-height: 1.6;
+        }
 
         /* --- BLOCS OPTIONS --- */
         .option-section {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 40px;
         }
 
         .option-block {
-            padding: 60px 40px;
+            background: #98d8f4;
+            padding: 40px;
             text-align: center;
-            color: white;
-            transition: transform 0.3s ease;
-        }
-
-        /* SISR Style */
-        .sisr-block {
-            background: var(--sisr-bg);
+            position: relative;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-            margin-bottom: -40px;
-            padding-bottom: 120px;
-            z-index: 2;
-        }
-
-        /* SLAM Style */
-        .slam-block {
-            background: var(--slam-bg);
-            clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%);
-            padding-top: 120px;
-            z-index: 1;
+            padding-bottom: 80px;
+            color: white;
+            border-radius: var(--border-radius-lg);
         }
 
         .option-title-badge {
-            background: var(--blue-accent);
+            background: var(--blue-main);
             color: white;
             padding: 8px 25px;
             border-radius: 25px;
@@ -108,14 +108,14 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .option-subtitle { font-weight: 700; color: white; margin-bottom: 15px; display: block; font-size: 16px; }
-        .option-text { color: white; max-width: 800px; margin: 0 auto; font-size: 15px; line-height: 1.7; }
+        .option-subtitle { font-weight: 700; color: white; margin-bottom: 15px; display: block; font-size: 15px; }
+        .option-text { color: white; max-width: 850px; margin: 0 auto; font-size: 15px; line-height: 1.6; }
         
         .btn-plus-infos {
             background: white;
-            color: var(--blue-accent);
+            color: var(--blue-main);
             padding: 10px 25px;
-            border-radius: 4px;
+            border-radius: var(--border-radius-md);
             text-decoration: none;
             font-size: 13px;
             display: inline-block;
@@ -125,18 +125,19 @@
         }
         
         .btn-plus-infos:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        footer { padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); margin-top: 60px; }
+        footer {
+            padding: 40px 10%; text-align: center;
+            border-top: 1px solid var(--color-border-tertiary);
+            background: var(--color-background-secondary);
+        }
 
-        @media (max-width: 768px) {
-            .definition-grid { grid-template-columns: 1fr; gap: 20px; }
-            nav { padding: 15px 5%; flex-direction: column; gap: 15px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; }
-            .option-block { clip-path: none !important; margin-bottom: 20px !important; padding: 40px 20px !important; border-radius: var(--border-radius-lg); }
+        @media (max-width: 900px) {
+            .definition-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; }
         }
     </style>
 </head>
@@ -148,16 +149,19 @@
     <a href="index.html">Accueil</a>
     <a href="bts-sio.html" class="active">BTS SIO</a>
     <a href="parcours.html">Ecoles & Entreprises</a>
-    <a href="mission.html">Missions et Projets</a>
+    <a href="mission.html">Missions & Projet</a>
     <a href="veille.html">Veille technologique</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
-<div class="container">
-    <div class="hero-tag">FORMATION</div>
-    <h1>Qu'est-ce que le BTS SIO ?</h1>
+<div class="hero">
+  <div class="hero-tag">FORMATION</div>
+  <h1>Qu'est-ce que le BTS SIO ?</h1>
+  <p>Découvrez les spécificités de ce diplôme d'État et les deux parcours de spécialisation.</p>
+</div>
 
+<div class="content-container">
     <div class="definition-grid">
         <div class="col">
             <p>• Le Brevet de Technicien Supérieur en Services Informatiques aux Organisations est une formation de deux ans (reconnu par l'état de niveau Bac+2) qui prépare les étudiants aux métiers d'administrateur réseau ou de développeur. Il remplace depuis Septembre 2011, l'ancien BTS IG (Informatique de gestion). Le programme a évolué en fonction de la place et du rôle des TIC (Technologies de l'Information et de la Communication).</p>
@@ -168,26 +172,24 @@
     </div>
 
     <div class="option-section">
-        
-        <div class="option-block sisr-block">
+        <div class="option-block">
             <div class="option-title-badge">BTS SIO SISR</div>
             <span class="option-subtitle">SISR : (Services Informatiques aux Organisations, option Solutions d'Infrastructure, Systèmes et Réseaux)</span>
             <p class="option-text">Le BTS SIO SISR est une formation en 2 ans qui prépare des étudiants à gérer l'infrastructure informatique des entreprises. Ils apprennent à installer, configurer et maintenir des réseaux et des systèmes informatiques. Cela inclut la sécurité, la gestion des serveurs et des réseaux pour assurer le bon fonctionnement des systèmes informatiques.</p>
             <a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-a-solutions-d-infrastructure-systemes-et-reseaux" target="_blank" class="btn-plus-infos">Plus d'infos</a>
         </div>
 
-        <div class="option-block slam-block">
+        <div class="option-block" style="background: #add8e6; clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%); padding-top: 80px;">
             <div class="option-title-badge">BTS SIO SLAM</div>
             <span class="option-subtitle">SLAM : (Solutions Logicielles et Applications Métiers)</span>
             <p class="option-text">Le BTS SIO SLAM est une formation en 2 ans qui prépare les étudiants à concevoir, développer et maintenir des applications informatiques. Ils apprennent à programmer, gérer des bases de données et développer des solutions logicielles adaptées aux besoins des entreprises. Cela inclut la création d'applications web, mobiles ou de bureau, ainsi que la gestion de projets et la sécurité des développements.</p>
             <a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers" target="_blank" class="btn-plus-infos">Plus d'infos</a>
         </div>
-
     </div>
 </div>
 
 <footer>
-    <p>© 2026 Sabrina Askour - Portfolio BTS SIO SISR</p>
+    <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour — Portfolio BTS SIO</p>
 </footer>
 
 </body>
