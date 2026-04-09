@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique | Sabrina Askour</title>
     <style>
-        /* --- VARIABLES DE TON INDEX --- */
         :root {
             --color-text-primary: #1a1a1a;
             --color-text-secondary: #4a4a4a;
@@ -19,15 +18,13 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: var(--font-sans); 
+        body {
+            font-family: var(--font-sans);
             background-color: var(--color-background-primary);
             color: var(--color-text-primary);
             line-height: 1.5;
         }
 
-        /* --- TON MENU --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
@@ -37,13 +34,11 @@
         .nav-links { display: flex; gap: 20px; }
         .nav-links a {
             font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
-            padding: 8px 12px; border-radius: var(--border-radius-md);
-            transition: all 0.2s;
+            padding: 8px 12px; border-radius: var(--border-radius-md); transition: all 0.2s;
         }
         .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-accent); }
         .nav-links a.active { color: var(--blue-accent); font-weight: 600; }
 
-        /* --- HERO --- */
         .hero {
             padding: 60px 10%;
             background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
@@ -56,14 +51,11 @@
         .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 15px; }
         .hero p { font-size: 16px; color: var(--color-text-secondary); max-width: 800px; line-height: 1.8; }
 
-        /* --- SECTIONS --- */
         section { padding: 60px 10%; }
         .section-title { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
         .section-sub { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 40px; }
 
-        /* --- GRILLE DE CARTES (STYLE INDEX) --- */
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        
         .card {
             background: #fff; border: 1px solid var(--color-border-tertiary);
             border-radius: var(--border-radius-lg); padding: 24px; transition: transform 0.2s;
@@ -73,18 +65,58 @@
         .card-icon { font-size: 28px; margin-bottom: 15px; }
         .card h3 { font-size: 18px; margin-bottom: 12px; color: var(--color-text-primary); }
         .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
-        
-        .card-link { 
+        .card-link {
             background-color: var(--blue-accent); color: white; text-align: center;
-            text-decoration: none; font-size: 12px; font-weight: 600; 
+            text-decoration: none; font-size: 12px; font-weight: 600;
             padding: 10px; border-radius: 6px;
         }
 
-        /* --- MÉTHODO GRID --- */
         .methode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
         .methode-item { background: var(--color-background-secondary); padding: 20px; border-radius: 8px; border-left: 4px solid var(--blue-accent); }
         .methode-item strong { display: block; color: var(--blue-accent); font-size: 12px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
         .methode-item span { font-size: 14px; color: var(--color-text-secondary); }
+
+        /* TIMELINE ÉVOLUTION */
+        .timeline-evo { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
+        .tl-evo-item { display: flex; gap: 20px; padding-bottom: 28px; position: relative; }
+        .tl-evo-item:not(:last-child)::before {
+            content: ''; position: absolute; left: 15px; top: 32px;
+            width: 2px; height: calc(100% - 10px); background: #dbeeff;
+        }
+        .tl-evo-dot {
+            width: 32px; height: 32px; border-radius: 50%; background: #dbeeff;
+            border: 2px solid var(--blue-accent); flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; z-index: 1;
+        }
+        .tl-evo-year { font-size: 12px; color: var(--blue-accent); font-weight: 700; margin-bottom: 4px; }
+        .tl-evo-title { font-size: 15px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 4px; }
+        .tl-evo-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+
+        /* STATS */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px; }
+        .stat-card {
+            background: #fff; border: 1px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg); padding: 24px; text-align: center;
+            border-top: 3px solid var(--blue-accent);
+        }
+        .stat-number { font-size: 32px; font-weight: 700; color: var(--blue-accent); margin-bottom: 6px; }
+        .stat-label { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+
+        /* COMPARATIF */
+        .compare-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
+        .compare-table th {
+            background: var(--blue-accent); color: white; padding: 12px 16px;
+            text-align: left; font-weight: 600;
+        }
+        .compare-table th:first-child { border-radius: 8px 0 0 0; }
+        .compare-table th:last-child { border-radius: 0 8px 0 0; }
+        .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--color-border-tertiary); vertical-align: top; }
+        .compare-table tr:nth-child(even) td { background: var(--color-background-secondary); }
+        .compare-table tr:hover td { background: #e8f4fd; }
+        .tag-good { background: #d4edda; color: #155724; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .tag-bad { background: #f8d7da; color: #721c24; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .tag-mid { background: #fff3cd; color: #856404; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
 
         footer { padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); }
     </style>
@@ -92,125 +124,273 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Sabrina Askour</a>
-  <div class="nav-links">
-    <a href="index.html">Accueil</a>
-    <a href="bts-sio.html">BTS SIO</a>
-    <a href="parcours.html">Ecoles & Entreprises</a>
-    <a href="mission.html">Missions & Projet</a>
-    <a href="veille.html" class="active">Veille technologique</a>
-    <a href="contact.html">Contact</a>
-  </div>
+    <a href="index.html" class="nav-logo">Sabrina Askour</a>
+    <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="bts-sio.html">BTS SIO</a>
+        <a href="parcours.html">Ecoles & Entreprises</a>
+        <a href="mission.html">Missions & Projets</a>
+        <a href="veille.html" class="active">Veille technologique</a>
+        <a href="contact.html">Contact</a>
+    </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">VEILLE TECHNOLOGIQUE</div>
-  <h1>Veille technologique: L'Authentification à Double Facteur (2FA)</h1>
-  <p>Suivi et analyse de la Double Authentification (2FA), une solution clé pour renforcer la sécurité des accès au Système d'Information.</div>
+    <div class="hero-tag">VEILLE TECHNOLOGIQUE</div>
+    <h1>L'Authentification à Double Facteur (2FA)</h1>
+    <p>Suivi et analyse de la Double Authentification (2FA), une solution clé pour renforcer la sécurité des accès au Système d'Information. De la vulnérabilité des SMS aux clés physiques FIDO2, tour d'horizon d'une technologie en pleine évolution.</p>
+</div>
 
+<!-- 1. QU'EST-CE QUE LA VEILLE -->
 <section id="definition">
-  <div class="section-title">Qu'est-ce que la veille technologique ?</div>
-  <p style="color: var(--color-text-secondary); line-height: 1.8; max-width: 900px; margin-bottom: 30px;">
-    La veille technologique est un suivi des évolutions dans le domaine des technologies. Cela permet aux entreprises ou aux professionnels de rester informés des dernières innovations et des tendances émergentes. L'objectif est de prendre des décisions éclairées, d'anticiper les changements et de maintenir un avantage concurrentiel via la surveillance de sources d'information fiables.
-  </p>
-
-  <div class="methode-grid">
-    <div class="methode-item">
-        <strong>Pourquoi ?</strong>
-        <span>Anticiper les innovations technologiques, identifier les nouvelles menaces et adapter ces compétences aux évolutions constantes du marché de l'informatique.</span>
+    <div class="section-title">1. Qu'est-ce que la veille technologique ?</div>
+    <p style="color: var(--color-text-secondary); line-height: 1.8; max-width: 900px; margin-bottom: 30px;">
+        La veille technologique est un processus de surveillance continue des évolutions dans le domaine des technologies. Elle permet aux entreprises et aux professionnels de rester informés des dernières innovations et tendances émergentes afin de prendre des décisions éclairées, d'anticiper les changements et de maintenir un avantage concurrentiel.
+    </p>
+    <div class="methode-grid">
+        <div class="methode-item">
+            <strong>Pourquoi ?</strong>
+            <span>Anticiper les innovations, identifier les nouvelles menaces et adapter ses compétences aux évolutions constantes du marché de l'informatique.</span>
+        </div>
+        <div class="methode-item">
+            <strong>Comment ?</strong>
+            <span>Flux RSS, Google Alerts, alertes mail automatiques, suivis d'un tri et d'une analyse des informations les plus pertinentes. Rapports de l'ANSSI consultés régulièrement.</span>
+        </div>
+        <div class="methode-item">
+            <strong>Où ?</strong>
+            <span>Presse spécialisée, blogs d'experts en cybersécurité, forums techniques, documentation officielle des éditeurs. Sites : Zataz, LeMondeinformatique, ANSSI.</span>
+        </div>
+        <div class="methode-item">
+            <strong>Quand ?</strong>
+            <span>Surveillance quotidienne pour rester réactive face aux nouvelles failles et vulnérabilités publiées.</span>
+        </div>
     </div>
-    <div class="methode-item">
-        <strong>Comment ?</strong>
-        <span>Utilisation d'outils de regroupement automatique (flux RSS, alertes mail) suivis d'un tri et d'une analyse des informations les plus pertinentes. Par exemple : Flux RSS, Google Alerts, et rapports de l'ANSSI.</span>
-    </div>
-    <div class="methode-item">
-        <strong>Où ?</strong>
-        <span>Consultation de la presse spécialisée, des blogs d'experts en cybersécurité, des forums techniques et de la documentation officielle des éditeurs. Pae exemple : Sites spécialisés (Zataz, LMI) et réseaux professionnels.</span>
-    </div>
-    <div class="methode-item">
-        <strong>Quand ?</strong>
-        <span>Surveillance quotidienne pour rester réactive face aux failles.</span>
-    </div>
-  </div>
 </section>
 
-<section id="choix-sujet" style="background-color: var(--color-background-secondary); border-top: 1px solid var(--color-border-tertiary); border-bottom: 1px solid var(--color-border-tertiary); padding: 60px 10%;">
-  <div class="section-title">2. Mon sujet de veille</div>
-  
-  <div class="methode-item" style="border-left: 4px solid var(--blue-accent); background: white; padding: 30px; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    
-    <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed var(--color-border-tertiary);">
-        <strong style="color: var(--blue-accent); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Thématique retenue :</strong>
-        <p style="font-size: 18px; font-weight: 600; color: var(--color-text-primary); margin-top: 8px;">
-            La Double Authentification (2FA)
-        </p>
-    </div>
+<!-- 2. SUJET DE VEILLE -->
+<section id="choix-sujet" style="background-color: var(--color-background-secondary); border-top: 1px solid var(--color-border-tertiary); border-bottom: 1px solid var(--color-border-tertiary);">
+    <div class="section-title">2. Mon sujet de veille</div>
 
-    <div style="margin-bottom: 25px;">
-        <strong style="color: var(--blue-accent); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Définition : La Double Authentification (2FA)</strong>
-        <p style="line-height: 1.6; color: var(--color-text-secondary); font-size: 15px; margin-top: 12px; text-align: justify;">
-            La Double Authentification (2FA), ou authentification à deux facteurs, est une méthode de sécurité informatique qui impose à l'utilisateur de fournir deux preuves d'identité distinctes avant d'accéder à un compte ou à un réseau.
-        </p>
-        <p style="line-height: 1.6; color: var(--color-text-secondary); font-size: 15px; margin-top: 15px;">
-            Elle repose généralement sur la combinaison de deux éléments parmi ces trois catégories :<br><br>
-            • <b>Ce que l'on sait :</b> Un mot de passe ou un code PIN.<br>
-            • <b>Ce que l'on possède :</b> Un smartphone (appli TOTP), une clé physique (Yubikey) ou un SMS.<br>
-            • <b>Ce que l'on est :</b> Une donnée biométrique (empreinte, visage).
-        </p>
-        <p style="line-height: 1.6; color: var(--color-text-secondary); font-size: 15px; margin-top: 15px; text-align: justify;">
-            <b>L'objectif principal :</b> Protéger les accès contre le vol d'identifiants. Même si un pirate obtient le mot de passe, il ne pourra pas se connecter sans le second facteur.
-        </p>
-    </div>
+    <div class="methode-item" style="border-left: 4px solid var(--blue-accent); background: white; padding: 30px; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-radius: var(--border-radius-lg);">
 
-    <div style="padding-top: 20px; border-top: 1px solid var(--color-border-tertiary);">
-        <strong style="color: var(--blue-accent); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Pourquoi avoir choisi ce sujet ?</strong>
-        <p style="line-height: 1.6; color: var(--color-text-secondary); font-size: 15px; margin-top: 12px; text-align: justify;">
-            Même si tous les domaines de l'informatique sont importants, j'ai choisi la 2FA parce que c'est la base de tout</strong>. 
-            On a beau avoir le meilleur pare-feu du monde, si un utilisateur se fait voler son mot de passe, l'infrastructure est vulnérable. 
-            En tant que future administratrice SISR, je considère que sécuriser l'accès des utilisateurs est le premier réflexe à avoir pour protéger un réseau efficacement.
-        </p>
-    </div>
+        <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed var(--color-border-tertiary);">
+            <strong style="color: var(--blue-accent); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Thématique retenue :</strong>
+            <p style="font-size: 18px; font-weight: 600; color: var(--color-text-primary); margin-top: 8px;">La Double Authentification (2FA)</p>
+        </div>
 
-  </div>
+        <div style="margin-bottom: 25px;">
+            <strong style="color: var(--blue-accent); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Définition</strong>
+            <p style="line-height: 1.7; color: var(--color-text-secondary); font-size: 15px; margin-top: 12px;">
+                La Double Authentification (2FA), ou authentification à deux facteurs, est une méthode de sécurité qui impose à l'utilisateur de fournir deux preuves d'identité distinctes avant d'accéder à un compte ou à un système. Elle repose sur la combinaison de deux éléments parmi ces trois catégories :
+            </p>
+            <p style="line-height: 1.9; color: var(--color-text-secondary); font-size: 15px; margin-top: 14px;">
+                • <b>Ce que l'on sait :</b> Un mot de passe ou un code PIN.<br>
+                • <b>Ce que l'on possède :</b> Un smartphone (appli TOTP), une clé physique (Yubikey) ou un SMS.<br>
+                • <b>Ce que l'on est :</b> Une donnée biométrique (empreinte digitale, reconnaissance faciale).
+            </p>
+            <p style="line-height: 1.7; color: var(--color-text-secondary); font-size: 15px; margin-top: 14px;">
+                <b>Objectif principal :</b> Protéger les accès même en cas de vol de mot de passe. Si un attaquant récupère les identifiants d'un utilisateur, il ne peut pas se connecter sans le second facteur.
+            </p>
+        </div>
+
+        <div style="padding-top: 20px; border-top: 1px solid var(--color-border-tertiary);">
+            <strong style="color: var(--blue-accent); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Pourquoi ce sujet ?</strong>
+            <p style="line-height: 1.7; color: var(--color-text-secondary); font-size: 15px; margin-top: 12px;">
+                J'ai choisi la 2FA parce que c'est la base de tout en SISR. On peut avoir le meilleur pare-feu du monde : si un utilisateur se fait voler son mot de passe, toute l'infrastructure est vulnérable. En tant que future administratrice réseau, sécuriser les accès des utilisateurs est le premier réflexe à avoir. Ce sujet est également très actuel : les attaques par credential stuffing ont explosé ces dernières années, rendant le 2FA indispensable dans n'importe quelle organisation.
+            </p>
+        </div>
+    </div>
 </section>
 
-<section id="sujets">
-  <div class="section-title">3. Articles et Sujets Étudiés</div>
-  <div class="section-sub">Les piliers de ma veille sur le 2FA</div>
-  
-  <div class="cards">
-    <div class="card">
-      <div class="card-icon">📱</div>
-      <h3>SMS vs TOTP</h3>
-      <p>Analyse de la vulnérabilité des SMS (SIM-swapping) au profit des applications générant des codes temporaires (TOTP) comme Microsoft Authenticator.</p>
-      <a href="https://www.ssi.gouv.fr/" target="_blank" class="card-link">Source : ANSSI →</a>
+<!-- 3. CHIFFRES CLÉS -->
+<section id="chiffres">
+    <div class="section-title">3. Chiffres clés</div>
+    <div class="section-sub">Ce que disent les études sur l'impact de la 2FA en entreprise</div>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">99,9%</div>
+            <div class="stat-label">des attaques automatisées sur les comptes sont bloquées par la 2FA <em>(Microsoft, 2023)</em></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">des violations de données impliquent des mots de passe volés ou faibles <em>(Verizon DBIR)</em></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">3×</div>
+            <div class="stat-label">moins de risque de compromission pour une organisation utilisant la MFA <em>(Google, 2019)</em></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">57%</div>
+            <div class="stat-label">des entreprises françaises ont déployé la MFA en 2024 <em>(ANSSI)</em></div>
+        </div>
     </div>
+</section>
 
-    <div class="card">
-      <div class="card-icon">🔑</div>
-      <h3>Clés Physiques (Yubikey)</h3>
-      <p>Étude sur l'adoption des clés physiques FIDO2 en entreprise pour éliminer totalement le risque de phishing à distance.</p>
-      <a href="https://www.lemondeinformatique.fr/" target="_blank" class="card-link">Source : LMI →</a>
+<!-- 4. ÉVOLUTION CHRONOLOGIQUE -->
+<section id="evolution" style="background-color: var(--color-background-secondary); border-top: 1px solid var(--color-border-tertiary); border-bottom: 1px solid var(--color-border-tertiary);">
+    <div class="section-title">4. Évolution de la 2FA dans le temps</div>
+    <div class="section-sub">Des tokens matériels aux passkeys — comment l'authentification a évolué</div>
+    <div class="timeline-evo">
+        <div class="tl-evo-item">
+            <div class="tl-evo-dot">🔐</div>
+            <div>
+                <div class="tl-evo-year">Années 1980</div>
+                <div class="tl-evo-title">Premiers tokens matériels (RSA SecurID)</div>
+                <div class="tl-evo-desc">Les premières formes de 2FA apparaissent dans les environnements militaires et bancaires sous forme de tokens physiques générant des codes à usage unique.</div>
+            </div>
+        </div>
+        <div class="tl-evo-item">
+            <div class="tl-evo-dot">📟</div>
+            <div>
+                <div class="tl-evo-year">2000 – 2010</div>
+                <div class="tl-evo-title">Démocratisation par SMS</div>
+                <div class="tl-evo-desc">Les banques commencent à envoyer des codes par SMS pour valider les transactions en ligne. Simple et accessible, le SMS devient le standard grand public. Mais il présente une faille majeure : le SIM-swapping.</div>
+            </div>
+        </div>
+        <div class="tl-evo-item">
+            <div class="tl-evo-dot">📱</div>
+            <div>
+                <div class="tl-evo-year">2010 – 2018</div>
+                <div class="tl-evo-title">Applications TOTP (Google Authenticator, Microsoft Authenticator)</div>
+                <div class="tl-evo-desc">Les applications mobiles générant des codes temporaires (TOTP - Time-based One-Time Password) remplacent progressivement les SMS. Plus sécurisées et indépendantes du réseau téléphonique.</div>
+            </div>
+        </div>
+        <div class="tl-evo-item">
+            <div class="tl-evo-dot">🔑</div>
+            <div>
+                <div class="tl-evo-year">2018 – 2022</div>
+                <div class="tl-evo-title">Clés physiques FIDO2 / U2F (Yubikey)</div>
+                <div class="tl-evo-desc">Apparition des clés de sécurité physiques respectant le standard FIDO2. Résistantes au phishing car liées au domaine du site web, elles sont adoptées par les grandes entreprises tech (Google, Microsoft).</div>
+            </div>
+        </div>
+        <div class="tl-evo-item">
+            <div class="tl-evo-dot">🪪</div>
+            <div>
+                <div class="tl-evo-year">2022 – aujourd'hui</div>
+                <div class="tl-evo-title">Passkeys — l'ère sans mot de passe</div>
+                <div class="tl-evo-desc">Le standard Passkeys (FIDO2 + WebAuthn) permet de se connecter uniquement avec la biométrie de son appareil (empreinte, Face ID). Apple, Google et Microsoft ont adopté ce standard qui vise à remplacer définitivement les mots de passe.</div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <div class="card">
-      <div class="card-icon">🆔</div>
-      <h3>Standard Passkeys</h3>
-      <p>Le futur de l'authentification "Passwordless" utilisant la biométrie des appareils pour remplacer les mots de passe traditionnels.</p>
-      <a href="https://www.zataz.com/" target="_blank" class="card-link">Source : Zataz →</a>
-    </div>
+<!-- 5. COMPARATIF DES MÉTHODES -->
+<section id="comparatif">
+    <div class="section-title">5. Comparatif des méthodes 2FA</div>
+    <div class="section-sub">Analyse des différentes solutions disponibles — forces, faiblesses, et cas d'usage recommandés</div>
+    <table class="compare-table">
+        <thead>
+            <tr>
+                <th>Méthode</th>
+                <th>Sécurité</th>
+                <th>Facilité d'usage</th>
+                <th>Résistance au phishing</th>
+                <th>Recommandé pour</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>SMS / Appel</b></td>
+                <td><span class="tag-bad">Faible</span></td>
+                <td><span class="tag-good">Très facile</span></td>
+                <td><span class="tag-bad">Non</span></td>
+                <td>Usages personnels basiques uniquement</td>
+            </tr>
+            <tr>
+                <td><b>Application TOTP</b><br><small>(Google/Microsoft Authenticator)</small></td>
+                <td><span class="tag-mid">Correcte</span></td>
+                <td><span class="tag-good">Facile</span></td>
+                <td><span class="tag-mid">Partielle</span></td>
+                <td>Comptes pro, messageries, VPN</td>
+            </tr>
+            <tr>
+                <td><b>Notification push</b><br><small>(Microsoft Authenticator)</small></td>
+                <td><span class="tag-mid">Correcte</span></td>
+                <td><span class="tag-good">Très facile</span></td>
+                <td><span class="tag-bad">Vulnérable MFA Fatigue</span></td>
+                <td>Entreprises avec formation utilisateurs</td>
+            </tr>
+            <tr>
+                <td><b>Clé physique FIDO2</b><br><small>(Yubikey)</small></td>
+                <td><span class="tag-good">Très élevée</span></td>
+                <td><span class="tag-mid">Modérée</span></td>
+                <td><span class="tag-good">Oui — anti-phishing natif</span></td>
+                <td>Admins système, accès critiques</td>
+            </tr>
+            <tr>
+                <td><b>Passkeys / Biométrie</b></td>
+                <td><span class="tag-good">Très élevée</span></td>
+                <td><span class="tag-good">Très facile</span></td>
+                <td><span class="tag-good">Oui</span></td>
+                <td>Avenir — déploiement en cours</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
-    <div class="card">
-        <div class="card-icon">⚠️</div>
-        <h3>MFA Fatigue</h3>
-        <p>Analyse des nouvelles techniques d'attaques par bombardement de notifications MFA pour forcer l'utilisateur à accepter un accès frauduleux.</p>
-        <a href="#" class="card-link">Synthèse perso →</a>
+<!-- 6. ARTICLES ÉTUDIÉS -->
+<section id="sujets" style="background-color: var(--color-background-secondary); border-top: 1px solid var(--color-border-tertiary); border-bottom: 1px solid var(--color-border-tertiary);">
+    <div class="section-title">6. Articles et sujets étudiés</div>
+    <div class="section-sub">Les thématiques clés de ma veille sur la 2FA</div>
+    <div class="cards">
+        <div class="card">
+            <div class="card-icon">📱</div>
+            <h3>SMS vs TOTP</h3>
+            <p>Analyse de la vulnérabilité des SMS via le SIM-swapping (usurpation de carte SIM auprès de l'opérateur) au profit des applications générant des codes temporaires TOTP comme Microsoft Authenticator ou Google Authenticator.</p>
+            <a href="https://www.ssi.gouv.fr/" target="_blank" class="card-link">Source : ANSSI →</a>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔑</div>
+            <h3>Clés physiques FIDO2 (Yubikey)</h3>
+            <p>Étude sur l'adoption des clés physiques FIDO2 en entreprise. Leur avantage majeur : elles sont cryptographiquement liées au domaine du site, ce qui les rend totalement résistantes au phishing à distance.</p>
+            <a href="https://www.lemondeinformatique.fr/" target="_blank" class="card-link">Source : LeMondeinformatique →</a>
+        </div>
+        <div class="card">
+            <div class="card-icon">🆔</div>
+            <h3>Passkeys — l'authentification sans mot de passe</h3>
+            <p>Le standard Passkeys (FIDO2 + WebAuthn) utilise la biométrie de l'appareil pour remplacer les mots de passe. Déjà adopté par Apple, Google et Microsoft, c'est le futur de l'authentification grand public et enterprise.</p>
+            <a href="https://www.zataz.com/" target="_blank" class="card-link">Source : Zataz →</a>
+        </div>
+        <div class="card">
+            <div class="card-icon">⚠️</div>
+            <h3>MFA Fatigue</h3>
+            <p>Nouvelle technique d'attaque consistant à bombarder la victime de notifications push MFA jusqu'à ce qu'elle accepte par erreur ou lassitude. Utilisée notamment lors de l'attaque d'Uber en 2022. La parade : imposer un code de correspondance (number matching).</p>
+            <a href="https://www.ssi.gouv.fr/" target="_blank" class="card-link">Source : ANSSI →</a>
+        </div>
+        <div class="card">
+            <div class="card-icon">🎭</div>
+            <h3>Attaques en temps réel (AiTM)</h3>
+            <p>Les attaques Adversary-in-the-Middle permettent de contourner la 2FA classique en interceptant le token de session après authentification. Ces attaques ciblent les applications TOTP et SMS — seules les clés FIDO2 y résistent nativement.</p>
+            <a href="https://www.ssi.gouv.fr/" target="_blank" class="card-link">Source : ANSSI →</a>
+        </div>
+        <div class="card">
+            <div class="card-icon">🏢</div>
+            <h3>Déploiement en entreprise</h3>
+            <p>Étude des bonnes pratiques de déploiement de la MFA en environnement Active Directory : intégration avec Azure AD / Entra ID, politiques d'accès conditionnel, et gestion des cas de perte du second facteur (procédures de récupération).</p>
+            <a href="https://www.lemondeinformatique.fr/" target="_blank" class="card-link">Source : LeMondeinformatique →</a>
+        </div>
     </div>
-  </div>
+</section>
+
+<!-- 7. CONCLUSION -->
+<section id="conclusion">
+    <div class="section-title">7. Conclusion</div>
+    <div class="methode-item" style="border-left: 4px solid var(--blue-accent); background: #f0f8ff; padding: 30px; margin-top: 20px; border-radius: var(--border-radius-lg);">
+        <p style="line-height: 1.8; color: var(--color-text-secondary); font-size: 15px; margin-bottom: 16px;">
+            La 2FA est aujourd'hui incontournable dans tout environnement professionnel. Elle ne suffit cependant pas à elle seule : les attaques évoluent constamment (MFA Fatigue, AiTM) et obligent les administrateurs à choisir la bonne méthode selon le niveau de risque du compte à protéger.
+        </p>
+        <p style="line-height: 1.8; color: var(--color-text-secondary); font-size: 15px; margin-bottom: 16px;">
+            En tant que future administratrice SISR, je retiens qu'une bonne politique d'authentification repose sur trois piliers : <b>choisir la méthode adaptée au profil utilisateur</b>, <b>former les utilisateurs aux attaques sociales</b> comme la MFA Fatigue, et <b>planifier une procédure de récupération</b> en cas de perte du second facteur.
+        </p>
+        <p style="line-height: 1.8; color: var(--color-text-secondary); font-size: 15px;">
+            L'avenir pointe vers les Passkeys qui combinent sécurité maximale et simplicité d'usage — la convergence idéale entre l'expérience utilisateur et la protection des systèmes d'information.
+        </p>
+    </div>
 </section>
 
 <footer>
-  <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour - Portfolio BTS SIO SISR</p>
+    <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour — Portfolio BTS SIO SISR</p>
 </footer>
 
 </body>
