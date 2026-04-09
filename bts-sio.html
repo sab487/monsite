@@ -16,6 +16,8 @@
             --border-radius-lg: 12px;
             --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             --blue-accent: #3b8fd4;
+            --sisr-bg: #98d8f4;
+            --slam-bg: #add8e6;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,7 +60,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             font-size: 15px;
         }
         .definition-grid p { text-align: justify; color: var(--color-text-secondary); }
@@ -67,17 +69,31 @@
         .option-section {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 20px;
         }
 
         .option-block {
-            background: #98d8f4;
-            padding: 40px;
+            padding: 60px 40px;
             text-align: center;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-            padding-bottom: 80px;
             color: white;
+            transition: transform 0.3s ease;
+        }
+
+        /* SISR Style */
+        .sisr-block {
+            background: var(--sisr-bg);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+            margin-bottom: -40px;
+            padding-bottom: 120px;
+            z-index: 2;
+        }
+
+        /* SLAM Style */
+        .slam-block {
+            background: var(--slam-bg);
+            clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%);
+            padding-top: 120px;
+            z-index: 1;
         }
 
         .option-title-badge {
@@ -92,33 +108,35 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .option-subtitle { font-weight: 700; color: white; margin-bottom: 15px; display: block; }
-        .option-text { color: white; max-width: 800px; margin: 0 auto; font-size: 15px; }
+        .option-subtitle { font-weight: 700; color: white; margin-bottom: 15px; display: block; font-size: 16px; }
+        .option-text { color: white; max-width: 800px; margin: 0 auto; font-size: 15px; line-height: 1.7; }
         
         .btn-plus-infos {
             background: white;
             color: var(--blue-accent);
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 4px;
             text-decoration: none;
             font-size: 13px;
             display: inline-block;
-            margin-top: 20px;
-            font-weight: 500;
-            transition: transform 0.2s;
+            margin-top: 25px;
+            font-weight: 600;
+            transition: all 0.2s;
         }
         
         .btn-plus-infos:hover {
-            transform: scale(1.05);
-            background: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #f8f9fa;
         }
 
-        footer { padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); margin-top: 40px; }
+        footer { padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); margin-top: 60px; }
 
         @media (max-width: 768px) {
-            .definition-grid { grid-template-columns: 1fr; }
-            nav { padding: 15px 5%; }
-            .nav-links { gap: 10px; }
+            .definition-grid { grid-template-columns: 1fr; gap: 20px; }
+            nav { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .option-block { clip-path: none !important; margin-bottom: 20px !important; padding: 40px 20px !important; border-radius: var(--border-radius-lg); }
         }
     </style>
 </head>
@@ -151,14 +169,14 @@
 
     <div class="option-section">
         
-        <div class="option-block">
+        <div class="option-block sisr-block">
             <div class="option-title-badge">BTS SIO SISR</div>
             <span class="option-subtitle">SISR : (Services Informatiques aux Organisations, option Solutions d'Infrastructure, Systèmes et Réseaux)</span>
             <p class="option-text">Le BTS SIO SISR est une formation en 2 ans qui prépare des étudiants à gérer l'infrastructure informatique des entreprises. Ils apprennent à installer, configurer et maintenir des réseaux et des systèmes informatiques. Cela inclut la sécurité, la gestion des serveurs et des réseaux pour assurer le bon fonctionnement des systèmes informatiques.</p>
             <a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-a-solutions-d-infrastructure-systemes-et-reseaux" target="_blank" class="btn-plus-infos">Plus d'infos</a>
         </div>
 
-        <div class="option-block" style="background: #add8e6; clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%); padding-top: 80px;">
+        <div class="option-block slam-block">
             <div class="option-title-badge">BTS SIO SLAM</div>
             <span class="option-subtitle">SLAM : (Solutions Logicielles et Applications Métiers)</span>
             <p class="option-text">Le BTS SIO SLAM est une formation en 2 ans qui prépare les étudiants à concevoir, développer et maintenir des applications informatiques. Ils apprennent à programmer, gérer des bases de données et développer des solutions logicielles adaptées aux besoins des entreprises. Cela inclut la création d'applications web, mobiles ou de bureau, ainsi que la gestion de projets et la sécurité des développements.</p>
@@ -169,7 +187,7 @@
 </div>
 
 <footer>
-    <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour - Portfolio BTS SIO SISR</p>
+    <p>© 2026 Sabrina Askour - Portfolio BTS SIO SISR</p>
 </footer>
 
 </body>
