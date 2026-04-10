@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Missions | Sabrina Askour</title>
+    <title>Missions E5 | Sabrina Askour</title>
     <style>
         :root {
             --color-text-primary: #1a1a1a;
@@ -16,123 +16,66 @@
             --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             --blue-main: #3b8fd4;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--color-background-primary);
-            color: var(--color-text-primary);
-            line-height: 1.5;
-        }
-
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
-            background: var(--color-background-primary); position: sticky; top: 0; z-index: 10;
-        }
+        body { font-family: var(--font-sans); background-color: var(--color-background-primary); color: var(--color-text-primary); line-height: 1.5; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); position: sticky; top: 0; z-index: 10; }
         .nav-logo { font-size: 18px; font-weight: 600; color: var(--blue-main); text-decoration: none; }
         .nav-links { display: flex; gap: 20px; }
-        .nav-links a {
-            font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
-            padding: 8px 12px; border-radius: var(--border-radius-md); transition: all 0.2s;
-        }
+        .nav-links a { font-size: 14px; color: var(--color-text-secondary); text-decoration: none; padding: 8px 12px; border-radius: var(--border-radius-md); transition: all 0.2s; }
         .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-main); }
         .nav-links a.active { color: var(--blue-main); font-weight: 600; }
 
-        .hero {
-            padding: 60px 10%;
-            background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
-            border-bottom: 0.5px solid var(--color-border-tertiary);
-            text-align: center;
-        }
-        .hero-tag {
-            display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600;
-            background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
-        }
+        .hero { padding: 60px 10%; background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%); border-bottom: 0.5px solid var(--color-border-tertiary); text-align: center; }
+        .hero-tag { display: inline-block; font-size: 12px; color: var(--blue-main); font-weight: 600; background: #dbeeff; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
         .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 10px; }
-        .hero p { font-size: 16px; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto; }
+        .hero p { font-size: 15px; color: var(--color-text-secondary); max-width: 650px; margin: 0 auto; line-height: 1.7; }
 
-        .container { padding: 60px 10%; max-width: 1400px; margin: 0 auto; }
+        .container { padding: 60px 10%; }
 
-        .header-section {
-            display: flex; align-items: center; gap: 15px; margin: 40px 0 30px 0;
-        }
-        .header-section:first-child { margin-top: 0; }
-        .header-icon {
-            width: 45px; height: 45px;
-            background: #e8f4fd; color: var(--blue-main);
-            border-radius: var(--border-radius-md); font-size: 24px;
-            display: flex; justify-content: center; align-items: center;
-        }
-        .header-section h2 { font-size: 24px; font-weight: 600; }
+        .epreuve-intro { background: #f0f8ff; border-left: 4px solid var(--blue-main); border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 20px 28px; margin-bottom: 44px; font-size: 14px; color: var(--color-text-secondary); line-height: 1.8; }
+        .epreuve-intro b { color: var(--color-text-primary); }
 
-        /* DESCRIPTION EPREUVE */
-        .epreuve-desc {
-            background: #f0f8ff; border-left: 4px solid var(--blue-main);
-            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
-            padding: 18px 24px; margin-bottom: 32px;
-            font-size: 14px; color: var(--color-text-secondary); line-height: 1.75;
-        }
-        .epreuve-desc b { color: var(--color-text-primary); }
+        .missions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
+        .mission-card { background: #fff; border: 1px solid var(--color-border-tertiary); border-top: 4px solid var(--blue-main); border-radius: var(--border-radius-lg); padding: 28px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s; }
+        .mission-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(59,143,212,0.10); }
 
-        .card {
-            background: #fff; border: 1px solid var(--color-border-tertiary);
-            border-radius: var(--border-radius-lg); padding: 24px;
-            transition: all 0.3s ease;
-            display: flex; flex-direction: column; justify-content: space-between;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--blue-main); }
-        .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
-        .card-header img { width: 30px; height: 30px; object-fit: contain; }
-        .card h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
-        .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 20px; }
+        .mission-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+        .mission-number { width: 38px; height: 38px; border-radius: 50%; background: var(--blue-main); color: white; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .badge-e5 { font-size: 10px; background: #27ae60; color: #fff; padding: 4px 10px; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px; }
 
-        .btn-group-card { display: flex; gap: 10px; }
-        .card-link {
-            flex: 1; background-color: var(--blue-main); color: white; text-align: center;
-            text-decoration: none; font-size: 12px; font-weight: 600;
-            padding: 12px 5px; border-radius: var(--border-radius-md);
-            transition: opacity 0.2s;
-        }
+        .mission-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--color-text-primary); }
+        .mission-entreprise { font-size: 12px; color: var(--blue-main); font-weight: 600; background: #dbeeff; padding: 3px 12px; border-radius: 20px; display: inline-block; margin-bottom: 14px; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+        .tag { font-size: 11px; background: #f0f8ff; color: #2a6f9e; border: 1px solid #c5e1f5; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+
+        .mission-bloc { margin-bottom: 14px; }
+        .mission-bloc-title { font-size: 11px; font-weight: 700; color: var(--blue-main); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 5px; }
+        .mission-bloc p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; }
+
+        .mission-result { background: #f0fff4; border-left: 3px solid #27ae60; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin-bottom: 20px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+        .mission-result b { color: #1a6e3a; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 3px; }
+
+        .btn-group-card { display: flex; gap: 10px; margin-top: auto; }
+        .card-link { flex: 1; background-color: var(--blue-main); color: white; text-align: center; text-decoration: none; font-size: 12px; font-weight: 600; padding: 12px 5px; border-radius: var(--border-radius-md); transition: opacity 0.2s; }
         .card-link:hover { opacity: 0.85; }
-        .card-link-alt {
-            background-color: white; color: var(--blue-main);
-            border: 1.5px solid var(--blue-main);
-        }
+        .card-link-alt { background-color: white; color: var(--blue-main); border: 1.5px solid var(--blue-main); }
 
-        /* BADGES */
-        .badge-e5 {
-            display: inline-block; font-size: 10px; background: #27ae60; color: #fff;
-            padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .badge-e6 {
-            display: inline-block; font-size: 10px; background: var(--blue-main); color: #fff;
-            padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; font-weight: 700;
-            letter-spacing: 0.5px;
-        }
+        .section-sep { margin-top: 60px; padding-top: 44px; border-top: 1px solid var(--color-border-tertiary); }
+        .section-header { display: flex; align-items: center; gap: 15px; margin-bottom: 16px; }
+        .section-icon { width: 45px; height: 45px; background: #e8f4fd; color: var(--blue-main); border-radius: var(--border-radius-md); font-size: 22px; display: flex; justify-content: center; align-items: center; }
+        .section-header h2 { font-size: 24px; font-weight: 600; }
 
-        /* TAGS COMPÉTENCES */
-        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-        .tag {
-            font-size: 11px; background: #dbeeff; color: var(--blue-main);
-            padding: 3px 10px; border-radius: 20px; font-weight: 500;
-        }
+        .e6-card { background: #fff; border: 1px solid #dbeeff; border-top: 4px solid #1a6eb5; border-radius: var(--border-radius-lg); padding: 28px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s; }
+        .e6-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(26,110,181,0.10); }
+        .badge-e6 { font-size: 10px; background: var(--blue-main); color: #fff; padding: 4px 10px; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px; display: inline-block; margin-bottom: 12px; }
+        .e6-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+        .e6-card p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 20px; }
 
-        .e5-card { border: 1.5px solid #d4edda; }
-        .e6-card { border: 1.5px solid #dbeeff; }
-
-        hr { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 50px 0; }
-
-        /* SECTION PPE */
-        .ppe-card { border: 1px solid var(--color-border-tertiary); }
+        .pending { border-top-color: #ccc !important; }
+        .pending .mission-number { background: #ccc !important; }
+        .pending .badge-e5 { background: #ccc !important; }
     </style>
 </head>
 <body>
@@ -150,35 +93,45 @@
 </nav>
 
 <div class="hero">
-    <div class="hero-tag">RÉALISATIONS</div>
-    <h1>Missions & Projets</h1>
-    <p>Découvrez les situations professionnelles (E5), les projets techniques (E6) et les travaux pratiques réalisés durant mon parcours BTS SIO SISR.</p>
+    <div class="hero-tag">ÉPREUVE E5 — BTS SIO SISR</div>
+    <h1>Mes situations professionnelles</h1>
+    <p>Retrouvez ici mes 6 situations professionnelles E5 réalisées en stage et en formation, ainsi que mes 2 projets majeurs E6.</p>
 </div>
 
-<section class="container">
+<div class="container">
 
-    <!-- ========== E5 ========== -->
-    <div class="header-section">
-        <div class="header-icon">📋</div>
-        <h2>Épreuve E5 — Situations Professionnelles</h2>
+    <div class="epreuve-intro">
+        <b>Épreuve E5 — Support et mise à disposition de services informatiques :</b> chaque fiche présente une situation réelle avec son contexte d'entreprise, les travaux techniques réalisés, les outils mobilisés et le résultat obtenu. Ces situations illustrent les compétences SISR acquises tout au long du BTS.
     </div>
 
-    <div class="epreuve-desc">
-        <b>Épreuve E5 — Support et mise à disposition de services informatiques :</b> Cette épreuve évalue la capacité à prendre en charge des situations professionnelles réelles rencontrées en stage ou en entreprise. Chaque situation décrit un contexte, les tâches effectuées, les compétences mobilisées et les résultats obtenus.
-    </div>
+    <div class="missions-grid">
 
-    <div class="cards">
-
-        <div class="card e5-card">
-            <div>
-                <span class="badge-e5">MISSION E5 — N°1</span>
-                <h3>Installation et configuration d'un serveur DHCP</h3>
-                <div class="tags">
-                    <span class="tag">Windows Server</span>
-                    <span class="tag">DHCP</span>
-                    <span class="tag">Réseau</span>
-                </div>
-                <p>Mise en place d'un serveur DHCP sous Windows Server pour l'attribution automatique des adresses IP sur le réseau de l'entreprise. Configuration des plages d'adresses, des exclusions et des réservations statiques pour les équipements critiques.</p>
+        <!-- MISSION 1 -->
+        <div class="mission-card">
+            <div class="mission-header">
+                <div class="mission-number">1</div>
+                <span class="badge-e5">MISSION E5</span>
+            </div>
+            <h3>Infrastructure réseau Windows Server — DHCP, DNS & Active Directory</h3>
+            <span class="mission-entreprise">🏢 SoftWave Solutions</span>
+            <div class="tags">
+                <span class="tag">Windows Server 2022</span>
+                <span class="tag">Active Directory</span>
+                <span class="tag">DHCP</span>
+                <span class="tag">DNS</span>
+                <span class="tag">VMware</span>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Contexte</div>
+                <p>SoftWave Solutions, en forte croissance, gérait une infrastructure IT hybride de plus en plus complexe. L'entreprise souhaitait centraliser ses services réseau pour améliorer la sécurité et simplifier l'administration des utilisateurs.</p>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Travaux réalisés</div>
+                <p>Création d'une machine virtuelle sous VMware, installation de Windows Server 2022, déploiement du contrôleur de domaine Active Directory (<em>reseau.local</em>), configuration du serveur DHCP (plage 192.168.1.100–200) et du DNS avec zone de recherche directe.</p>
+            </div>
+            <div class="mission-result">
+                <b>✅ Résultat obtenu</b>
+                Infrastructure centralisée opérationnelle : les postes clients rejoignent le domaine et obtiennent leur configuration réseau automatiquement via DHCP.
             </div>
             <div class="btn-group-card">
                 <a href="#" class="card-link">Consulter la fiche E5</a>
@@ -186,16 +139,31 @@
             </div>
         </div>
 
-        <div class="card e5-card">
-            <div>
-                <span class="badge-e5">MISSION E5 — N°2</span>
-                <h3>Sécurisation des accès par mise en place de la 2FA</h3>
-                <div class="tags">
-                    <span class="tag">Sécurité</span>
-                    <span class="tag">MFA</span>
-                    <span class="tag">Active Directory</span>
-                </div>
-                <p>Déploiement de l'authentification à double facteur sur les comptes utilisateurs du domaine Active Directory. Configuration de Microsoft Authenticator et rédaction d'une procédure utilisateur pour accompagner la migration.</p>
+        <!-- MISSION 2 -->
+        <div class="mission-card">
+            <div class="mission-header">
+                <div class="mission-number">2</div>
+                <span class="badge-e5">MISSION E5</span>
+            </div>
+            <h3>Déploiement d'un serveur FTP sécurisé sur IIS</h3>
+            <span class="mission-entreprise">🏢 Solvex IT</span>
+            <div class="tags">
+                <span class="tag">Windows Server 2022</span>
+                <span class="tag">IIS / FTP</span>
+                <span class="tag">Active Directory</span>
+                <span class="tag">Gestion des droits NTFS</span>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Contexte</div>
+                <p>Solvex IT souffrait d'une gestion dispersée de ses fichiers techniques. Les techniciens échangeaient via clés USB ou services cloud non maîtrisés, entraînant des incohérences de versions et des délais opérationnels.</p>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Travaux réalisés</div>
+                <p>Déploiement d'un serveur FTP via IIS sur Windows Server 2022 intégré à Active Directory (<em>solvex.it</em>). Création des espaces personnels par utilisateur, configuration des droits NTFS (lecture/écriture), mise en place de l'authentification de base et tests de connexion depuis un poste client.</p>
+            </div>
+            <div class="mission-result">
+                <b>✅ Résultat obtenu</b>
+                Partage de fichiers centralisé et sécurisé : chaque utilisateur accède uniquement à son espace via <em>ftp://192.168.1.10</em> avec ses identifiants Active Directory.
             </div>
             <div class="btn-group-card">
                 <a href="#" class="card-link">Consulter la fiche E5</a>
@@ -203,16 +171,32 @@
             </div>
         </div>
 
-        <div class="card e5-card">
-            <div>
-                <span class="badge-e5">MISSION E5 — N°3</span>
-                <h3>Supervision du réseau avec Zabbix</h3>
-                <div class="tags">
-                    <span class="tag">Supervision</span>
-                    <span class="tag">Zabbix</span>
-                    <span class="tag">Linux</span>
-                </div>
-                <p>Installation et configuration d'un outil de supervision réseau Zabbix sur serveur Debian. Ajout des équipements à surveiller (switchs, serveurs, postes), création de tableaux de bord et paramétrage des alertes par email en cas d'incident.</p>
+        <!-- MISSION 3 -->
+        <div class="mission-card">
+            <div class="mission-header">
+                <div class="mission-number">3</div>
+                <span class="badge-e5">MISSION E5</span>
+            </div>
+            <h3>Supervision du réseau et des services via Zabbix</h3>
+            <span class="mission-entreprise">🏢 Kalo-Brazza</span>
+            <div class="tags">
+                <span class="tag">Zabbix 6.4</span>
+                <span class="tag">Linux Debian 12</span>
+                <span class="tag">MariaDB</span>
+                <span class="tag">Agent Zabbix</span>
+                <span class="tag">Supervision</span>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Contexte</div>
+                <p>Kalo-Brazza n'avait aucun outil de supervision centralisé. Les incidents réseau n'étaient détectés qu'après signalement utilisateur, entraînant des temps d'arrêt non maîtrisés sur une infrastructure en pleine croissance.</p>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Travaux réalisés</div>
+                <p>Installation de Zabbix 6.4 sur serveur Debian 12 avec base de données MariaDB. Déploiement des agents Zabbix sur un client Windows 10 et un Windows Server 2022. Création des hôtes dans la console, configuration des alertes par e-mail et vérification de la disponibilité en temps réel.</p>
+            </div>
+            <div class="mission-result">
+                <b>✅ Résultat obtenu</b>
+                Supervision fonctionnelle : disponibilité des agents affichée en vert dans la console Zabbix, tableau de bord et alertes opérationnels.
             </div>
             <div class="btn-group-card">
                 <a href="#" class="card-link">Consulter la fiche E5</a>
@@ -220,16 +204,32 @@
             </div>
         </div>
 
-        <div class="card e5-card">
-            <div>
-                <span class="badge-e5">MISSION E5 — N°4</span>
-                <h3>Sauvegarde et restauration des données avec Veeam</h3>
-                <div class="tags">
-                    <span class="tag">Sauvegarde</span>
-                    <span class="tag">Veeam</span>
-                    <span class="tag">Virtualisation</span>
-                </div>
-                <p>Mise en place d'un plan de sauvegarde automatisé des machines virtuelles avec Veeam Backup. Configuration des planifications de sauvegarde, test de restauration et documentation du Plan de Reprise d'Activité (PRA) associé.</p>
+        <!-- MISSION 4 -->
+        <div class="mission-card">
+            <div class="mission-header">
+                <div class="mission-number">4</div>
+                <span class="badge-e5">MISSION E5</span>
+            </div>
+            <h3>Mise en service d'un NAS TrueNAS pour le stockage centralisé</h3>
+            <span class="mission-entreprise">🏢 DCNetwork</span>
+            <div class="tags">
+                <span class="tag">TrueNAS Core 13</span>
+                <span class="tag">VMware ESXi</span>
+                <span class="tag">ZFS</span>
+                <span class="tag">NAS</span>
+                <span class="tag">Stockage réseau</span>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Contexte</div>
+                <p>DCNetwork avait besoin d'une solution de stockage centralisée, fiable et accessible depuis le réseau pour remplacer une gestion de fichiers dispersée sur les postes utilisateurs, avec des risques de perte de données.</p>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Travaux réalisés</div>
+                <p>Installation de TrueNAS Core 13 sur machine virtuelle VMware ESXi (3 disques : 20 Go système + 2×50 Go stockage ZFS), configuration du boot BIOS, définition du mot de passe ROOT, retrait de l'ISO d'installation et redémarrage vers l'interface Web d'administration.</p>
+            </div>
+            <div class="mission-result">
+                <b>✅ Résultat obtenu</b>
+                TrueNAS opérationnel et accessible via navigateur (<em>http://192.168.1.75</em>). Prêt pour la configuration des pools ZFS et des partages réseau.
             </div>
             <div class="btn-group-card">
                 <a href="#" class="card-link">Consulter la fiche E5</a>
@@ -237,136 +237,104 @@
             </div>
         </div>
 
-        <div class="card e5-card">
-            <div>
-                <span class="badge-e5">MISSION E5 — N°5</span>
-                <h3>Déploiement d'un pare-feu pfSense</h3>
-                <div class="tags">
-                    <span class="tag">Firewall</span>
-                    <span class="tag">pfSense</span>
-                    <span class="tag">Sécurité réseau</span>
-                </div>
-                <p>Installation et configuration d'un pare-feu pfSense pour sécuriser le périmètre réseau de l'entreprise. Création de règles de filtrage, mise en place d'un VPN site-à-site et configuration de la journalisation des événements de sécurité.</p>
+        <!-- MISSION 5 — À compléter -->
+        <div class="mission-card pending">
+            <div class="mission-header">
+                <div class="mission-number">5</div>
+                <span class="badge-e5">MISSION E5</span>
+            </div>
+            <h3>À compléter — Votre 5ème situation professionnelle</h3>
+            <span class="mission-entreprise" style="background:#f0f0f0; color:#aaa;">🏢 Nom de l'entreprise</span>
+            <div class="tags"><span class="tag" style="color:#aaa; border-color:#ddd;">Technologie</span></div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Contexte</div>
+                <p style="color:#bbb; font-style:italic;">À remplir avec votre situation professionnelle réelle.</p>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Travaux réalisés</div>
+                <p style="color:#bbb; font-style:italic;">Décrivez les tâches effectuées et les outils utilisés.</p>
+            </div>
+            <div class="mission-result" style="border-left-color:#ccc; background:#f9f9f9;">
+                <b style="color:#aaa;">📝 À compléter</b>
+                Résultat obtenu et validation de la mission.
             </div>
             <div class="btn-group-card">
-                <a href="#" class="card-link">Consulter la fiche E5</a>
-                <a href="#" class="card-link card-link-alt">Documentation</a>
+                <a href="#" class="card-link" style="background:#ccc;">Fiche E5 à venir</a>
+                <a href="#" class="card-link card-link-alt" style="color:#ccc; border-color:#ccc;">Documentation</a>
             </div>
         </div>
 
-        <div class="card e5-card">
-            <div>
-                <span class="badge-e5">MISSION E5 — N°6</span>
-                <h3>Administration et durcissement d'un serveur Linux</h3>
-                <div class="tags">
-                    <span class="tag">Linux Debian</span>
-                    <span class="tag">SSH</span>
-                    <span class="tag">Durcissement</span>
-                </div>
-                <p>Sécurisation d'un serveur Debian en production : désactivation des services inutiles, configuration du pare-feu iptables, restriction des accès SSH par clé publique, mise en place de fail2ban et application des recommandations de durcissement de l'ANSSI.</p>
+        <!-- MISSION 6 — À compléter -->
+        <div class="mission-card pending">
+            <div class="mission-header">
+                <div class="mission-number">6</div>
+                <span class="badge-e5">MISSION E5</span>
+            </div>
+            <h3>À compléter — Votre 6ème situation professionnelle</h3>
+            <span class="mission-entreprise" style="background:#f0f0f0; color:#aaa;">🏢 Nom de l'entreprise</span>
+            <div class="tags"><span class="tag" style="color:#aaa; border-color:#ddd;">Technologie</span></div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Contexte</div>
+                <p style="color:#bbb; font-style:italic;">À remplir avec votre situation professionnelle réelle.</p>
+            </div>
+            <div class="mission-bloc">
+                <div class="mission-bloc-title">Travaux réalisés</div>
+                <p style="color:#bbb; font-style:italic;">Décrivez les tâches effectuées et les outils utilisés.</p>
+            </div>
+            <div class="mission-result" style="border-left-color:#ccc; background:#f9f9f9;">
+                <b style="color:#aaa;">📝 À compléter</b>
+                Résultat obtenu et validation de la mission.
             </div>
             <div class="btn-group-card">
-                <a href="#" class="card-link">Consulter la fiche E5</a>
-                <a href="#" class="card-link card-link-alt">Documentation</a>
+                <a href="#" class="card-link" style="background:#ccc;">Fiche E5 à venir</a>
+                <a href="#" class="card-link card-link-alt" style="color:#ccc; border-color:#ccc;">Documentation</a>
             </div>
         </div>
 
     </div>
 
-    <hr>
-
-    <!-- ========== E6 ========== -->
-    <div class="header-section">
-        <div class="header-icon">🏆</div>
-        <h2>Épreuve E6 — Projets SISR</h2>
-    </div>
-
-    <div class="epreuve-desc">
-        <b>Épreuve E6 — Parcours de professionnalisation :</b> Cette épreuve repose sur deux projets techniques majeurs menés sur les deux années de BTS. Chaque projet fait l'objet d'un dossier complet décrivant le contexte, la démarche, les solutions mises en œuvre et les résultats obtenus.
-    </div>
-
-    <div class="cards">
-
-        <div class="card e6-card">
-            <div>
-                <span class="badge-e6">PROJET E6 — MAJEUR</span>
-                <h3>Projet E6 n°1 : Gestion de parc avec GLPI</h3>
-                <div class="tags">
-                    <span class="tag">GLPI</span>
-                    <span class="tag">FusionInventory</span>
-                    <span class="tag">Debian</span>
-                    <span class="tag">SQL</span>
+    <!-- SECTION E6 -->
+    <div class="section-sep">
+        <div class="section-header">
+            <div class="section-icon">🏆</div>
+            <h2>Épreuve E6 — Projets majeurs SISR</h2>
+        </div>
+        <div class="epreuve-intro" style="margin-bottom: 32px;">
+            <b>Épreuve E6 — Parcours de professionnalisation :</b> deux projets techniques majeurs menés sur les deux années de BTS, faisant chacun l'objet d'un dossier complet avec contexte, démarche, solutions mises en œuvre et résultats obtenus.
+        </div>
+        <div class="missions-grid">
+            <div class="e6-card">
+                <span class="badge-e6">PROJET E6 — MAJEUR N°1</span>
+                <h3>Gestion de parc informatique avec GLPI & FusionInventory</h3>
+                <div class="tags" style="margin-bottom:14px;">
+                    <span class="tag">GLPI</span><span class="tag">FusionInventory</span>
+                    <span class="tag">Debian</span><span class="tag">MySQL</span><span class="tag">Helpdesk</span>
                 </div>
-                <p>Mise en place d'une solution complète de gestion de parc informatique et de helpdesk. Installation du serveur GLPI sous environnement Debian, configuration de l'inventaire automatisé via FusionInventory et déploiement de la base de données SQL pour le suivi des actifs et la gestion des tickets d'assistance.</p>
-            </div>
-            <div class="btn-group-card">
-                <a href="#" class="card-link">Consulter le dossier E6</a>
-                <a href="#" class="card-link card-link-alt">Fiche situation</a>
-            </div>
-        </div>
-
-        <div class="card e6-card">
-            <div>
-                <span class="badge-e6">PROJET E6 — MAJEUR</span>
-                <h3>Projet E6 n°2 : Infrastructure Active Directory & GPO</h3>
-                <div class="tags">
-                    <span class="tag">Windows Server</span>
-                    <span class="tag">Active Directory</span>
-                    <span class="tag">GPO</span>
-                    <span class="tag">Sécurité</span>
+                <p>Installation du serveur GLPI sous Debian, inventaire automatisé via FusionInventory, base de données SQL pour le suivi des actifs et gestion des tickets d'assistance utilisateurs.</p>
+                <div class="btn-group-card">
+                    <a href="#" class="card-link">Consulter le dossier E6</a>
+                    <a href="#" class="card-link card-link-alt">Fiche situation</a>
                 </div>
-                <p>Déploiement d'un contrôleur de domaine Windows Server pour la centralisation des ressources. Organisation de l'annuaire via des Unités Organisationnelles (UO), gestion des comptes utilisateurs et sécurisation du parc par des stratégies de groupe (GPO) dédiées au durcissement et à la restriction des accès.</p>
             </div>
-            <div class="btn-group-card">
-                <a href="#" class="card-link">Consulter le dossier E6</a>
-                <a href="#" class="card-link card-link-alt">Fiche situation</a>
+            <div class="e6-card">
+                <span class="badge-e6">PROJET E6 — MAJEUR N°2</span>
+                <h3>Infrastructure Active Directory & sécurisation par GPO</h3>
+                <div class="tags" style="margin-bottom:14px;">
+                    <span class="tag">Windows Server</span><span class="tag">Active Directory</span>
+                    <span class="tag">GPO</span><span class="tag">Unités Organisationnelles</span>
+                </div>
+                <p>Déploiement d'un contrôleur de domaine Windows Server, organisation en UO, gestion des comptes utilisateurs et sécurisation du parc par des stratégies de groupe (GPO) dédiées au durcissement et à la restriction des accès.</p>
+                <div class="btn-group-card">
+                    <a href="#" class="card-link">Consulter le dossier E6</a>
+                    <a href="#" class="card-link card-link-alt">Fiche situation</a>
+                </div>
             </div>
-        </div>
-
-    </div>
-
-    <hr>
-
-    <!-- ========== PPE ========== -->
-    <div class="header-section">
-        <div class="header-icon">🔧</div>
-        <h2>Travaux Pratiques (PPE)</h2>
-    </div>
-
-    <div class="cards">
-        <div class="card ppe-card">
-            <div class="card-header">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" alt="Windows">
-                <h3>Windows Server</h3>
-            </div>
-            <p>Installation et configuration d'Active Directory, services DHCP et DNS, et gestion des GPO.</p>
-        </div>
-        <div class="card ppe-card">
-            <div class="card-header">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux">
-                <h3>Linux Debian</h3>
-            </div>
-            <p>Administration système Linux, gestion des droits, serveur Web Apache et sécurisation SSH.</p>
-        </div>
-        <div class="card ppe-card">
-            <div class="card-header">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo-glpi.png" alt="GLPI">
-                <h3>Gestion GLPI</h3>
-            </div>
-            <p>Mise en place d'un inventaire automatisé et gestion d'un parc informatique via FusionInventory.</p>
-        </div>
-        <div class="card ppe-card">
-            <div class="card-header">
-                <span style="font-size: 24px;">🌐</span>
-                <h3>Réseau & VLAN</h3>
-            </div>
-            <p>Segmentation réseau et configuration de switchs pour la mise en place de VLANs.</p>
         </div>
     </div>
 
-</section>
+</div>
 
-<footer style="padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); background: var(--color-background-secondary);">
+<footer style="padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); background: var(--color-background-secondary); margin-top: 60px;">
     <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour — Portfolio BTS SIO SISR</p>
 </footer>
 
