@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Missions | Sabrina Askour</title>
     <style>
-        /* --- VARIABLES EXACTES --- */
         :root {
             --color-text-primary: #1a1a1a;
             --color-text-secondary: #4a4a4a;
@@ -19,15 +18,13 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: var(--font-sans); 
+        body {
+            font-family: var(--font-sans);
             background-color: var(--color-background-primary);
             color: var(--color-text-primary);
             line-height: 1.5;
         }
 
-        /* --- NAVIGATION --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 10%; border-bottom: 0.5px solid var(--color-border-tertiary);
@@ -37,13 +34,11 @@
         .nav-links { display: flex; gap: 20px; }
         .nav-links a {
             font-size: 14px; color: var(--color-text-secondary); text-decoration: none;
-            padding: 8px 12px; border-radius: var(--border-radius-md);
-            transition: all 0.2s;
+            padding: 8px 12px; border-radius: var(--border-radius-md); transition: all 0.2s;
         }
         .nav-links a:hover { background: var(--color-background-secondary); color: var(--blue-main); }
         .nav-links a.active { color: var(--blue-main); font-weight: 600; }
 
-        /* --- HERO --- */
         .hero {
             padding: 60px 10%;
             background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #ffffff 100%);
@@ -57,160 +52,310 @@
         .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 10px; }
         .hero p { font-size: 16px; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto; }
 
-        /* --- CONTENEUR --- */
         .container { padding: 60px 10%; max-width: 1400px; margin: 0 auto; }
 
         .header-section {
             display: flex; align-items: center; gap: 15px; margin: 40px 0 30px 0;
         }
         .header-section:first-child { margin-top: 0; }
-        
-        .header-icon { 
+        .header-icon {
             width: 45px; height: 45px;
             background: #e8f4fd; color: var(--blue-main);
             border-radius: var(--border-radius-md); font-size: 24px;
             display: flex; justify-content: center; align-items: center;
         }
+        .header-section h2 { font-size: 24px; font-weight: 600; }
 
-        .header-section h1 { font-size: 24px; font-weight: 600; }
-
-        /* --- GRILLE --- */
-        .cards { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 25px; 
+        /* DESCRIPTION EPREUVE */
+        .epreuve-desc {
+            background: #f0f8ff; border-left: 4px solid var(--blue-main);
+            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+            padding: 18px 24px; margin-bottom: 32px;
+            font-size: 14px; color: var(--color-text-secondary); line-height: 1.75;
         }
-        
+        .epreuve-desc b { color: var(--color-text-primary); }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
         .card {
             background: #fff; border: 1px solid var(--color-border-tertiary);
-            border-radius: var(--border-radius-lg); padding: 24px; 
+            border-radius: var(--border-radius-lg); padding: 24px;
             transition: all 0.3s ease;
             display: flex; flex-direction: column; justify-content: space-between;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .card:hover { transform: translateY(-5px); border-color: var(--blue-main); }
-        
         .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
         .card-header img { width: 30px; height: 30px; object-fit: contain; }
-        
-        .card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+        .card h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
         .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 20px; }
-        
-        /* --- BOUTONS --- */
-        .btn-group-card {
-            display: flex;
-            gap: 10px;
-        }
 
-        .card-link { 
-            flex: 1;
-            background-color: var(--blue-main); color: white; text-align: center;
-            text-decoration: none; font-size: 12px; font-weight: 600; 
+        .btn-group-card { display: flex; gap: 10px; }
+        .card-link {
+            flex: 1; background-color: var(--blue-main); color: white; text-align: center;
+            text-decoration: none; font-size: 12px; font-weight: 600;
             padding: 12px 5px; border-radius: var(--border-radius-md);
+            transition: opacity 0.2s;
         }
-
-        /* Style secondaire pour le deuxième bouton */
+        .card-link:hover { opacity: 0.85; }
         .card-link-alt {
-            background-color: white;
-            color: var(--blue-main);
+            background-color: white; color: var(--blue-main);
             border: 1.5px solid var(--blue-main);
         }
 
-        /* --- STYLE E6 --- */
-        .e6-card { border: 1.5px solid #dbeeff; }
+        /* BADGES */
+        .badge-e5 {
+            display: inline-block; font-size: 10px; background: #27ae60; color: #fff;
+            padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; font-weight: 700;
+            letter-spacing: 0.5px;
+        }
         .badge-e6 {
             display: inline-block; font-size: 10px; background: var(--blue-main); color: #fff;
             padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
+        /* TAGS COMPÉTENCES */
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+        .tag {
+            font-size: 11px; background: #dbeeff; color: var(--blue-main);
+            padding: 3px 10px; border-radius: 20px; font-weight: 500;
+        }
+
+        .e5-card { border: 1.5px solid #d4edda; }
+        .e6-card { border: 1.5px solid #dbeeff; }
+
         hr { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 50px 0; }
+
+        /* SECTION PPE */
+        .ppe-card { border: 1px solid var(--color-border-tertiary); }
     </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Sabrina Askour</a>
-  <div class="nav-links">
-    <a href="index.html">Accueil</a>
-    <a href="bts-sio.html">BTS SIO</a>
-    <a href="parcours.html">Ecoles & Entreprises</a>
-    <a href="mission.html" class="active">Missions & Projets</a>
-    <a href="veille.html">Veille technologique</a>
-    <a href="contact.html">Contact</a>
-  </div>
+    <a href="index.html" class="nav-logo">Sabrina Askour</a>
+    <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="bts-sio.html">BTS SIO</a>
+        <a href="parcours.html">Ecoles & Entreprises</a>
+        <a href="mission.html" class="active">Missions & Projets</a>
+        <a href="veille.html">Veille technologique</a>
+        <a href="contact.html">Contact</a>
+    </div>
 </nav>
 
 <div class="hero">
-  <div class="hero-tag">RÉALISATIONS</div>
-  <h1>Missions & Projet</h1>
-  <p>Découvrez les projets techniques et les travaux pratiques (PPE) réalisés durant mon parcours.</p>
+    <div class="hero-tag">RÉALISATIONS</div>
+    <h1>Missions & Projets</h1>
+    <p>Découvrez les situations professionnelles (E5), les projets techniques (E6) et les travaux pratiques réalisés durant mon parcours BTS SIO SISR.</p>
 </div>
 
 <section class="container">
+
+    <!-- ========== E5 ========== -->
     <div class="header-section">
-        <div class="header-icon">🏆</div>
-        <h1>Épreuve E6 - Projets SISR</h1>
+        <div class="header-icon">📋</div>
+        <h2>Épreuve E5 — Situations Professionnelles</h2>
+    </div>
+
+    <div class="epreuve-desc">
+        <b>Épreuve E5 — Support et mise à disposition de services informatiques :</b> Cette épreuve évalue la capacité à prendre en charge des situations professionnelles réelles rencontrées en stage ou en entreprise. Chaque situation décrit un contexte, les tâches effectuées, les compétences mobilisées et les résultats obtenus.
     </div>
 
     <div class="cards">
-        <div class="card e6-card">
+
+        <div class="card e5-card">
             <div>
-                <span class="badge-e6">PROJET E6 - MAJEUR</span>
-                <h3>Projet E6 n°1 : Gestion de Parc avec GLPI</h3>
-                <p>Mise en place d'une solution complète de gestion de parc informatique et de helpdesk. Installation du serveur GLPI sous environnement Debian, configuration de l'inventaire automatisé via l'agent FusionInventory et déploiement de la base de données SQL pour le suivi précis des actifs et la gestion des tickets d'assistance.</p>
+                <span class="badge-e5">MISSION E5 — N°1</span>
+                <h3>Installation et configuration d'un serveur DHCP</h3>
+                <div class="tags">
+                    <span class="tag">Windows Server</span>
+                    <span class="tag">DHCP</span>
+                    <span class="tag">Réseau</span>
+                </div>
+                <p>Mise en place d'un serveur DHCP sous Windows Server pour l'attribution automatique des adresses IP sur le réseau de l'entreprise. Configuration des plages d'adresses, des exclusions et des réservations statiques pour les équipements critiques.</p>
             </div>
             <div class="btn-group-card">
-                <a href="#" class="card-link">Consulter le dossier E6</a>
-                <a href="#" class="card-link card-link-alt">Fiche Situation</a>
+                <a href="#" class="card-link">Consulter la fiche E5</a>
+                <a href="#" class="card-link card-link-alt">Documentation</a>
             </div>
         </div>
 
-        <div class="card e6-card">
+        <div class="card e5-card">
             <div>
-                <span class="badge-e6">PROJET E6 - MAJEUR</span>
-                <h3>Projet E6 n°2 : Infrastructure Active Directory & Sécurisation GPO</h3>
-                <p>Déploiement d'un contrôleur de domaine Windows Server pour la centralisation des ressources. Organisation de l'annuaire via des Unités Organisationnelles (UO), gestion fine des comptes utilisateurs et sécurisation du parc informatique par l'application de stratégies de groupe (GPO) dédiées au durcissement du système et à la restriction des accès.</p>
+                <span class="badge-e5">MISSION E5 — N°2</span>
+                <h3>Sécurisation des accès par mise en place de la 2FA</h3>
+                <div class="tags">
+                    <span class="tag">Sécurité</span>
+                    <span class="tag">MFA</span>
+                    <span class="tag">Active Directory</span>
+                </div>
+                <p>Déploiement de l'authentification à double facteur sur les comptes utilisateurs du domaine Active Directory. Configuration de Microsoft Authenticator et rédaction d'une procédure utilisateur pour accompagner la migration.</p>
             </div>
             <div class="btn-group-card">
-                <a href="#" class="card-link">Consulter le dossier E6</a>
-                <a href="#" class="card-link card-link-alt">Fiche Situation</a>
+                <a href="#" class="card-link">Consulter la fiche E5</a>
+                <a href="#" class="card-link card-link-alt">Documentation</a>
             </div>
         </div>
+
+        <div class="card e5-card">
+            <div>
+                <span class="badge-e5">MISSION E5 — N°3</span>
+                <h3>Supervision du réseau avec Zabbix</h3>
+                <div class="tags">
+                    <span class="tag">Supervision</span>
+                    <span class="tag">Zabbix</span>
+                    <span class="tag">Linux</span>
+                </div>
+                <p>Installation et configuration d'un outil de supervision réseau Zabbix sur serveur Debian. Ajout des équipements à surveiller (switchs, serveurs, postes), création de tableaux de bord et paramétrage des alertes par email en cas d'incident.</p>
+            </div>
+            <div class="btn-group-card">
+                <a href="#" class="card-link">Consulter la fiche E5</a>
+                <a href="#" class="card-link card-link-alt">Documentation</a>
+            </div>
+        </div>
+
+        <div class="card e5-card">
+            <div>
+                <span class="badge-e5">MISSION E5 — N°4</span>
+                <h3>Sauvegarde et restauration des données avec Veeam</h3>
+                <div class="tags">
+                    <span class="tag">Sauvegarde</span>
+                    <span class="tag">Veeam</span>
+                    <span class="tag">Virtualisation</span>
+                </div>
+                <p>Mise en place d'un plan de sauvegarde automatisé des machines virtuelles avec Veeam Backup. Configuration des planifications de sauvegarde, test de restauration et documentation du Plan de Reprise d'Activité (PRA) associé.</p>
+            </div>
+            <div class="btn-group-card">
+                <a href="#" class="card-link">Consulter la fiche E5</a>
+                <a href="#" class="card-link card-link-alt">Documentation</a>
+            </div>
+        </div>
+
+        <div class="card e5-card">
+            <div>
+                <span class="badge-e5">MISSION E5 — N°5</span>
+                <h3>Déploiement d'un pare-feu pfSense</h3>
+                <div class="tags">
+                    <span class="tag">Firewall</span>
+                    <span class="tag">pfSense</span>
+                    <span class="tag">Sécurité réseau</span>
+                </div>
+                <p>Installation et configuration d'un pare-feu pfSense pour sécuriser le périmètre réseau de l'entreprise. Création de règles de filtrage, mise en place d'un VPN site-à-site et configuration de la journalisation des événements de sécurité.</p>
+            </div>
+            <div class="btn-group-card">
+                <a href="#" class="card-link">Consulter la fiche E5</a>
+                <a href="#" class="card-link card-link-alt">Documentation</a>
+            </div>
+        </div>
+
+        <div class="card e5-card">
+            <div>
+                <span class="badge-e5">MISSION E5 — N°6</span>
+                <h3>Administration et durcissement d'un serveur Linux</h3>
+                <div class="tags">
+                    <span class="tag">Linux Debian</span>
+                    <span class="tag">SSH</span>
+                    <span class="tag">Durcissement</span>
+                </div>
+                <p>Sécurisation d'un serveur Debian en production : désactivation des services inutiles, configuration du pare-feu iptables, restriction des accès SSH par clé publique, mise en place de fail2ban et application des recommandations de durcissement de l'ANSSI.</p>
+            </div>
+            <div class="btn-group-card">
+                <a href="#" class="card-link">Consulter la fiche E5</a>
+                <a href="#" class="card-link card-link-alt">Documentation</a>
+            </div>
+        </div>
+
     </div>
 
     <hr>
 
+    <!-- ========== E6 ========== -->
     <div class="header-section">
-        <div class="header-icon">🔧</div>
-        <h1>Missions & Travaux Pratiques (PPE)</h1>
+        <div class="header-icon">🏆</div>
+        <h2>Épreuve E6 — Projets SISR</h2>
+    </div>
+
+    <div class="epreuve-desc">
+        <b>Épreuve E6 — Parcours de professionnalisation :</b> Cette épreuve repose sur deux projets techniques majeurs menés sur les deux années de BTS. Chaque projet fait l'objet d'un dossier complet décrivant le contexte, la démarche, les solutions mises en œuvre et les résultats obtenus.
     </div>
 
     <div class="cards">
-        <div class="card">
+
+        <div class="card e6-card">
+            <div>
+                <span class="badge-e6">PROJET E6 — MAJEUR</span>
+                <h3>Projet E6 n°1 : Gestion de parc avec GLPI</h3>
+                <div class="tags">
+                    <span class="tag">GLPI</span>
+                    <span class="tag">FusionInventory</span>
+                    <span class="tag">Debian</span>
+                    <span class="tag">SQL</span>
+                </div>
+                <p>Mise en place d'une solution complète de gestion de parc informatique et de helpdesk. Installation du serveur GLPI sous environnement Debian, configuration de l'inventaire automatisé via FusionInventory et déploiement de la base de données SQL pour le suivi des actifs et la gestion des tickets d'assistance.</p>
+            </div>
+            <div class="btn-group-card">
+                <a href="#" class="card-link">Consulter le dossier E6</a>
+                <a href="#" class="card-link card-link-alt">Fiche situation</a>
+            </div>
+        </div>
+
+        <div class="card e6-card">
+            <div>
+                <span class="badge-e6">PROJET E6 — MAJEUR</span>
+                <h3>Projet E6 n°2 : Infrastructure Active Directory & GPO</h3>
+                <div class="tags">
+                    <span class="tag">Windows Server</span>
+                    <span class="tag">Active Directory</span>
+                    <span class="tag">GPO</span>
+                    <span class="tag">Sécurité</span>
+                </div>
+                <p>Déploiement d'un contrôleur de domaine Windows Server pour la centralisation des ressources. Organisation de l'annuaire via des Unités Organisationnelles (UO), gestion des comptes utilisateurs et sécurisation du parc par des stratégies de groupe (GPO) dédiées au durcissement et à la restriction des accès.</p>
+            </div>
+            <div class="btn-group-card">
+                <a href="#" class="card-link">Consulter le dossier E6</a>
+                <a href="#" class="card-link card-link-alt">Fiche situation</a>
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- ========== PPE ========== -->
+    <div class="header-section">
+        <div class="header-icon">🔧</div>
+        <h2>Travaux Pratiques (PPE)</h2>
+    </div>
+
+    <div class="cards">
+        <div class="card ppe-card">
             <div class="card-header">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" alt="Windows">
                 <h3>Windows Server</h3>
             </div>
             <p>Installation et configuration d'Active Directory, services DHCP et DNS, et gestion des GPO.</p>
         </div>
-
-        <div class="card">
+        <div class="card ppe-card">
             <div class="card-header">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux">
                 <h3>Linux Debian</h3>
             </div>
             <p>Administration système Linux, gestion des droits, serveur Web Apache et sécurisation SSH.</p>
         </div>
-
-        <div class="card">
+        <div class="card ppe-card">
             <div class="card-header">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo-glpi.png" alt="GLPI">
                 <h3>Gestion GLPI</h3>
             </div>
             <p>Mise en place d'un inventaire automatisé et gestion d'un parc informatique via FusionInventory.</p>
         </div>
-
-        <div class="card">
+        <div class="card ppe-card">
             <div class="card-header">
                 <span style="font-size: 24px;">🌐</span>
                 <h3>Réseau & VLAN</h3>
@@ -218,10 +363,11 @@
             <p>Segmentation réseau et configuration de switchs pour la mise en place de VLANs.</p>
         </div>
     </div>
+
 </section>
 
 <footer style="padding: 40px 10%; text-align: center; border-top: 1px solid var(--color-border-tertiary); background: var(--color-background-secondary);">
-    <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour — Portfolio BTS SIO</p>
+    <p style="font-size: 14px; color: var(--color-text-secondary);">© 2026 Sabrina Askour — Portfolio BTS SIO SISR</p>
 </footer>
 
 </body>
